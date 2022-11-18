@@ -3,6 +3,7 @@
 - はじめてお手軽に材料科学計算を行うのに便利なツール。東大物性研ほかが提供。
 - 仮想デスクトップソフトウェア(VirtualBox)上に、計算環境がすでに整ったLinux (Debian)をブートする。
 - 計算環境構築で最初の難関、ソフトウェアのコンパイルをせずにすぐ計算を体験できる。
+※　M1 Mac上ではVirtualBoxが動かないので、別途用意されているDocker版を使うとよい。
 
 ### 提供される計算ソフト
 [https://github.com/cmsi/MateriAppsLive/wiki/ApplicationsAndTools](https://github.com/cmsi/MateriAppsLive/wiki/ApplicationsAndTools)
@@ -15,3 +16,6 @@
 - [VirtualBOXインストーラ](https://www.virtualbox.org/wiki/Downloads) VirtualBox XXXX platform packagesを探してダウンロード
 - [MateriApps LIVE! VirtualBoxディスクイメージ](https://sourceforge.net/projects/materiappslive/files/) MateriAppsLive-*-amd64.ovaを探してダウンロード
 
+### VirtualBoxのインストール
+- Windows版の場合
+- Mac版の場合
