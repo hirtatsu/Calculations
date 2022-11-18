@@ -18,5 +18,8 @@
 - [MateriApps LIVE! VirtualBoxディスクイメージ](https://sourceforge.net/projects/materiappslive/files/) MateriAppsLive-*-amd64.ovaを探してダウンロード
 
 ### VirtualBoxのインストール
-- Windows版の場合
-- Mac版の場合
+- Windows版の場合: VirtualBox-*-Win.exe
+- Mac版の場合: VirtualBox-*-OSX.dmg
+をダブルクリックしてインストールする
+
+### 
