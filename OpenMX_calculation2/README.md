@@ -42,5 +42,11 @@ cat log.txt
 ```
 cat log.txt | grep 'XXXXX'
 ```
-- cat
-
+- ログファイルの中から、計算にかかった時間を表示する。
+```
+cat log.txt | grep 'Total Computational Time'
+```
+- ログファイルの中から、計算で得られた系全体のエネルギーを表示する。
+```
+cat log.txt | grep 'Utot  ' # 単位は[Hartree]
+```
