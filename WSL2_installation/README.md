@@ -13,7 +13,7 @@ UsernameとPassword（Ubuntuにログインするためのもの）を聞かれ�
 
 いちおう最初にパッケージをupdate（アップデートする必要があるパッケージを確認）、upgrade（アップデートを実行）する。順番に以下を入力してEnter。
 ```
-sudo apt update -y
+sudo apt update
 sudo apt upgrade -y
 ```
 インストールおしまい
