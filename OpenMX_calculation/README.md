@@ -1,5 +1,6 @@
 ## 計算の進め方
-### インプットファイル(in.dat)の例
+### インプットファイル(in.dat)
+- ファイル名など
 ```
 #
 #      File Name      
@@ -10,8 +11,9 @@ System.Name                      result
 level.of.stdout                   1    # default=1 (1-3)
 level.of.fileout                  1    # default=1 (1-3)
 DATA.PATH			../DFT_DATA19 # 擬ポテンシャル関数が格納されたディレクトリを指定すること、ディレクトリの階層に注意。
-
-
+```
+- 原子種の定義
+```
 #
 # Definition of Atomic Species
 #
@@ -19,9 +21,11 @@ DATA.PATH			../DFT_DATA19 # 擬ポテンシャル関数が格納されたディ�
 Species.Number       1 # 元素の種類数
 <Definition.of.Atomic.Species
    Cu   Cu6.0S-s2p2d2   Cu_PBE19S
-# (1) 原子記号, (2) Pseudo-atomic orbitals (Cutoff半径), (3) Fully relativistic pseudopotentials。
-# HPを確認すること
 Definition.of.Atomic.Species>
+```
+(1) 原子記号, (2) Pseudo-atomic orbitals (Cutoff半径), (3) Fully relativistic pseudopotentials。
+OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認する。
+
 
 #
 # Atoms
