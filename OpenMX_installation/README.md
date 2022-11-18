@@ -162,16 +162,19 @@ cd ~/DFT/openmx3.9/work/
 mpirun -np 8 ./openmx -runtest -nt 2 > log.txt & # 最後に&をつけることでバックグラウンド実行されます
 # -np X (並列数), -nt Y (並列数)
 ```
+
+※もしIntelMPIのmpirunでバックグラウンドで実行したときに勝手に計算が止まるようなら、以下のようにするといいかも。
+```
+mpirun -np 8 ./openmx -runtest -nt 2 </dev/null>& log.txt &
+```
+
 実行状況は以下で確認、停止、再開できます。
 ```
 jobs # 状況確認
 bg XXXX # jobsで確認した停止中のジョブ番号XXXXを再開する
 kill XXXX # jobsで確認した実行中のジョブ番号XXXXを停止する
 ```
-※もしIntelMPIのmpirunでバックグラウンドで実行したときに勝手に計算が止まるようなら、以下のようにするといいかも。
-```
-mpirun -np 8 ./openmx -runtest -nt 2 </dev/null>& log.txt &
-```
+
 
 ## OpenMXの実行
 コンパイルして作成したファイル(openmx)と、インプットファイル(xx.dat)を同一ディレクトリに格納したうえで、
