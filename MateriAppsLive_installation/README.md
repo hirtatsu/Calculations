@@ -4,6 +4,10 @@
 - 仮想デスクトップソフトウェア(VirtualBox)上に、計算環境がすでに整ったLinux (Debian)をブートする。
 - 計算環境構築で最初の難関、ソフトウェアのコンパイルをせずにすぐ計算を体験できる。
 
+### 提供される計算ソフト
+[https://github.com/cmsi/MateriAppsLive/wiki/ApplicationsAndTools](https://github.com/cmsi/MateriAppsLive/wiki/ApplicationsAndTools)
+
+
 ### 配布物一式のダウンロード
 
 - [setup.pdf](https://github.com/cmsi/malive-tutorial/raw/master/setup/setup.pdf)
