@@ -10,27 +10,31 @@ System.CurrrentDirectory         ./    # default=./
 System.Name                      result
 level.of.stdout                   1    # default=1 (1-3)
 level.of.fileout                  1    # default=1 (1-3)
-DATA.PATH			../DFT_DATA19 # 擬ポテンシャル関数が格納されたディレクトリを指定すること、ディレクトリの階層に注意。
+DATA.PATH			../DFT_DATA19 
 ```
+擬ポテンシャル関数が格納されたディレクトリを指定すること、ディレクトリの階層に注意。
+
 - 原子種の定義
 ```
 #
 # Definition of Atomic Species
 #
 
-Species.Number       1 # 元素の種類数
+Species.Number       1
 <Definition.of.Atomic.Species
    Cu   Cu6.0S-s2p2d2   Cu_PBE19S
 Definition.of.Atomic.Species>
 ```
+Species.Numberには計算で取り扱う原子種の数を入力する
+
+Definiction.of.Atomic.Speciesには
+
 (1) 原子記号
 
-(2) Pseudo-atomic orbitals (Cutoff半径)
+(2) Pseudo-atomic orbitals (Cutoff半径): 
+OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、"Calculation of the total energy as a function of lattice constant in the diamond structure"のグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
 
-OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、(1) Calculation of the total energy as a function of lattice constant in the diamond structureのグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
-
-(3) Fully relativistic pseudopotentials
-
+(3) Fully relativistic pseudopotentials:
 同じくHPのDatabaseを見て、「*_PBE*」を選択する
 
 ```
