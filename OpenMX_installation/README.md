@@ -159,5 +159,5 @@ cd ~/DFT/openmx3.9/work/
 ```
 に移動して、以下を実行する
 ```
-mpirun -np 4 openmx -runtest -nt 2
+mpirun -np 4 ./openmx -runtest -nt 2
 ```
