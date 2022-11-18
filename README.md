@@ -5,7 +5,8 @@
 - [WSL2のインストール](./WSL2_installation/README.md)
 - [LAMMPSのインストール](./LAMMPS_installation/README.md)
 - [OpenMXのインストール](./OpenMX_installation/README.md)
-- [ANSYSのインストール](./ANSYS_installation/README.md)
 
 ## スパコンを使ってもっと本格的な材料計算を行いたい方
 
+## 有料ライセンスソフトウェア（研究室学生向け）
+- [ANSYSのインストール](./ANSYS_installation/README.md)
