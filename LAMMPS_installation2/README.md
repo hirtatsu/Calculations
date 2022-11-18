@@ -1,7 +1,7 @@
 ## CUDA on WSLをセッティングしてGPGPUを活用する
 [https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
-### VIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
+### NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 ### wslをUPDATEする。Powershell開いて以下入力する。
