@@ -25,7 +25,7 @@ sudo apt update
 sudo apt -y install cuda
 ```
 
-### 準備する
+### その他の必要なパッケージを準備する
 ```
 sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
                     libfftw3-dev libjpeg-dev libpng-dev python3-dev python3-pip \
