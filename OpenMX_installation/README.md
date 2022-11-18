@@ -176,6 +176,6 @@ mpirun -np 8 ./openmx -runtest -nt 2 </dev/null>& log.txt &
 ## OpenMXの実行
 コンパイルして作成したファイル(openmx)と、インプットファイル(xx.dat)を同一ディレクトリに格納したうえで、
 ```
-mpirun -np 8 ./openmx  -nt 2 </dev/null>& log.txt &
+mpirun -np 8 ./openmx xx.dat -nt 2 </dev/null>& log.txt &
 ```
 を実行する
