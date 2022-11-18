@@ -131,7 +131,7 @@ scf.criterion             1.0e-7       # default=1.0e-6 (Hartree)
 
 ### 構造最適化(MD)条件
 - MD.Type。構造最適化しないときはNomd。最適化するときはOpt。※OPTにもいろいろ種類がある。詳しくは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)
-- 
+- MD.Opt.criterion、1.0e-3で様子見、頑張るときは3.0e-4くらい。
 
 ```
 #
