@@ -1,5 +1,4 @@
-## GPGPUを使う
-## CUDA on WSLをセッティングする
+## CUDA on WSLをセッティングしてGPGPUを活用する
 [https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
 ### VIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
