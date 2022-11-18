@@ -1,8 +1,8 @@
-## 計算の進め方
-### インプットファイル(in.dat)
-- ファイル名など
+# 計算の進め方
+## インプットファイル(in.dat)
+### ファイル名など
 
-DATA.PATHには擬ポテンシャル関数が格納されたディレクトリを指定すること、ディレクトリの階層に注意。
+- DATA.PATHには擬ポテンシャル関数が格納されたディレクトリを指定すること、ディレクトリの階層に注意。
 
 ```
 #
@@ -16,17 +16,13 @@ level.of.fileout                  1    # default=1 (1-3)
 DATA.PATH			../DFT_DATA19 
 ```
 
-- 原子種の定義
+### 原子種の定義
 
-Species.Numberには計算で取り扱う原子種の数を入力する。
-
-Definiction.of.Atomic.Speciesには以下を入力する。
-
-(1) 原子記号
-
-(2) Pseudo-atomic orbitals (Cutoff半径): 
+- Species.Numberには計算で取り扱う原子種の数を入力する。
+- Definiction.of.Atomic.Speciesには以下を入力する。
+- (1) 原子記号
+- (2) Pseudo-atomic orbitals (Cutoff半径): 
 OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、"Calculation of the total energy as a function of lattice constant in the diamond structure"のグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
-
 (3) Fully relativistic pseudopotentials:
 同じくHPのDatabaseを見て、「*_PBE*」を選択する
 
@@ -42,16 +38,13 @@ Definition.of.Atomic.Species>
 ```
 
 
-- 各原子の情報
+### 各原子の情報
 
-Atoms.Numberには取り扱う原子の個数を入力する。
-
-Atoms.SpeciesAndCoordinates.Unitには、絶対座標Angか、相対座標FRAC(計算ボックスの各ベクトルの長さを1としたときの比率)を選ぶ。
-
-Atoms.SpeciesAndCoordinatesには、各原子の座標(v1, v2, v3)と、価電子の数(n1, n2 ※合わせて総価電子数となるように)を指定する。
+- Atoms.Numberには取り扱う原子の個数を入力する。
+- Atoms.SpeciesAndCoordinates.Unitには、絶対座標Angか、相対座標FRAC(計算ボックスの各ベクトルの長さを1としたときの比率)を選ぶ。
+- Atoms.SpeciesAndCoordinatesには、各原子の座標(v1, v2, v3)と、価電子の数(n1, n2 ※合わせて総価電子数となるように)を指定する。
 ※価電子の数は先のDatabaseを見れば書いてある。
-
-Atoms.UnitVectorsには、計算BOXを構成する単位ベクトルを記載する(これで計算ボックスサイズが決まる)。
+- Atoms.UnitVectorsには、計算BOXを構成する単位ベクトルを記載する(これで計算ボックスサイズが決まる)。
 
 ```
 #
@@ -102,7 +95,15 @@ Atoms.UnitVectors.Unit             Ang #  Ang|AU
 Atoms.UnitVectors>
 ```
 
-- 計算条件
+### 計算条件
+
+- scf.XcTypeはとりあえずGGA-PBE。
+- scf.SpinPolarizationは、磁性材料の場合のみON。
+- scf.energycutoffはデフォで150~200、精度でなければ300~400。
+- scf.maxIterは大きめに。
+- scf.EigenvalueSolver、周期境界条件の時はBandを選択する。
+- scf.Kgridには2 2 2、あるいは3 3 3。
+- scf.criterionには、1.0e-7以上がおすすめ。
 
 ```
 #
@@ -126,7 +127,8 @@ scf.Mixing.StartPulay       5          # default=6
 scf.criterion             1.0e-7       # default=1.0e-6 (Hartree) 
 ```
 
-- MD計算条件
+### MD計算条件
+- 
 
 ```
 #
