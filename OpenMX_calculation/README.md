@@ -17,6 +17,19 @@ DATA.PATH			../DFT_DATA19
 ```
 
 - 原子種の定義
+
+Species.Numberには計算で取り扱う原子種の数を入力する。
+
+Definiction.of.Atomic.Speciesには以下を入力する。
+
+(1) 原子記号
+
+(2) Pseudo-atomic orbitals (Cutoff半径): 
+OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、"Calculation of the total energy as a function of lattice constant in the diamond structure"のグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
+
+(3) Fully relativistic pseudopotentials:
+同じくHPのDatabaseを見て、「*_PBE*」を選択する
+
 ```
 #
 # Definition of Atomic Species
@@ -27,17 +40,18 @@ Species.Number       1
    Cu   Cu6.0S-s2p2d2   Cu_PBE19S
 Definition.of.Atomic.Species>
 ```
-Species.Numberには計算で取り扱う原子種の数を入力する
 
-Definiction.of.Atomic.Speciesには
 
-(1) 原子記号
+- 各原子の情報
 
-(2) Pseudo-atomic orbitals (Cutoff半径): 
-OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、"Calculation of the total energy as a function of lattice constant in the diamond structure"のグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
+Atoms.Numberには取り扱う原子の個数を入力する。
 
-(3) Fully relativistic pseudopotentials:
-同じくHPのDatabaseを見て、「*_PBE*」を選択する
+Atoms.SpeciesAndCoordinates.Unitには、絶対座標Angか、相対座標FRAC(計算ボックスの各ベクトルの長さを1としたときの比率)を選ぶ。
+
+Atoms.SpeciesAndCoordinatesには、各原子の座標(v1, v2, v3)と、価電子の数(n1, n2 ※合わせて総価電子数となるように)を指定する。
+※価電子の数は先のDatabaseを見れば書いてある。
+
+Atoms.UnitVectorsには、計算BOXを構成する単位ベクトルを記載する(これで計算ボックスサイズが決まる)。
 
 ```
 #
@@ -88,8 +102,9 @@ Atoms.UnitVectors.Unit             Ang #  Ang|AU
 Atoms.UnitVectors>
 ```
 
+- 計算条件
 
-
+```
 #
 # SCF or Electronic System
 #
@@ -109,7 +124,11 @@ scf.Max.Mixing.Weight      0.200       # default=0.40
 scf.Mixing.History         15          # default=5
 scf.Mixing.StartPulay       5          # default=6
 scf.criterion             1.0e-7       # default=1.0e-6 (Hartree) 
+```
 
+- MD計算条件
+
+```
 #
 # MD or Geometry Optimization
 #
