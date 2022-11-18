@@ -23,10 +23,17 @@ Species.Number       1 # 元素の種類数
    Cu   Cu6.0S-s2p2d2   Cu_PBE19S
 Definition.of.Atomic.Species>
 ```
-(1) 原子記号, (2) Pseudo-atomic orbitals (Cutoff半径), (3) Fully relativistic pseudopotentials。
-OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認する。
+(1) 原子記号
 
+(2) Pseudo-atomic orbitals (Cutoff半径)
 
+OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、(1) Calculation of the total energy as a function of lattice constant in the diamond structureのグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
+
+(3) Fully relativistic pseudopotentials
+
+同じくHPのDatabaseを見て、「*_PBE*」を選択する
+
+```
 #
 # Atoms
 #
@@ -73,6 +80,9 @@ Atoms.UnitVectors.Unit             Ang #  Ang|AU
   0.000000000000  7.229500000000  0.000000000000
   0.000000000000  0.000000000000  7.229500000000
 Atoms.UnitVectors>
+```
+
+
 
 #
 # SCF or Electronic System
