@@ -4,10 +4,10 @@
 - 仮想デスクトップソフトウェア(VirtualBox)上に、計算環境がすでに整ったLinux (Debian)をブートする。
 - 計算環境構築で最初の難関、ソフトウェアのコンパイルをせずにすぐ計算を体験できる。
 
-### 紹介資料
+### 配布物一式のダウンロード
 
-
-### MateriApps LIVE!の設定方法
-[https://github.com/cmsi/malive-tutorial/blob/master/setup/setup.pdf](https://github.com/cmsi/malive-tutorial/blob/master/setup/setup.pdf)
-
+- [setup.pdf](https://github.com/cmsi/malive-tutorial/raw/master/setup/setup.pdf)
+- [README.html](https://github.com/cmsi/MateriAppsLive/wiki/MateriAppsLive-ova)
+- [VirtualBOXインストーラ](https://www.virtualbox.org/wiki/Downloads) からダウンロード
+- [MateriApps LIVE! VirtualBoxディスクイメージ](https://sourceforge.net/projects/materiappslive/files/) MateriAppsLive-*-amd64.ovaを探してダウンロード
 
