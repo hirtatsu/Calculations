@@ -50,13 +50,18 @@ cat log.txt | grep 'Total Computational Time'
 ```
 cat log.txt | grep 'Utot  ' # 単位は[Hartree]
 ```
+- AIScope(可視化ソフト)用のファイル変換
+```
+sed -e 's/Cell_Vectors=/\nBOX/g' result.md > result.md3
+```
 - 出力されたファイルの内、当面重要なのは以下。
 
       result.md                各MDステップにおける幾何構造 
-      result.md2               最終MDステップにおける幾何構造 ifファイル 
+      result.md2               最終MDステップにおける幾何構造  
+      result.md3               各MDステップにおける幾何構造(AIScope用)
       result.tden.cube         Gaussian cube形式の全電子密度
 
-      result.cif               Material Stuido用の初期構造のc
+      result.cif               Material Stuido用の初期構造のcifファイル
       result.v0.cube           Gaussian cube形式のKohn-Shamポテンシャル
       result.vhart.cube        Gaussian cube形式のHartreeポテンシャル
       result.dden.cube         原子密度から計算した差電子密度 
