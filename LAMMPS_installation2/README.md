@@ -30,7 +30,7 @@ sudo apt -y install cuda
 sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
                     libfftw3-dev libjpeg-dev libpng-dev python3-dev python3-pip \
                     python3-virtualenv libblas-dev liblapack-dev libhdf5-serial-dev \
-                    hdf5-tools
+                    hdf5-tools ffmpeg
 ```                    
 ### MD用ディレクトリを作成して移動
 ```
@@ -53,7 +53,7 @@ cd build
 ```
 ### cmakeでビルドする(MPI, MANYBODYパッケージを追加)
 ```
-cmake ../cmake/presets/basic.cmake -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=SM86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
 ### コンパイルする
 ```
