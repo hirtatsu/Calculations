@@ -1,4 +1,6 @@
 # 計算の進め方
+マニュアルは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)
+
 ## インプットファイル(in.dat)
 ### ファイル名など
 
@@ -127,7 +129,8 @@ scf.Mixing.StartPulay       5          # default=6
 scf.criterion             1.0e-7       # default=1.0e-6 (Hartree) 
 ```
 
-### MD計算条件
+### 構造最適化(MD)条件
+- MD.Type。構造最適化しないときはNomd。最適化するときはOpt。※OPTにもいろいろ種類がある。詳しくは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)
 - 
 
 ```
