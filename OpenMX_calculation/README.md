@@ -1,7 +1,7 @@
 # 計算の進め方
 マニュアルは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)
 
-## インプットファイル(in.dat)
+## インプットファイル(in.dat)の作成と内容
 一番簡単なのは、①[Materials Project](https://materialsproject.org/)あるいはNIMSのデータベースからお目当ての結晶構造のCIFファイルを入手して、②[OpenMX Viewer](https://www.openmx-square.org/viewer/)にドラッグ&ドロップするだけ。詳しくは[こちら](https://t-ozaki.issp.u-tokyo.ac.jp/mpcoms2021_lectures/OpenMX-2.pdf)
 
 ### ファイル名など
