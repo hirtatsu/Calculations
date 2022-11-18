@@ -8,6 +8,6 @@
 
 - [setup.pdf](https://github.com/cmsi/malive-tutorial/raw/master/setup/setup.pdf)
 - [README.html](https://github.com/cmsi/MateriAppsLive/wiki/MateriAppsLive-ova)
-- [VirtualBOXインストーラ](https://www.virtualbox.org/wiki/Downloads) からダウンロード
+- [VirtualBOXインストーラ](https://www.virtualbox.org/wiki/Downloads) VirtualBox XXXX platform packagesを探してダウンロード
 - [MateriApps LIVE! VirtualBoxディスクイメージ](https://sourceforge.net/projects/materiappslive/files/) MateriAppsLive-*-amd64.ovaを探してダウンロード
 
