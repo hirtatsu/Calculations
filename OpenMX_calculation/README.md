@@ -121,7 +121,7 @@ scf.energycutoff           160.0       # default=150 (Ry)
 scf.maxIter                100         # default=40
 scf.EigenvalueSolver       band        # Recursion|Cluster|Band
 scf.lapack.dste            dstevx      # dstegr|dstedc|dstevx, default=dstegr
-scf.Kgrid                  2 2 2       # means 4x4x4
+scf.Kgrid                  4 4 4       # means 4x4x4
 scf.Mixing.Type           rmm-diisk    # Simple|Rmm-Diis|Gr-Pulay
 scf.Init.Mixing.Weight     0.010       # default=0.30 
 scf.Min.Mixing.Weight      0.001       # default=0.001 
