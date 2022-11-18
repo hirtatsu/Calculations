@@ -167,6 +167,7 @@ jobs # 状況確認
 bg XXXX # jobsで確認した停止中のジョブ番号XXXXを再開する
 kill XXXX # jobsで確認した実行中のジョブ番号XXXXを停止する
 ```
-※もしIntelMPIでmpirunしたときに勝手に計算が止まるようなら、以下のようにするといいかも。
+※もしIntelMPIのmpirunでバックグラウンドで実行したときに勝手に計算が止まるようなら、以下のようにするといいかも。
+```
 mpirun -np 8 ./openmx -runtest -nt 2 </dev/null>& log.txt &
 ```
