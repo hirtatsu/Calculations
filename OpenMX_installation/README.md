@@ -177,6 +177,7 @@ mpirun -np 8 ./openmx -runtest -nt 2 </dev/null>& log.txt &
 コンパイルして作成したファイル(openmx)と、インプットファイル(xx.dat)を同一ディレクトリに格納したうえで、
 ```
 mpirun -np 8 ./openmx xx.dat -nt 2 </dev/null>& log.txt &
+# CPU実行コア数 8とか2とかは環境に応じて
 ```
 を実行する。
 
