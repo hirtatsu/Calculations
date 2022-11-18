@@ -2,7 +2,7 @@
 マニュアルは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)
 
 ## インプットファイル(in.dat)の作成と内容
-一番簡単なのは、①[Materials Project](https://materialsproject.org/)あるいはNIMSのデータベースからお目当ての結晶構造のCIFファイルを入手して、②[OpenMX Viewer](https://www.openmx-square.org/viewer/)にドラッグ&ドロップするだけ。詳しくは[こちら](https://t-ozaki.issp.u-tokyo.ac.jp/mpcoms2021_lectures/OpenMX-2.pdf)
+一番簡単なのは、①[Materials Project](https://materialsproject.org/)あるいはNIMSのデータベースからお目当ての結晶構造のCIFファイルを入手して、②[OpenMX Viewer](https://www.openmx-square.org/viewer/)にドラッグ&ドロップするだけ。詳しくは[こちら](https://t-ozaki.issp.u-tokyo.ac.jp/mpcoms2021_lectures/OpenMX-2.pdf)。
 
 ### ファイル名など
 
@@ -132,7 +132,7 @@ scf.criterion             1.0e-7       # default=1.0e-6 (Hartree)
 ```
 
 ### 構造最適化(MD)条件
-- MD.Type。構造最適化しないときはNomd。最適化するときはOpt。※OPTにもいろいろ種類がある。詳しくは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)
+- MD.Type。構造最適化しないときはNomd。最適化するときはOpt。※OPTにもいろいろ種類がある。詳しくは[こちら](https://www.openmx-square.org/openmx_man3.8jp/node56.html)。
 - MD.Opt.criterion、1.0e-3で様子見、頑張るときは3.0e-4くらい。
 
 ```
