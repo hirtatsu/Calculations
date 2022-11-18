@@ -178,4 +178,11 @@ mpirun -np 8 ./openmx -runtest -nt 2 </dev/null>& log.txt &
 ```
 mpirun -np 8 ./openmx xx.dat -nt 2 </dev/null>& log.txt &
 ```
-を実行する
+を実行する。
+
+実行中のlog.txtファイルを見たいときは
+```
+tail -F log.txt
+```
+
+
