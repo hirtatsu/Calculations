@@ -50,3 +50,13 @@ cat log.txt | grep 'Total Computational Time'
 ```
 cat log.txt | grep 'Utot  ' # 単位は[Hartree]
 ```
+- 出力されたファイルの内、当面重要なのは以下。
+      result.md                各MDステップにおける幾何構造 
+      result.md2               最終MDステップにおける幾何構造 ifファイル 
+      result.tden.cube         Gaussian cube形式の全電子密度
+
+      result.cif               Material Stuido用の初期構造のc
+      result.v0.cube           Gaussian cube形式のKohn-Shamポテンシャル
+      result.vhart.cube        Gaussian cube形式のHartreeポテンシャル
+      result.dden.cube         原子密度から計算した差電子密度 
+      result_rst/              再スタートファイルを保存するディレクトリ
