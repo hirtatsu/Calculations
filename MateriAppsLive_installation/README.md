@@ -37,3 +37,5 @@
 - ターミナル(スタートメニュー → System Tools → LXTerminal)を開いて各種計算ができる
 - 各ソフトの使い方は、MateriAppsの各ソフトのレビューに参考情報が見つかるかも。
 - 例えばOpenMXの場合。[https://ma.issp.u-tokyo.ac.jp/app-post-category/review?appid=594](https://ma.issp.u-tokyo.ac.jp/app-post-category/review?appid=594)
+
+### 詳細はsetup.pdf見て
