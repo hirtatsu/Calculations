@@ -28,6 +28,20 @@ sudo apt upgrade -y
 sudo apt install cuda -y
 ```
 
+- PATHを通す
+```
+cd
+vim .bashrc
+```
+-一番最後の行に以下を追加
+```
+export PATH=/usr/local/cuda-11.8/bin:$PATH
+```
+-追記したら反映させる
+```
+source .bashrc
+```
+
 ### その他の必要なパッケージを準備する
 ```
 sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
@@ -55,9 +69,11 @@ mkdir build
 cd build
 ```
 ### cmakeでビルドする(GPU関連, MPI, MANYBODYパッケージを追加)
+- GPU_ARCHはこちらでチェック [https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)。
 ```
-cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=SM86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=SM_86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
+
 ### コンパイルする
 ```
 make -j 4  # Numberは並列コア数
