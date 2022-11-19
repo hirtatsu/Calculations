@@ -1,6 +1,8 @@
 ## CUDA on WSLをセッティングしてGPGPUを活用する
 [https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
+Ubuntu 20.04 LTS推奨
+
 ### NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
