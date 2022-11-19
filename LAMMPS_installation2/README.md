@@ -52,7 +52,7 @@ cd lammps-stable_3Mar2020
 mkdir build
 cd build
 ```
-### cmakeでビルドする(MPI, MANYBODYパッケージを追加)
+### cmakeでビルドする(GPU関連, MPI, MANYBODYパッケージを追加)
 ```
 cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=SM86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
