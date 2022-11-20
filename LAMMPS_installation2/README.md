@@ -67,7 +67,7 @@ mkdir build
 cd build
 ```
 ### cmakeでビルドする(GPU関連, MPI, MANYBODYパッケージを追加)
-- GPU_ARCHはこちらでチェック。 [https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)
+- GPU_ARCHは[こちら](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)でチェック。例: GeForce RTX 3060、RTX A4000はsm_86。
 ```
 cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=sm_86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
