@@ -116,16 +116,16 @@ dump            id all atom 50 dump.melt
 
 そして、コマンドライン上で実行する。
 
-シングルコアで計算する場合
+- シングルコアで計算する場合
 ```
 lmp < in.melt
 ```
-マルチコア(例: 4コア)で計算する場合
+- マルチコア(例: 4コア)で計算する場合
 ```
 mpirun -np 4 lmp < in.melt
 ```
 
-そしてGPUで計算する場合
+- GPUで計算する場合
 ```
 lmp -sf gpu -pk gpu 1 -in in.melt
 ```
