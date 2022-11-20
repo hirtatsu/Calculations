@@ -58,9 +58,9 @@ cd MD
 
 ### LAMMPSをダウンロード、解凍して当該ディレクトリへ移動
 ```
-wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
-tar xvzf stable_3Mar2020.tar.gz
-cd lammps-stable_3Mar2020
+wget https://download.lammps.org/tars/lammps-stable.tar.gz
+tar xvzf lammps-stable.tar.gz
+cd lammps-23Jun2022
 ```
 
 ### buildディレクトリを作成して移動
@@ -71,7 +71,7 @@ cd build
 ### cmakeでビルドする(GPU関連, MPI, MANYBODYパッケージを追加)
 - GPU_ARCHはこちらでチェック。 [https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)
 ```
-cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=SM_86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+cmake ../cmake/presets/basic.cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=sm_86 -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
 
 ### コンパイルする
