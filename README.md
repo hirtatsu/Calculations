@@ -3,7 +3,7 @@
 
 ## 手元のPCで本格的な材料科学計算を行いたい方
 ### WSL2環境の準備
-- [WSL2のインストール](./WSL2_installation/README.md
+- [WSL2のインストール](./WSL2_installation/README.md)
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
 - [LAMMPSのインストール](./LAMMPS_installation/README.md)
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS_installation2/README.md)
