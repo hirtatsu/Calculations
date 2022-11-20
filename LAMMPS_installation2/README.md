@@ -143,8 +143,10 @@ log.lammps # ← ログファイル。
 ができているはず。
 
 ### 計算時間の比較
-- 計算内容: examples/melt/in.meltをもとに、「0 50 0 50 0 50」に、計算ステップ数を「2500」とした。
-- 計算環境: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
+計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。
+
+計算環境: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
+
 - 並列なしの場合: 0:00:00
 - 6並列の場合: 0:02:05
 - GPUの場合: 0:00:45
