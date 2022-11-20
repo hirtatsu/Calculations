@@ -1,3 +1,53 @@
+## OpenMXのインストール準備
+### OpenMXをダウンロード、解凍して当該ディレクトリへ移動
+任意の場所にDFT用のディレクトリを作成する。例えば「DFT」という名称のディレクトリを作る。その後、作成したディレクトリに移動する。
+
+```
+mkdir DFT
+cd DFT
+```
+
+[OpenMXのWebサイト](http://www.openmx-square.org/)のDownloadの「openmx3.9」で右クリックしてリンクのアドレスをコピー。
+
+そのあとWSLのコマンドラインに戻って、wgetと入力した後右クリックして貼り付けしてEnter。ダウンロードされる(2022/9/22時点では以下)。
+
+```
+wget http://t-ozaki.issp.u-tokyo.ac.jp/openmx3.9.tar.gz
+```
+
+同様に、「+patch」で右クリックしてリンクのアドレスをコピー。
+wget入力して貼り付けしてEnter。ダウンロードされる(2022/9/22時点では以下)。
+```
+wget http://www.openmx-square.org/bugfixed/21Oct17/patch3.9.9.tar.gz
+```
+次に、解凍。
+```
+tar xvfz openmx3.9.tar.gz
+```
+ディレクトリに入る。
+```
+cd openmx3.9
+```
+中には以下のディレクトリが見つかるはず。
+```
+ls
+```
+- DFT_DATA19　←　基底関数＆擬ポテンシャル
+- source　←　プログラムのソースファイル
+- work　←　サンプルファイル
+
+## ソースにパッチを適用する
+もともとのsourceディレクトリ(Ver.3.9用)にパッチを適用した、source3.9.9を作成する。
+```
+mkdir patch
+mv ../patch3.9.9.tar.gz ./patch/
+
+cp -rp source source3.9.9
+cd source3.9.9
+tar xvfz ../patch/patch3.9.9.tar.gz
+mv kpoint.in ../work/
+```
+
 ## OpenMXのコンパイル(阪大スパコンSquid用)
 ### スパコン側で標準で用意してくれている環境を呼び出す
 ```
