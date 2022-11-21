@@ -1,4 +1,5 @@
-## Intel OneAPIを使う場合
+## 準備
+### (1) Intel OneAPIを使う場合
 ### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
 ```
 cd
@@ -90,8 +91,8 @@ source .bashrc
 
 
 
-## GNUコンパイラを使う場合
-### 準備する
+### (2) GNUコンパイラを使う場合
+### 必要なパッケージをインストールする
 ```
 sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
                     libfftw3-dev libjpeg-dev libpng-dev python3-dev python3-pip \
@@ -151,7 +152,8 @@ source .bashrc
 ```
 
 
-### お試し計算
+## お試し計算
+### インプットファイル編集と実行 
 もともと用意されている計算例(melt)を実行してみる。まずInputファイルを編集。
 ```
 cd
