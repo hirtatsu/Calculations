@@ -80,13 +80,7 @@ make -j 4  # Numberは並列コア数
 make install
 ```
 
-### 最後に確認
-```
-lmp
-```
-と入力して、エラーがでなければインストール成功。
-
-### (もしPathが通ってなければ)Pathを通す
+### Pathを通す
 ```
 cd
 vim .bashrc
@@ -100,6 +94,13 @@ export PATH=/home/「ユーザ名」/.local/bin:$PATH
 cd
 source .bashrc
 ```
+
+### 最後に確認
+```
+lmp
+```
+と入力して、エラーがでなければインストール成功。Ctrl+cで終了。
+
 ### お試し計算
 もともと用意されている計算例(melt)を実行してみる。まずInputファイルを編集。
 ```
