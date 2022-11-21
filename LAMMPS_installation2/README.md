@@ -117,18 +117,9 @@ dump            id all atom 50 dump.melt
 
 そして、コマンドライン上で実行する。
 
-- シングルコアで計算する場合
-```
-lmp < in.melt
-```
-- マルチコア(例: 4コア)で計算する場合
-```
-mpirun -np 4 lmp < in.melt
-```
-
 - GPUで計算する場合
 ```
-lmp -sf gpu -pk gpu 1 -in in.melt
+lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 ```
 なんか計算がはじまって、最後に'Total wall time: xx:xx:xx'と表示されていれば成功！
 
