@@ -161,7 +161,7 @@ log.lammps # ← ログファイル。
 
 
 ### 可視化
-Windowsに可視化ソフトをインストールする。OVITO Basic (Proは有料)。
+Windowsに可視化ソフトをインストールする。OVITO Basicを選んでインストール (Proは有料)。
 https://www.ovito.org/
 
 
