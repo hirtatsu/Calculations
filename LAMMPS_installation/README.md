@@ -1,4 +1,4 @@
-## 準備
+## インストール準備
 ### (1) Intel OneAPIを使う場合
 ### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
 ```
@@ -37,60 +37,6 @@ source .bashrc
 icc -v
 ```
 
-### MD用ディレクトリを作成して移動
-```
-cd
-mkdir MD
-cd MD
-```
-
-### LAMMPSをダウンロード、解凍して当該ディレクトリへ移動
-```
-wget https://download.lammps.org/tars/lammps-stable.tar.gz
-tar xvzf lammps-stable.tar.gz
-cd lammps-23Jun2022
-```
-
-### buildディレクトリを作成して移動
-```
-mkdir build
-cd build
-```
-### cmakeでビルドする(MPI, MANYBODYパッケージを追加)
-```
-cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
-```
-### コンパイルする
-```
-make -j 4  # Numberは並列コア数
-```
-```
-make install
-```
-
-### 最後に確認
-```
-lmp
-```
-と入力して、エラーがでなければインストール成功。
-
-### (もしPathが通ってなければ)Pathを通す
-```
-cd
-vim .bashrc
-```
-最終行に以下を追加する(Buildファイルの場所が/home/「ユーザ名」/.local/binの場合)
-```
-export PATH=/home/「ユーザ名」/.local/bin:$PATH
-```
-以下のコマンドで反映させる。
-```
-cd
-source .bashrc
-```
-
-
-
 ### (2) GNUコンパイラを使う場合
 ### 必要なパッケージをインストールする
 ```
@@ -98,7 +44,9 @@ sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi
                     libfftw3-dev libjpeg-dev libpng-dev python3-dev python3-pip \
                     python3-virtualenv libblas-dev liblapack-dev libhdf5-serial-dev \
                     hdf5-tools
-```                    
+```
+
+## LAMMPSのインストール
 ### MD用ディレクトリを作成して移動
 ```
 cd
@@ -119,9 +67,14 @@ mkdir build
 cd build
 ```
 ### cmakeでビルドする(MPI, MANYBODYパッケージを追加)
+- Intel OneAPIを用いる場合
 ```
+cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+```
+- GNUコンパイラを用いる場合
 cmake ../cmake/presets/basic.cmake -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
-```
+
+
 ### コンパイルする
 ```
 make -j 4  # Numberは並列コア数
@@ -150,7 +103,6 @@ export PATH=/home/「ユーザ名」/.local/bin:$PATH
 cd
 source .bashrc
 ```
-
 
 ## お試し計算
 ### インプットファイル編集と実行 
