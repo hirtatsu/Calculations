@@ -1,3 +1,96 @@
+## Intel OneAPIを使う場合
+### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
+```
+cd
+```
+
+Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.d1jvm6)にアクセスして、Intel oneAPI Base ToolkitとIntel oneAPI HPC Toolkitを以下の通りインストールする。
+
+まず、[Intel oneAPI Base Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html)をクリック。
+
+- Operating system: Linux
+- Select distribution: Online
+
+を選択して、表示される'Command Line Download'に記載のコードをUbuntu上で実行する。
+すると、インストール画面が別ウインドウで立ち上がるので、画面の指示に従ってインストールする。
+(カスタムインストールを選択する場合は、Math Carnel Libraryを必ずインストールすること)
+
+続いて、[Intel oneAPI HPC Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html)をクリック。上と同様にインストールする。
+カスタムインストールにて、DPC++/C++ Compiler, MPI Library, Fortran Compilerをインストールする。
+
+### Intel oneapiで入手したコンパイラのPATHを通す
+```
+cd
+vim .bashrc
+```
+で開いて、最後に行を追加して以下を入力して保存する。
+```
+source /opt/intel/oneapi/setvars.sh
+```
+そして、以下のコマンドでPATHを反映させる。
+```
+source .bashrc
+```
+ちゃんとインストールできたか確認する。バージョンとか表示されればOK。
+```
+icc -v
+```
+
+### MD用ディレクトリを作成して移動
+```
+cd
+mkdir MD
+cd MD
+```
+
+### LAMMPSをダウンロード、解凍して当該ディレクトリへ移動
+```
+wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
+tar xvzf stable_3Mar2020.tar.gz
+cd lammps-stable_3Mar2020
+```
+
+### buildディレクトリを作成して移動
+```
+mkdir build
+cd build
+```
+### cmakeでビルドする(MPI, MANYBODYパッケージを追加)
+```
+cmake ../cmake/presets/basic.cmake -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+```
+### コンパイルする
+```
+make -j 4  # Numberは並列コア数
+```
+```
+make install
+```
+
+### 最後に確認
+```
+lmp
+```
+と入力して、エラーがでなければインストール成功。
+
+### (もしPathが通ってなければ)Pathを通す
+```
+cd
+vim .bashrc
+```
+最終行に以下を追加する(Buildファイルの場所が/home/「ユーザ名」/.local/binの場合)
+```
+export PATH=/home/「ユーザ名」/.local/bin:$PATH
+```
+以下のコマンドで反映させる。
+```
+cd
+source .bashrc
+```
+
+
+
+## GNUコンパイラを使う場合
 ### 準備する
 ```
 sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
