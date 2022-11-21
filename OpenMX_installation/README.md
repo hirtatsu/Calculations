@@ -81,9 +81,9 @@ cd
 vim .bashrc
 ```
 で開いて、最後に行を追加して以下を入力して保存する。
-
+```
 source /opt/intel/oneapi/setvars.sh
-
+```
 そして、以下のコマンドでPATHを反映させる。
 ```
 source .bashrc
