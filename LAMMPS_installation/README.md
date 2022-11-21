@@ -72,8 +72,9 @@ cd build
 cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
 - GNUコンパイラを用いる場合
+```
 cmake ../cmake/presets/basic.cmake -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
-
+```
 
 ### コンパイルする
 ```
