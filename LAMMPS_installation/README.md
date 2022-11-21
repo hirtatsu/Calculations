@@ -45,9 +45,9 @@ cd MD
 
 ### LAMMPSをダウンロード、解凍して当該ディレクトリへ移動
 ```
-wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
-tar xvzf stable_3Mar2020.tar.gz
-cd lammps-stable_3Mar2020
+wget https://download.lammps.org/tars/lammps-stable.tar.gz
+tar xvzf lammps-stable.tar.gz
+cd lammps-23Jun2022
 ```
 
 ### buildディレクトリを作成して移動
@@ -57,7 +57,7 @@ cd build
 ```
 ### cmakeでビルドする(MPI, MANYBODYパッケージを追加)
 ```
-cmake ../cmake/presets/basic.cmake -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
 ### コンパイルする
 ```
@@ -107,9 +107,9 @@ cd MD
 
 ### LAMMPSをダウンロード、解凍して当該ディレクトリへ移動
 ```
-wget https://github.com/lammps/lammps/archive/stable_3Mar2020.tar.gz
-tar xvzf stable_3Mar2020.tar.gz
-cd lammps-stable_3Mar2020
+wget https://download.lammps.org/tars/lammps-stable.tar.gz
+tar xvzf lammps-stable.tar.gz
+cd lammps-23Jun2022
 ```
 
 ### buildディレクトリを作成して移動
