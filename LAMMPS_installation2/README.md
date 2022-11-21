@@ -140,8 +140,8 @@ log.lammps # ← ログファイル。
 計算環境1: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
 
 - 並列なしの場合: 0:07:12 (Ref.)
-- 6並列の場合: 0:02:05 (-71%)
-- GPUの場合: 0:00:45 (-90%)
+- 8並列の場合: 0:01:39 (-77%)
+- GPUの場合: 0:00:29 (-93%)
 
 
 計算環境2: CPUにIntel Core i7 13700KF、GPUにNVIDIA RTX A4000。
