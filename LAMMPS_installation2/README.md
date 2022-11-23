@@ -1,5 +1,12 @@
 ## CUDA on WSLを使ってGPGPUでLAMMPS計算する
-[https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
+[公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
+
+## 事前準備
+```
+sudo apt update
+sudo apt upgrade -y
+sudo apt install build-essential -y
+```
 
 ### NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
