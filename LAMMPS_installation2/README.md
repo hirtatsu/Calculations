@@ -11,7 +11,7 @@ wsl --update
 ```
 sudo apt update
 sudo apt upgrade -y
-sudo apt install build-essential -y
+sudo apt install build-essential cmake -y
 ```
 
 ### NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
