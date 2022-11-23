@@ -1,4 +1,11 @@
 ## インストール準備
+### 必要なパッケージを準備する
+```
+sudo apt update
+sudo apt upgrade -y
+sudo apt install build-essential cmake -y
+```
+
 ### (1) Intel OneAPIを使う場合
 ### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
 ```
@@ -58,7 +65,6 @@ cd MD
 ```
 wget https://download.lammps.org/tars/lammps-stable.tar.gz
 tar xvzf lammps-stable.tar.gz
-cd lammps-23Jun2022
 ```
 
 ### buildディレクトリを作成して移動
