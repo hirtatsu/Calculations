@@ -1,7 +1,7 @@
 ## CUDA on WSLを使ってGPGPUでLAMMPS計算する
 [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
-## 事前準備
+### 事前準備
 ```
 sudo apt update
 sudo apt upgrade -y
