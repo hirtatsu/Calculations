@@ -1,6 +1,12 @@
 ## CUDA on WSLを使ってGPGPUでLAMMPS計算する
 [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
+### wslをUPDATEしておく。Powershell開いて以下入力する。
+```
+wsl --update
+```
+
+
 ### 事前準備
 ```
 sudo apt update
@@ -11,10 +17,6 @@ sudo apt install build-essential -y
 ### NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
-### wslをUPDATEする。Powershell開いて以下入力する。
-```
-wsl --update
-```
 
 ### WSLのUbuntu上でCUDA Toolkitを準備する
 - 古いGPGキーを削除。
