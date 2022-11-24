@@ -9,8 +9,8 @@
 ### 環境
 Ubuntu on WSL2
 
-
 公式マニュアルは[こちら](https://docs.docker.com/desktop/install/ubuntu/)。
+
 ### Docker Engine on Ubuntuをインストールする
 
 公式マニュアルは[こちら](https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository)。
@@ -37,5 +37,45 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
+
+- Docker Engineをインストールする
+```
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+```
+
+- WSL上の場合は以下を実行してDocker Daemonを起動する
+```
+sudo service docker start
+```
+- Docker DaemonをWSL Ubuntu起動時に自動的に起動するように設定する ([参考](https://zenn.dev/taiga533/articles/11f1b21ef4a5ff))
+- 以下を入力すると、エディタが表示される。
+```
+# service docker startだけパスワード無しでsudoできるようにする
+sudo visudo
+```
+- sudoersに以下を入力する
+```
+ユーザー名 ALL=NOPASSWD: /usr/sbin/service docker start, /usr/sbin/service docker stop, /usr/sbin/service docker restart
+```
+- 最後にvimで.bashrcを開いて
+```
+cd
+vim .bashrc
+```
+- 以下を追記して保存して閉じる
+```
+service docker status > /dev/null 2>&1
+if [ $? = 1 ]; then
+    sudo service docker start
+fi
+```
+
+
+- 無事インストールされているか確認する
+```
+sudo docker run hello-world
+```
+
 
 
