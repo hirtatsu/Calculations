@@ -65,6 +65,7 @@ cd MD
 ```
 wget https://download.lammps.org/tars/lammps-stable.tar.gz
 tar xvzf lammps-stable.tar.gz
+cd lammps-23Jun2022
 ```
 
 ### buildディレクトリを作成して移動
