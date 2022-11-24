@@ -77,10 +77,11 @@ sudo docker run hello-world
 ```
 
 
-## DEB packageをダウンロードする
-こちらからダウンロードする [https://docs.docker.com/desktop/install/ubuntu/](https://docs.docker.com/desktop/install/ubuntu/)
+## DEB packageをインストールする
+### ダウンロード
+- こちらからダウンロードする [https://docs.docker.com/desktop/install/ubuntu/](https://docs.docker.com/desktop/install/ubuntu/)
 
-- インストールする
+### インストール
 ```
 sudo apt update
 sudo apt install ./docker-desktop-<version>-<arch>.deb
