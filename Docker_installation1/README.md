@@ -9,40 +9,33 @@
 ### 環境
 Ubuntu on WSL2
 
-### Dockerの環境構築
-- Ubuntu on WSL上で必要なパッケージをインストールする
+
+公式マニュアルは[こちら](https://docs.docker.com/desktop/install/ubuntu/)。
+### Docker Engine on Ubuntuをインストールする
+
+公式マニュアルは[こちら](https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository)。
+
+- 旧バージョンをアンインストール
 ```
-sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common  -y
-```
-- PGPキーの追加
-```
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt remove docker docker-engine docker.io containerd runc
 ```
 
-- フィンガープリントの確認
+- インストールする
+まずリポジトリを設定する
 ```
-sudo apt-key fingerprint 0EBFCD88 
-```
-
-- リポジトリに追加して更新
-```
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
+sudo apt install ca-certificates curl gnupg lsb-release -y
+```
+- Docker EngineのGPGキーを設定する
+```
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+- 以下のコマンドでリポジトリを設定する
+```
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-- Docker本体のインストール
-```
-sudo apt install docker-ce docker-ce-cli containerd.io -y
-```
 
-- 管理者以外も利用できるようにする
-```
-sudo usermod -aG docker $USER
-```
-そのあと一旦ログアウトしてから再びログインしなおす。
-
-- インストールできたか確認
-```
-docker --version
-```
-と入力して、Versionに関する表示が出たら成功。
