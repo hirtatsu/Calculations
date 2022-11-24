@@ -1,4 +1,4 @@
-## Linux上へのDockerのインストール方法
+# Linux上へのDockerのインストール方法
 いろいろなソフトウェアを同じ環境下で開発・計算していく場合、共有される実行環境やライブラリの変更によって、あるソフトウェアが動かなくなることがよくあります。
 そこで、環境を隔離することができるのがDockerです。
 
@@ -6,14 +6,14 @@
 - 構築した環境をイメージと呼ばれるファイルに換えて、容易に複製したり移行したり配布したりできます。
 - 仮想化するよりも軽いのが大きなメリットです。
 
-### 環境
+## 環境
 Ubuntu on WSL2
 
 公式マニュアルは[こちら](https://docs.docker.com/desktop/install/ubuntu/)。
 
-### Docker Engine on Ubuntuをインストールする
+## Docker Engine on Ubuntuをインストールする
 
-公式マニュアルは[こちら](https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository)。
+### 公式マニュアルは[こちら](https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository)。
 
 - 旧バージョンをアンインストール
 ```
@@ -48,7 +48,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 ```
 sudo service docker start
 ```
-- Docker DaemonをWSL Ubuntu起動時に自動的に起動するように設定する ([参考](https://zenn.dev/taiga533/articles/11f1b21ef4a5ff))
+### Docker DaemonをWSL Ubuntu起動時に自動的に起動するように設定する ([参考](https://zenn.dev/taiga533/articles/11f1b21ef4a5ff))
 - 以下を入力すると、エディタが表示される。
 ```
 # service docker startだけパスワード無しでsudoできるようにする
@@ -71,11 +71,18 @@ if [ $? = 1 ]; then
 fi
 ```
 
-
 - 無事インストールされているか確認する
 ```
 sudo docker run hello-world
 ```
 
 
+## DEB packageをダウンロードする
+こちらからダウンロードする [https://docs.docker.com/desktop/install/ubuntu/](https://docs.docker.com/desktop/install/ubuntu/)
+
+- インストールする
+```
+sudo apt update
+sudo apt install ./docker-desktop-<version>-<arch>.deb
+```
 
