@@ -44,7 +44,12 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 ```
 
-- WSL上の場合は以下を実行してDocker Daemonを起動する
+- 管理者以外も利用できるようにする
+```
+sudo usermod -aG docker $USER
+```
+
+- ※WSL上の場合は以下を実行してDocker Daemonを起動する
 ```
 sudo service docker start
 ```
