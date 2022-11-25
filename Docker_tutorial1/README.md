@@ -50,7 +50,7 @@ docker rm test1 # 次に削除する
 
 - コンテナが正常に削除されたことの確認
 ```
-docker ps
+docker ps -a
 ```
 
 ### 
