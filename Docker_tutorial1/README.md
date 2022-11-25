@@ -72,4 +72,3 @@ docker image rm httpd # REPOSITORY名がhttpdというイメージを削除す�
 ```
 docker image ls
 ```
-### aa
