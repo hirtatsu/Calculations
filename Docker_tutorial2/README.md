@@ -62,7 +62,6 @@ sudo adduser ユーザ名
 ```
 sudo usermod -aG sudo ユーザ名
 
-```
 - 作成したユーザでログインしなおす
 ```
 sudo -i -u ユーザ名
@@ -71,5 +70,11 @@ sudo -i -u ユーザ名
 - ログインしているユーザ名が変更されていることを確認する
 ```
 whoami
+```
+
+- 次回以降、ユーザ指定してUbuntuコンテナに入ることができる
+```
+docker exec -it --user=ユーザ名 ubuntu-test /bin/bash
+cd ~/ # ホームディレクトリに移動する
 ```
 
