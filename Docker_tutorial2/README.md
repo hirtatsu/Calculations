@@ -79,3 +79,13 @@ docker exec -it --user=ユーザ名 ubuntu-test /bin/bash
 cd ~/ # ホームディレクトリに移動する
 ```
 
+### 基本的なパッケージをインストールする
+- 準備
+```
+sudo apt update
+```
+- インストール
+```
+sudo apt install vim wget build-essential -y
+```
+
