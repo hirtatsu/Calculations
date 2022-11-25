@@ -23,6 +23,8 @@ recommendedを見つける
 ```
 sudo apt install 「例: nvidia-driver-450」 -y
 ```
+(sudo ubuntu-drivers autoinstallでもいけるらしい)
+
 - 再起動
 ```
 sudo reboot
