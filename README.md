@@ -12,7 +12,7 @@
 
 
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
-- [LAMMPSのインストール](./LAMMPS_installation/README.md)
+- [LAMMPSのインストール1](./LAMMPS_installation/README.md)
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS_installation2/README.md)
 
 ### 密度汎関数(DFT)理論に基づく第一原理計算ソフトウェア: OpenMX
