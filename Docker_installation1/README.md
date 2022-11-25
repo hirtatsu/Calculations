@@ -48,10 +48,16 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 ```
 sudo usermod -aG docker $USER
 ```
+- Docker Engineを起動、終了する。
+```
+sudo systemctl start docker # 起動
+sudo systemctl stop docker # 終了
+```
 
 - ※WSL上の場合は以下を実行してDocker Daemonを起動する
 ```
 sudo service docker start
+sudo service docker stop
 ```
 
 - 無事インストールされているか確認する
