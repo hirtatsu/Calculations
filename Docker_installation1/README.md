@@ -44,7 +44,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 ```
 
-- 管理者以外も利用できるようにする
+- 管理者以外も利用できるようにする。以下を入力したのち、いったんログアウトして再ログインする。
 ```
 sudo usermod -aG docker $USER
 ```
