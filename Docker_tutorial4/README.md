@@ -21,7 +21,7 @@ recommendedを見つける
 
 - ドライバのインストール
 ```
-sudo apt install 「例: nvidia-driver-450」
+sudo apt install 「例: nvidia-driver-450」 -y
 ```
 - 再起動
 ```
