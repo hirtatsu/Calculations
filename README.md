@@ -6,7 +6,7 @@
 - [WSL2のインストール](./WSL2_installation/README.md)
 
 ### Dockerの準備
-- [Dockerのインストール](.docker_installation1/README.md)
+- [Dockerのインストール](./Docker_installation1/README.md)
 
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
 - [LAMMPSのインストール](./LAMMPS_installation/README.md)
