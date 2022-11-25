@@ -61,6 +61,7 @@ sudo adduser ユーザ名
 - 作成したユーザにsudo権限を付与
 ```
 sudo usermod -aG sudo ユーザ名
+```
 
 - 作成したユーザでログインしなおす
 ```
