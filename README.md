@@ -6,12 +6,12 @@
 - [WSL2のインストール](./WSL2_installation/README.md)
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
 
+### 研究室の計算サーバへの接続準備
+
 ### DockerのインストールとUbuntuコンテナの作成・起動
 - [Linux上へのDockerのインストール](./Docker_installation1/README.md)
 - [Dockerの基本的な使い方](./Docker_tutorial1/README.md)
-- [Docker上へのLinux環境構築](./Docker_tutorial5/README.md)
-
-### 研究室の計算サーバへの接続準備
+- [Docker上へのUbuntu環境構築](./Docker_tutorial5/README.md)
 
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
 - [LAMMPSのインストール1](./LAMMPS_installation/README.md)
