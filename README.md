@@ -5,6 +5,9 @@
 ### WSL2環境の準備
 - [WSL2のインストール](./WSL2_installation/README.md)
 
+### 研究室の計算サーバへの接続準備
+- [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
+
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
 - [LAMMPSのインストール1](./LAMMPS_installation/README.md)
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS_installation2/README.md)
