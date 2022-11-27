@@ -112,9 +112,9 @@ lmp
 cd
 vim .bashrc
 ```
-最終行に以下を追加する(Buildファイルの場所が/home/「ユーザ名」/.local/binの場合)
+最終行に以下を追加する
 ```
-export PATH=/home/「ユーザ名」/.local/bin:$PATH
+export PATH=~/.local/bin:$PATH
 ```
 以下のコマンドで反映させる。
 ```
