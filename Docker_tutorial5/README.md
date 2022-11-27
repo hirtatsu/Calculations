@@ -10,7 +10,7 @@ touch Dockerfile
 ```
 vim Dockerfile
 ```
-- 以下の内容を記入して保存する
+- 例として、Ubuntuのイメージファイルを元にして、aptのupdateしたのちにxterm, vim, wget, sudoをインストールする内容を記入して保存する。
 ```
 FROM ubuntu
 RUN apt update
