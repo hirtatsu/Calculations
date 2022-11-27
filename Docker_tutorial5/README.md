@@ -25,6 +25,7 @@ docker build . -t image-ubuntu
 - 作成したイメージを使ってコンテナを作成・起動する。ここでは、
   - コンテナ名を「test-ubuntu」
   - オプションに「-dit」(-d: バックグラウンド実行, -i: コンテナにキーボードを繋ぐ, -t: 特殊きーを使用可能にする)を指定
+  - -e DISPLAY=$DISPLAYにて、DISPLAYの環境変数を受け渡す
   - イメージ名は「image-ubuntu」
   - 引数に「/bin/bash」(シェルコマンド)を指定
 ```
