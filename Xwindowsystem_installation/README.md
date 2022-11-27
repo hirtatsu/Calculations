@@ -30,6 +30,7 @@ sudo apt install x11-apps
 ```
 hostname | xargs dig +short
 ```
+
 - 以下のように表示される
 ```
 172.23.240.1
@@ -47,7 +48,7 @@ source .bashrc
 ```
 xeyes
 ```
-
+<img width="133" alt="xlaunch4" src="https://user-images.githubusercontent.com/64639043/204118509-92d7c6c8-0a77-45ad-9989-8eff1024dccf.png">
 
 
 
