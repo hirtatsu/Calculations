@@ -1,5 +1,5 @@
 ## Dockerfileを使った環境構築
-Dockerfileを使うと、書かれている内容の通りのDockerイメージを自動で作成してくれます。
+- Dockerfileを使うと、書かれている内容の通りのDockerイメージを自動で作成してくれます。
 
 ### Dockerfileの作成
 - ファイル名「Dockerfile」を作成
