@@ -21,6 +21,8 @@ Extra settings。Disable access controlを有効にするのを忘れずに。
 
 → 完了
 
+毎回XLaunchを起動するのが面倒なので、Windowsのスタートアップに登録しておくと便利。
+
 ### WSL上で設定する
 - x11-appsをインストールする
 ```
