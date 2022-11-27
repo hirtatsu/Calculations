@@ -1,8 +1,6 @@
 ## Dockerを使ったUbuntu環境構築
 - Dockerfileを使うと、書かれている内容の通りのDockerイメージを自動で作成してくれます。
 
-## Dockerコンテナの構築
-
 ### Dockerfileの作成
 - ファイル名「Dockerfile」を作成
 ```
@@ -38,5 +36,4 @@ docker ps
 docker exec -it コンテナ名 /bin/bash
 ```
 
-## Ubuntuコンテナの環境構築
-### Intel oneAPIのインストール
+Docker上でUbuntu環境が構築できました。
