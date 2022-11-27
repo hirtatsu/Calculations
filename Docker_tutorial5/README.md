@@ -1,5 +1,7 @@
-## Dockerfileを使った環境構築
+## Dockerを使ったUbuntu環境構築
 - Dockerfileを使うと、書かれている内容の通りのDockerイメージを自動で作成してくれます。
+
+## Dockerコンテナの構築
 
 ### Dockerfileの作成
 - ファイル名「Dockerfile」を作成
@@ -16,11 +18,12 @@ FROM ubuntu
 RUN apt update
 RUN apt install xterm vim wget sudo -y
 ```
-### Dockerfileの使い方
+### Dockerfileを使ったイメージ作成
 - Dockerfileを使ってイメージを作成する
 ```
 docker build . -t イメージ名
 ```
+### Dockerのコンテナ作成・起動
 - 作成したイメージを使ってコンテナを作成・起動する
 ```
 docker run -dit --name コンテナ名 -e DISPLAY=$DISPLAY イメージ名 /bin/bash
@@ -34,3 +37,6 @@ docker ps
 ```
 docker exec -it コンテナ名 /bin/bash
 ```
+
+## Ubuntuコンテナの環境構築
+### Intel oneAPIのインストール
