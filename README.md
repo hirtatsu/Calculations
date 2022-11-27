@@ -19,7 +19,10 @@
 
 
 ## 有料ライセンスソフトウェア（研究室学生向け）
-- [ANSYSのインストール](./ANSYS_installation/README.md)
+- [ANSYSのインストール](./ANSYS_installation/README.md
+ 
+## 研究室計算サーバ構築
+### あ
 
 ### Dockerの準備いろいろ
 - [Linux上へのDockerのインストール](./Docker_installation1/README.md)
