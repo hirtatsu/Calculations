@@ -36,4 +36,4 @@ docker ps
 docker exec -it コンテナ名 /bin/bash
 ```
 
-Docker上でUbuntu環境が構築できました。
+これにて、Docker上にUbuntu環境が構築できました。
