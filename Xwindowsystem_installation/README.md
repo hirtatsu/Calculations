@@ -1,7 +1,7 @@
 ## WSL上あるいはサーバー上のGUIアプリを使えるようにする
 WSLや研究室の計算サーバ上で動くGUIアプリを、手元のPCで表示できるように設定します。
 
-### VcXsrv Windows X ServerをWindows上にインストール
+### Windows側のインストール (VcXsrv Windows X Server)
 - 以下からVcXsrvをダウンロードしてインストールする
 [https://sourceforge.net/projects/vcxsrv/](https://sourceforge.net/projects/vcxsrv/)
 
@@ -23,12 +23,12 @@ Extra settings。Disable access controlを有効にするのを忘れずに。
 
 毎回XLaunchを起動するのが面倒なので、Windowsのスタートアップに登録しておくと便利。
 
-### WSL上で設定する
+### WSL側の設定
 - x11-appsをインストールする
 ```
 sudo apt install x11-apps
 ```
-- IPアドレスを確認する
+<!-- - IPアドレスを確認する
 ```
 hostname | xargs dig +short
 ```
@@ -45,7 +45,17 @@ export DISPLAY=`hostname | xargs dig +short | grep 192.168.1`:0.0
 - .bashrcの内容を反映させる
 ```
 source .bashrc
+``` -->
+
+- Ubuntu上の環境変数に反映させる。~/.bashrcをVimで開いて、最終行に以下を追記して保存する
 ```
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+```
+- .bashrcを反映させる
+```
+source .bashrc
+```
+
 - 動作確認。マウスに連動する目玉が出てきたら成功
 ```
 xeyes
