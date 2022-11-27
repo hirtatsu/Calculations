@@ -23,7 +23,7 @@ docker build . -t イメージ名
 ```
 - 作成したイメージを使ってコンテナを作成・起動する
 ```
-docker run -dit --name コンテナ名 -e DISPLAY=$DISPLAY イメージ名
+docker run -dit --name コンテナ名 -e DISPLAY=$DISPLAY イメージ名 /bin/bash
 ```
 - コンテナが無事起動していることを確認する
 ```
