@@ -7,6 +7,7 @@
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
 
 ### 研究室の計算サーバへの接続
+- [接続方法](./Howtoaccess_server/README.md)
 
 ### Dockerの基本的な使い方とUbuntu環境(コンテナ)の構築
 - [Dockerの基本的な使い方](./Docker_tutorial1/README.md)
