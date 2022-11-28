@@ -6,7 +6,7 @@
 - [WSL2のインストール](./WSL2_installation/README.md)
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
 
-### 研究室の計算サーバへの接続準備
+### 研究室の計算サーバへの接続
 
 ### Dockerの基本的な使い方とUbuntu環境(コンテナ)の構築
 - [Dockerの基本的な使い方](./Docker_tutorial1/README.md)
