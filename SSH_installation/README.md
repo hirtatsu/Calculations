@@ -11,4 +11,4 @@ systemctl start sshd
 ```
 sudo vim /etc/ssh/sshd_config
 ```
-- 詳細は省略。
+- 詳細は秘密。
