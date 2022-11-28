@@ -33,6 +33,7 @@ docker build . -t image-ubuntu
   - コンテナ名を「test-ubuntu」
   - オプションに「-dit」(-d: バックグラウンド実行, -i: コンテナにキーボードを繋ぐ, -t: 特殊きーを使用可能にする)を指定
   - -e DISPLAY=$DISPLAYにて、DISPLAYの環境変数を受け渡す
+  - ログインするユーザ名はuser
   - イメージ名は「image-ubuntu」
   - 引数に「/bin/bash」(シェルコマンド)を指定
 ```
