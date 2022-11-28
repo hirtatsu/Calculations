@@ -30,7 +30,7 @@
 - [ANSYSのインストール](./ANSYS_installation/README.md)
  
 ## 研究室計算サーバ構築
-- [sshの初期設定](./Server_installation/README.md)
+- [sshの初期設定](./SSH_installation/README.md)
 - [Linux上へのDockerのインストール](./Docker_installation1/README.md)
 
 
