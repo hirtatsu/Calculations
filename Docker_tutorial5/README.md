@@ -1,7 +1,13 @@
 ## Dockerを使ったUbuntu環境構築
-- Dockerfileを使うと、書かれている内容の通りのDockerイメージを自動で作成してくれます。
+
+### Docker serviceの起動
+```
+sudo service docker start
+```
 
 ### Dockerfileの作成
+Dockerfileを使うと、書かれている内容の通りのDockerイメージを自動で作成してくれます。
+
 - ファイル名「Dockerfile」を作成
 ```
 touch Dockerfile
