@@ -26,7 +26,7 @@ Extra settings。Disable access controlを有効にするのを忘れずに。
 ### WSL側の設定
 - x11-appsをインストールする
 ```
-sudo apt install x11-apps
+sudo apt install x11-apps -y
 ```
 <!-- - IPアドレスを確認する
 ```
