@@ -76,6 +76,28 @@ cat /etc/issue # Ubuntuのバージョンが表示される
 ```
 whoami
 ```
+---
+### GUIアプリを使えるようにする
+- x11-appsをインストールする
+```
+sudo apt install x11-apps -y
+```
+- 環境変数に反映させる。~/.bashrcをVimで開いて、最終行に以下を追記して保存する
+```
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+```
+- .bashrcを反映させる
+```
+source .bashrc
+```
+
+- 動作確認。マウスに連動する目玉が出てきたら成功
+```
+xeyes
+```
+<img width="133" alt="xlaunch4" src="https://user-images.githubusercontent.com/64639043/204118509-92d7c6c8-0a77-45ad-9989-8eff1024dccf.png">
+
+---
 
 ### Ubuntu@Dockerを終了する
 - Ubuntu@Dockerのコマンドラインで終了する。
