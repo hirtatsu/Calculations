@@ -59,5 +59,5 @@ sudo service docker stop
 
 - 無事インストールされているか確認する
 ```
-sudo docker run hello-world
+docker run hello-world
 ```
