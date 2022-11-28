@@ -9,7 +9,7 @@
 ## 環境
 Ubuntu on WSL2
 
-公式マニュアルは[こちら](https://docs.docker.com/desktop/install/ubuntu/)。
+公式マニュアルは[こちら](https://docs.docker.com/engine/install/)。
 
 ## Docker Engine on Ubuntuをインストールする
 
