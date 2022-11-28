@@ -6,6 +6,9 @@ sudo apt upgrade -y
 sudo apt install build-essential cmake -y
 ```
 
+---
+
+## 前準備 (計算サーバにはすでにIntel oneAPIを導入済みのためスキップ)
 ### (1) Intel OneAPIを使う場合
 ### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
 
@@ -58,7 +61,29 @@ sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi
                     hdf5-tools
 ```
 
+---
+
+
 ## LAMMPSのインストール
+### Intel oneapiで入手したコンパイラのPATHを通す
+```
+cd
+vim .bashrc
+```
+で開いて、最後に行を追加して以下を入力して保存する。
+```
+source /opt/intel/oneapi/setvars.sh
+```
+そして、以下のコマンドでPATHを反映させる。
+```
+source .bashrc
+```
+ちゃんとインストールできたか確認する。バージョンとか表示されればOK。
+```
+icc -v
+```
+
+
 ### MD用ディレクトリを作成して移動
 ```
 cd
