@@ -8,7 +8,7 @@
 
 ### 研究室の計算サーバへの接続準備
 
-### DockerのインストールとDocker上へのUbuntu環境(コンテナ)の構築
+### Dockerの基本的な使い方とUbuntu環境(コンテナ)の構築
 - [Dockerの基本的な使い方](./Docker_tutorial1/README.md)
 - [Docker上へのUbuntu環境構築](./Docker_tutorial5/README.md)
 - [Docker上のUbuntuの基本的な使い方](./Docker_tutorial6/README.md)
