@@ -9,7 +9,6 @@
 ### 研究室の計算サーバへの接続準備
 
 ### DockerのインストールとDocker上へのUbuntu環境(コンテナ)の構築
-- [Linux上へのDockerのインストール](./Docker_installation1/README.md)
 - [Dockerの基本的な使い方](./Docker_tutorial1/README.md)
 - [Docker上へのUbuntu環境構築](./Docker_tutorial5/README.md)
 - [Docker上のUbuntuの基本的な使い方](./Docker_tutorial6/README.md)
@@ -32,6 +31,8 @@
  
 ## 研究室計算サーバ構築
 - [sshの初期設定](./Server_installation/README.md)
+- [Linux上へのDockerのインストール](./Docker_installation1/README.md)
+
 
 ### Dockerの準備いろいろ
 - [Docker上でのLinux環境構築１](./Docker_tutorial2/README.md)
