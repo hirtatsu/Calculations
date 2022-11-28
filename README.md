@@ -31,7 +31,7 @@
 - [ANSYSのインストール](./ANSYS_installation/README.md)
  
 ## 研究室計算サーバ構築
-### あ
+- [sshの初期設定](./Server_installation/README.md)
 
 ### Dockerの準備いろいろ
 - [Docker上でのLinux環境構築１](./Docker_tutorial2/README.md)
