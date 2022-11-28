@@ -2,7 +2,12 @@
 
 ### Docker serviceの起動
 ```
-sudo service docker start
+sudo systemctl start docker
+```
+
+WSL上のUbuntuの場合は代わりに以下。
+```
+sudo service docker start　
 ```
 
 ### Dockerfileの作成
