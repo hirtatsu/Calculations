@@ -62,7 +62,8 @@ docker exec -it test-ubuntu /bin/bash
 
 - Ubuntu@Dockerに入れたことを確認する
 ```
-ls # rootディレクトリの内容が表示される
+cd ~/
+pwd # userのホームディレクトリ(/home/user)が表示されるはず
 cat /etc/issue # Ubuntuのバージョンが表示される
 ```
 
