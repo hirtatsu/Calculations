@@ -10,12 +10,16 @@ touch Dockerfile
 ```
 vim Dockerfile
 ```
-- 例として、Ubuntuのイメージファイルを元にして、aptのupdateしたのちにxterm, vim, wget, sudoをインストールする内容を記入して保存する。
+- Ubuntuのイメージファイルを元にする。
+- aptのupdateしたのちにxterm, vim, wget, sudoをインストールする
+- 新規ユーザ(user)を作成する
+- userのパスワードを8685とする
+- userにsudo権限を付与する
 ```
 FROM ubuntu
 RUN apt update
 RUN apt install xterm vim wget sudo -y
-RUN sudo useradd --create-home	
+RUN sudo useradd --create-home user
 RUN echo "user:8685"|chpasswd 
 RUN sudo usermod -aG sudo user
 ```
@@ -32,7 +36,7 @@ docker build . -t image-ubuntu
   - イメージ名は「image-ubuntu」
   - 引数に「/bin/bash」(シェルコマンド)を指定
 ```
-docker run -dit --name test-ubuntu -e DISPLAY=$DISPLAY image-ubuntu /bin/bash
+docker run -dit --name test-ubuntu -e DISPLAY=$DISPLAY --user=user image-ubuntu /bin/bash
 ```
 - コンテナが無事起動していることを確認する
 ```
@@ -54,7 +58,7 @@ ls # rootディレクトリの内容が表示される
 cat /etc/issue # Ubuntuのバージョンが表示される
 ```
 
-- 現在ログインしているユーザ名を確認する(rootになっているはず)
+- 現在ログインしているユーザ名を確認する(userになっているはず)
 ```
 whoami
 ```
