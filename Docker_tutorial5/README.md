@@ -28,6 +28,7 @@ RUN apt install xterm vim wget sudo -y
 RUN sudo useradd --create-home user
 RUN echo "user:8685"|chpasswd 
 RUN sudo usermod -aG sudo user
+RUN su - user
 ```
 ### Dockerfileを使ったイメージ作成
 - Dockerfileを使ってイメージを作成する。ここでは作成するイメージ名をimage-ubuntuとする。
