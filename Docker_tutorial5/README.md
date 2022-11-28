@@ -15,6 +15,10 @@ vim Dockerfile
 FROM ubuntu
 RUN apt update
 RUN apt install xterm vim wget sudo -y
+sudo useradd --create-home	
+# sudo adduser user # ユーザ名をuser
+echo "user:8685"|chpasswd 
+sudo usermod -aG sudo user
 ```
 ### Dockerfileを使ったイメージ作成
 - Dockerfileを使ってイメージを作成する。ここでは作成するイメージ名をimage-ubuntuとする。
