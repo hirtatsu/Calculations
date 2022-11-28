@@ -6,10 +6,7 @@
 - 構築した環境をイメージと呼ばれるファイルに換えて、容易に複製したり移行したり配布したりできます。
 - 仮想化するよりも軽いのが大きなメリットです。
 
-## 環境
-Ubuntu on WSL2
-
-公式マニュアルは[こちら](https://docs.docker.com/engine/install/)。
+公式マニュアルは[こちら](https://docs.docker.com/engine/install/ubuntu/)。
 
 ## Docker Engine on Ubuntuをインストールする
 
