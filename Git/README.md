@@ -14,7 +14,6 @@ git config --global core.editor 'vim'
 ```
 - 一応確認する
 ```
-cat .gitconfig # または
 git config --list
 ```
 
