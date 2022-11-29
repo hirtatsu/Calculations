@@ -125,14 +125,7 @@ make -j 4  # Numberは並列コア数
 ```
 make install
 ```
-
-### 最後に確認
-```
-lmp
-```
-と入力して、エラーがでなければインストール成功。
-
-### (もしPathが通ってなければ)Pathを通す
+### Pathを通す
 ```
 cd
 vim .bashrc
@@ -145,6 +138,12 @@ export PATH=~/.local/bin:$PATH
 ```
 cd
 source .bashrc
+```
+
+### 最後に確認
+- 以下でエラーがでなければ成功
+```
+lmp
 ```
 
 ## お試し計算
