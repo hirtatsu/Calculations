@@ -21,7 +21,7 @@ Extra settings。Disable access controlを有効にするのを忘れずに。
 
 → 完了
 
-毎回XLaunchを起動するのが面倒なので、Windowsのスタートアップに登録しておくと便利。
+毎回XLaunchを起動するのが面倒なので、Windowsのスタートアップに登録しておくと便利。[こちら](https://rin-ka.net/windows-x-server-vcxsrv-start/)
 
 ### Ubuntu@WSL側の設定
 - x11-appsをインストールする
