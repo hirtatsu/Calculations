@@ -1,8 +1,3 @@
-## (とりあえず材料科学計算に触れてみたい方)
-- [MateriApps LIVE!のインストール](./MateriAppsLive_installation/README.md)
-
----
-
 ## 材料科学計算の進め方
 ### WSL2環境の準備
 - [WSL2のインストール](./WSL2_installation/README.md)
@@ -27,6 +22,10 @@
 
 ## スパコンを使ってもっと本格的な材料計算を行いたい方
 - [阪大スパコンSquidでのOpenMXコンパイル](./OpenMX_installation2/README.md)
+
+
+## (とりあえず材料科学計算に触れてみたい方)
+- [MateriApps LIVE!のインストール](./MateriAppsLive_installation/README.md)
 
 
 ## 有料ライセンスソフトウェア（研究室学生向け）
