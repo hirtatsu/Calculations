@@ -21,8 +21,8 @@ mpirun -np 8 ./openmx in.dat -nt 2 </dev/null>& log.txt &
 - ジョブの状況確認は以下。
 ```
 jobs # 状況確認
-bg XXXX # jobsで確認した停止中のジョブ番号XXXXを再開する
-kill XXXX # jobsで確認した実行中のジョブ番号XXXXを停止する
+bg %XXXX # jobsで確認した停止中のジョブ番号XXXXを再開する
+kill %XXXX # jobsで確認した実行中のジョブ番号XXXXを停止する
 ```
 - 計算中のログファイルの状況確認は以下。元に戻るときはctrl+c。
 ```
