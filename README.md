@@ -37,7 +37,10 @@
 ## 研究室計算サーバ構築
 - [sshの初期設定](./SSH_installation/README.md)
 - [Linux上へのDockerのインストール](./Docker/Docker_installation1/README.md)
+
+## その他
 - [もろもろTips](./Tips/README.md)
+- [Gitの設定](./Git/README.md)
 
 ### Dockerの準備いろいろ
 - [Docker上でのLinux環境構築１](./Docker/Docker_tutorial2/README.md)
