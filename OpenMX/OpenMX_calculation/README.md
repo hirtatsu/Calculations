@@ -103,7 +103,7 @@ Atoms.UnitVectors>
 
 - scf.XcTypeはとりあえずGGA-PBE。
 - scf.SpinPolarizationは、磁性材料の場合のみON。
-- scf.energycutoffはデフォで150~200、精度でなければ300~400。
+- scf.energycutoffはデフォで150から200、精度でなければ300から400。
 - scf.maxIterは大きめに。
 - scf.EigenvalueSolver、周期境界条件の時はBandを選択する。
 - scf.Kgridには2 2 2、あるいは3 3 3。
