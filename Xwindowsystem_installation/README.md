@@ -23,7 +23,7 @@ Extra settings。Disable access controlを有効にするのを忘れずに。
 
 毎回XLaunchを起動するのが面倒なので、Windowsのスタートアップに登録しておくと便利。
 
-### Ubuntu側の設定 (WSLも計算サーバも同じ)
+### Ubuntu@WSL側の設定
 - x11-appsをインストールする
 ```
 sudo apt install x11-apps -y
