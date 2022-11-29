@@ -11,4 +11,8 @@ systemctl start sshd
 ```
 sudo vim /etc/ssh/sshd_config
 ```
-- 詳細は秘密。
+- X11Forwardingを許可
+```
+X11Forwarding yes
+```
+- その他詳細は秘密。
