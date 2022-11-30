@@ -35,7 +35,7 @@ Windowsのエクスプローラーのアドレス欄に以下を入力してEnte
 例えば、Ubuntuの初期ディレクトリ(/home/「ユーザー名」)に、Windowsのデスクトップへのショートカットを作る。
 ```
 cd
-ln -s /mnt/c/User/「Windowsのユーザ名」/Desktop
+ln -s /mnt/c/Users/「Windowsのユーザ名」/Desktop
 ```
 これで、Ubuntu上からWindows上のファイルにアクセスするのも簡単。
 
