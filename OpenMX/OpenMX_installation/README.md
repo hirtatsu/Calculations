@@ -1,14 +1,11 @@
+## Intel oneAPIを準備する(計算サーバにはあらかじめ導入済みなのでスキップ)
 ## 最初に必要なパッケージを準備する
 ```
 sudo apt update
 sudo apt upgrade -y
 sudo apt install build-essential
 ```
-
----
-
-## Intel oneAPIを準備する(計算サーバにはあらかじめ導入済みなのでスキップ)
-### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
+### Intel oneAPI Toolkitsで入手する
 ```
 cd
 ```
