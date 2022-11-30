@@ -3,8 +3,6 @@ MDで計算するモデルを簡単に作成するためのソフトウェア。
 
 公式は[こちら](https://atomsk.univ-lille.fr/tutorial_install.php)
 
-マニュアルは[こちら](https://atomsk.univ-lille.fr/doc/en/index.html)
-
 ### Ubuntuへのインストール
 - 必要なパッケージのインストール
 ```
@@ -25,6 +23,8 @@ atomsk --create fcc 4.02 Al aluminium.xsf
 ```
 
 ### モデリング
+マニュアルは[こちら](https://atomsk.univ-lille.fr/doc/en/index.html)
+
 - ユニットセルを作成する (結晶方位を指定しない場合 (XYZ方向が[100]方向になる))
 ```
 atomsk --create fcc 3.6147 Cu ファイル.xsf
