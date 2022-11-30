@@ -24,14 +24,14 @@ Windowsのスタートメニュー　→　Windows store　→　Windowsター�
 次回から、Windowsターミナルを使ってUbuntuを使うのがおすすめ。
 
 ## Ubuntuの初期設定いろいろ
-### WindowsからWSL上のファイルにアクセスする
+### (必要あれば) WindowsからWSL上のファイルにアクセスする
 Windowsのエクスプローラーのアドレス欄に以下を入力してEnter.
 ```
 \\wsl$
 ```
 そうするといつものWindows画面からWSLのUbuntu上のファイルを見ることができます。編集も可。
 
-### シンボリックリンク(Windowsでいうショートカットを作る)
+### (必要あれば) シンボリックリンク(Windowsでいうショートカットを作る)
 例えば、Ubuntuの初期ディレクトリ(/home/「ユーザー名」)に、Windowsのデスクトップへのショートカットを作る。
 ```
 cd
@@ -39,7 +39,7 @@ ln -s /mnt/c/Users/「Windowsのユーザ名」/Desktop
 ```
 これで、Ubuntu上からWindows上のファイルにアクセスするのも簡単。
 
-### Ubuntu上のカレントディレクトリを一発でWindowsのエクスプローラーで開くエイリアスの作成
+### (必要あれば) Ubuntu上のカレントディレクトリを一発でWindowsのエクスプローラーで開くエイリアスの作成
 Ubuntu上で作業していて「このディレクトリをWindowsで開きたい」というときに使うショートカット。
 初期ディレクトリに移動して、.bashrcを開く。
 ```
