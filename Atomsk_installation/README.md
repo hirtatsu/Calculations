@@ -40,7 +40,7 @@ atomsk 元のファイル.xsf -duplicate X方向の繰り返し数 Y方向の繰
 
 - 指定の領域から原子を削除する
 ```
-atomsk 元のファイル.xsf -select in box X方向の下限 Y方向の下限 Z方向の下限 X方向の上限 Y方向の上限 Z方向の上限-remove-atom select 出来上がったファイル.xsf
+atomsk 元のファイル.xsf -select in box X方向の下限 Y方向の下限 Z方向の下限 X方向の上限 Y方向の上限 Z方向の上限 -remove-atom select 出来上がったファイル.xsf
 ```
 X,Y,Z方向の上下限には、① INFか-INF、② 端からの距離[Å]、または、③ Boxに対する比率(例: 0.1*box)が使える。
 
