@@ -110,7 +110,7 @@ LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_
 ```
 ### makeする
 ```
-make -j
+make -j 4 # 数字は使用するCPUコア数
 ```
 エラーが出たら何回も繰り返す。
 最後に、以下で終わり。
