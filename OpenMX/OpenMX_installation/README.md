@@ -27,7 +27,7 @@ Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/dev
 ---
 
 
-### Intel oneapiで入手したコンパイラのPATHを通す
+## Intel oneapiで入手したコンパイラのPATHを通す
 ```
 cd
 vim .bashrc
