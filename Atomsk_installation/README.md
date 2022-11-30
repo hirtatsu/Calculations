@@ -59,7 +59,7 @@ atomsk 元のファイル -rebox 出来上がったファイル.xsf
 ```
 
 - 設定ファイルに基づいてモデルファイルを変換する
-xxx.txtを用意する。内容は例えば以下の通り。
+xxx.txtを用意する。内容は例えば以下の通り。詳細は[こちら](https://atomsk.univ-lille.fr/doc/en/option_properties.html)。
 ```
 # 全ての原子の位置をZ方向に10オングストローム動かす
 displacement function
