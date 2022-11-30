@@ -2,6 +2,7 @@
 MDで計算するモデルを簡単に作成するためのソフトウェア。
 
 公式は[こちら](https://atomsk.univ-lille.fr/tutorial_install.php)
+
 マニュアルは[こちら](https://atomsk.univ-lille.fr/doc/en/index.html)
 
 ### Ubuntuへのインストール
