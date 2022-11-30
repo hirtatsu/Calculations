@@ -45,9 +45,6 @@ source .bashrc
 icc -v
 ```
 
----
-
-
 ## OpenMXのインストール準備
 ### OpenMXをダウンロード、解凍して当該ディレクトリへ移動
 任意の場所にDFT用のディレクトリを作成する。例えば「DFT」という名称のディレクトリを作る。その後、作成したディレクトリに移動する。
@@ -100,7 +97,7 @@ mv kpoint.in ../work/
 
 ### makefileを編集する
 ```
-cd DFT/openmx3.9/source3.9.9
+cd ~/DFT/openmx3.9/source3.9.9
 vim makefile
 ```
 
