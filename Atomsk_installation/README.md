@@ -25,22 +25,30 @@ atomsk --create fcc 4.02 Al aluminium.xsf
 ### モデリング
 - ユニットセルを作成する (結晶方位を指定しない場合 (XYZ方向が[100]方向になる))
 ```
-atomsk --create fcc 3.6147 Cu ファイル名.xsf
+atomsk --create fcc 3.6147 Cu ファイル.xsf
 ```
 - ユニットセルを作成する (結晶方位を指定する場合 (例: XYZ方向にそれぞれ[121], [-101], [1-11]の場合))
 ```
-atomsk --create fcc 3.6147 Cu orient [121] [-101] [1-11] ファイル名.xsf
+atomsk --create fcc 3.6147 Cu orient [121] [-101] [1-11] ファイル.xsf
 ```
 - ユニットセルを繰り返してスラブを作る
 ```
-atomsk 元のファイル名.xsf -duplicate X方向の繰り返し数 Y方向の繰り返し数 Z方向の繰り返し数 出来上がったファイル名.xsf
+atomsk 元のファイル.xsf -duplicate X方向の繰り返し数 Y方向の繰り返し数 Z方向の繰り返し数 出来上がったファイル.xsf
 ```
 
 - 指定の領域から原子を削除する
 ```
-atomsk 元のファイル名.xsf -select in box X方向の下限 Y方向の下限 Z方向の下限 X方向の上限 Y方向の上限 Z方向の上限-remove-atom select 出来上がったファイル名.xsf
+atomsk 元のファイル.xsf -select in box X方向の下限 Y方向の下限 Z方向の下限 X方向の上限 Y方向の上限 Z方向の上限-remove-atom select 出来上がったファイル.xsf
 ```
 X,Y,Z方向の上下限には、① INFか-INF、② 端からの距離[Å]、または、③ Boxに対する比率(例: 0.1*box)が使える。
+
+- 二つのモデルを結合する
+```
+atomsk --merge Z 2 一つ目のファイル.xsf 二つ目のファイル.xsf 出来上がったファイル.xsf
+```
+  --mergeの後に結合する方向(X,Y,Z)と結合する数を指定する
+
+- 
 
 
 
