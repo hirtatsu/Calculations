@@ -24,7 +24,7 @@ exit
 ### ssh接続切断後もバックグラウンドで実行続ける方法
 - 計算実行コマンドの最初にnohupをつけて、最後に&をつける。例えばLAMMPSでin.meltを計算する場合。
 ```
-nohup mpirun -np12 lmp < in.lmp &
+nohup mpirun -np 12 lmp < in.lmp &
 ```
 - ちなみに、実行中に表示されるコマンドラインは自動的にnohup.outに出力される。途中経過を見たい場合は以下。
 ```
