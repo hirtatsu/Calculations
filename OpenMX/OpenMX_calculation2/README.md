@@ -66,3 +66,13 @@ sed -e 's/Cell_Vectors=/\nBOX/g' result.md > result.md3
       result.vhart.cube        Gaussian cube形式のHartreeポテンシャル
       result.dden.cube         原子密度から計算した差電子密度 
       result_rst/              再スタートファイルを保存するディレクトリ
+
+### ssh接続切断後もバックグラウンドで実行続ける方法
+- 計算実行コマンドの最初にnohupをつけて、最後に&をつける。例。
+```
+nohup mpirun -np 8 ./openmx in.dat -nt 2 </dev/null>& log.txt &
+```
+- ちなみに、実行中に表示されるコマンドラインは自動的にlog.txtに出力される。途中経過を見たい場合は以下。
+```
+tail -F log.txt
+```
