@@ -171,6 +171,11 @@ lmp < in.melt
 ```
 mpirun -np 4 lmp < in.melt
 ```
+マルチコアでバックグラウンドで計算する場合
+```
+nohup mpirun -np 4 lmp < in.lmp &
+```
+
 なんか計算がはじまって、最後に'Total wall time: xx:xx:xx'と表示されていれば成功！
 
 ### 結果の確認
