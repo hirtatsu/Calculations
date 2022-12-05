@@ -16,8 +16,9 @@
 - [LAMMPSのインストール1](./LAMMPS/LAMMPS_installation/README.md)
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS/LAMMPS_installation2/README.md)
 
-### Atomskを用いたモデリング
+### モデリングと可視化
 - [Atomskのインストールと使い方](./Atomsk_installation/README.md)
+- [OVITOのTips](./OVITO_tips/README.md)
 
 
 ### 密度汎関数(DFT)理論に基づく第一原理計算ソフトウェア: OpenMX
