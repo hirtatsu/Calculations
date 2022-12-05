@@ -16,7 +16,7 @@
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS/LAMMPS_installation2/README.md)
 
 ### Atomskを用いたモデリング
-- [Atomskのインストール](./Atomsk_installation/README.md)
+- [Atomskのインストールと使い方](./Atomsk_installation/README.md)
 
 
 ### 密度汎関数(DFT)理論に基づく第一原理計算ソフトウェア: OpenMX
