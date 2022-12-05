@@ -24,7 +24,7 @@ python3 -m venv /home/ユーザ名/test-env/
 - 仮想環境「test-env」をActivateする
 ```
 source /home/ユーザ名/test-env/bin/activate
-
+```
 - (必要あれば) pipをupgradeする
 ```
 pip install --upgrade pip
