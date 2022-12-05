@@ -16,13 +16,14 @@ tar -xzvf atomsk_b0.11.2_Linux-amd64.tar.gz
 cd atomsk_b0.11.2_Linux-amd64/
 ```
 - インストール
-root権限の場合は
 ```
-sudo sh install.sh
+sudo sh install.sh # root権限の場合
+sh install.sh # ユーザ権限の場合
 ```
-ユーザ権限の場合は
+
+- (必要があれば).bashrcを反映させてPathを通す
 ```
-sh install.sh
+source .bashrc
 ```
 
 - 動作確認。格子定数4.02ÅでFCC構造のAlの構造ファイル.xsfを作成する。各原子の座標が記載されたXSFファイルが作成される
