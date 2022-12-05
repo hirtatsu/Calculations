@@ -10,7 +10,38 @@ python3 --version
 ```
 sudo apt install python3-pip
 ```
-- (必要があれば) Python仮想環境のためのツールvenvをインストール
+- Python仮想環境作成のためのツールvenvをインストール
 ```
 sudo apt install python3-venv
 ```
+
+### 仮想環境の作成とパッケージのインストール
+- 仮想環境「test-env」を作成する
+```
+python3 -m venv /home/ユーザ名/test-env/
+```
+
+- 仮想環境「test-env」をActivateする
+```
+source /home/ユーザ名/test-env/bin/activate
+
+- (必要あれば) pipをupgradeする
+```
+pip install --upgrade pip
+```
+
+- パッケージをインストールする(例: numpy, pandas, matplotlibをインストールする)
+```
+pip install numpy pandas matplotlib
+```
+
+- インストール済みのパッケージを表示する
+```
+pip list
+```
+
+- 仮想環境をDeactivateする
+```
+deactivate
+```
+
