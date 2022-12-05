@@ -4,19 +4,27 @@ MDで計算するモデルを簡単に作成するためのソフトウェア。
 公式は[こちら](https://atomsk.univ-lille.fr/tutorial_install.php)
 
 ### Ubuntuへのインストール
-- 必要なパッケージのインストール
+- 必要なファイルのダウンロード [https://atomsk.univ-lille.fr/dl.php](https://atomsk.univ-lille.fr/dl.php)。WSL環境の場合は、Linux amd64
+(64 bits)を選べばよい。その場合は以下。
 ```
-sudo apt install make gfortran liblapack-dev
+cd
+wget https://atomsk.univ-lille.fr/code/atomsk_b0.11.2_Linux-amd64.tar.gz
+```
+- 解凍してディレクトリに入る
+```
+tar -xzvf atomsk_b0.11.2_Linux-amd64.tar.gz
+cd atomsk_b0.11.2_Linux-amd64/
+```
+- インストール
+root権限の場合は
+```
+sudo sh install.sh
+```
+ユーザ権限の場合は
+```
+sh install.sh
 ```
 
-- .debファイルのダウンロード [https://atomsk.univ-lille.fr/dl.php](https://atomsk.univ-lille.fr/dl.php)
-```
-wget https://atomsk.univ-lille.fr/code/atomsk_b0.11.2_amd64.deb
-```
-- 解凍・インストール
-```
-sudo dpkg -i atomsk_b0.11.2_amd64.deb
-```
 - 動作確認。格子定数4.02ÅでFCC構造のAlの構造ファイル.xsfを作成する。各原子の座標が記載されたXSFファイルが作成される
 ```
 atomsk --create fcc 4.02 Al aluminium.xsf
