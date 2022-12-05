@@ -2,6 +2,7 @@
 ### WSL2環境の準備
 - [WSL2のインストール](./WSL2_installation/README.md)
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
+- [Pythonの環境構築](./Python_installation/README.md)
 
 ### 研究室の計算サーバへの接続
 - [接続方法](./Howtoaccess_server/README.md)
