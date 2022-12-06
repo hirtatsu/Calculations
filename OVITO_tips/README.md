@@ -26,4 +26,4 @@
 - 初期座標をエクスポートする。0stepを表示しながら、File -> ExportFile。ファイル名:「0」、LAMMPS Dump File形式、Current flame Onlyとして、SelectAllでエクスポートする
 - Add modification -> Displacement Vectorsを選ぶ。Refrece configuration sourceにExternal fileを選択し、フォルダアイコンからエクスポートした0stepのデータを読み込む
 - File -> Export File。ファイル名:「disp_mag.*」、LAMMPS Dump File形式、Range: 全フレーム＆File sequence、Select allでOK。各フレームにおける全原子の座標とDisplacementが出力される
-- Pythonスクリプトでデータ解析する
+- Python等でデータ解析する
