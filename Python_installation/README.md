@@ -50,3 +50,29 @@ pip list
 deactivate
 ```
 
+## WindowsのVSCodeで、WSL上のVenvを使ったPython仮想環境を使えるようにする
+### VSCodeのインストール
+[https://azure.microsoft.com/ja-jp/products/visual-studio-code/](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)
+
+### 拡張機能のインストール
+- Python
+- WSL
+
+### WSLからWindows上のVSCodeを立ち上げる
+- 試しにWSL上の任意の場所に、test.pyを作成する
+```
+echo "print('hello world')" > test.py
+```
+
+- VSCodeを立ち上げる
+```
+code test.py
+```
+自動的にWindows上でVScodeでtest.pyが開かれる
+
+- WSL上で使うPythonを選ぶ。画面右下、「Pythonインタープリタを選択？」をクリック。「＋インタープリターパスを入力」にvenvで構築した仮想環境のパスを指定する。上述の通りであれば以下。
+```
+/home/ユーザ名/test-venv/bin/
+```
+- 完了
+
