@@ -22,3 +22,8 @@
 - 複数のSliceを駆使して任意の箇所のみを可視化することも
 
 ### MSD (Mean Square Displacement)を計算する
+- dumpファイルを開く
+- 初期座標をエクスポートする。0stepを表示しながら、File -> ExportFile。LAMMPS Dump File形式、Current flame Onlyとして、SelectAllでエクスポートする
+- Add modification -> Displacement Vectorsを選ぶ。Refrece configuration sourceにExternal fileを選択し、フォルダアイコンからエクスポートした0stepのデータを読み込む
+- File -> Export File。LAMMPS Dump File形式、Range: 全フレーム＆File sequence、Select allでOK。各フレームにおける全原子の座標とDisplacementが出力される
+- 
