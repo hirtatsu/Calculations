@@ -25,6 +25,11 @@ python3 -m venv /home/ユーザ名/test-env/
 ```
 source /home/ユーザ名/test-env/bin/activate
 ```
+- WSL起動時に自動的に仮想環境が立ち上がるようにするためには、.bashrcの最後に以下を記載する
+```
+source /home/ユーザ名/test-env/bin/activate
+```
+
 - (必要あれば) pipをupgradeする
 ```
 pip install --upgrade pip
