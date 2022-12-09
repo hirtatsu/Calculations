@@ -50,3 +50,9 @@ rsync -ahvn ./dir1/ ./dir2/ --exclude 'XXX' --exclude 'YYY' --exclude 'ZZZ'
 ```
 rsync -ahv ./dir1/ ./dir2/ --exclude 'XXX' --exclude 'YYY' --exclude 'ZZZ'
 ```
+
+### find + sed で一斉置換
+```
+# 対象ファイルをファイル名のパターンで限定する場合は find にオプションを
+find . -type f -name "*.txt" -print0 | xargs -0 sed -i -e "s/hoge/HOGE/"
+```
