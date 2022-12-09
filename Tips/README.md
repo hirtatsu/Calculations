@@ -40,3 +40,13 @@ df -h
 ```
 find . -name "*.jpg" | xargs -I {} cp {} ./temp
 ```
+
+### 特定のディレクトリやファイルを除いて、dir1以下をサブディレクトリ含めてdir2に一括してコピーする
+- まずは実行せずに確認だけ
+```
+rsync -ahvn ./dir1/ ./dir2/ --exclude 'XXX' --exclude 'YYY' --exclude 'ZZZ'
+```
+- 問題なければ実行する (オプションのnを消す)
+```
+rsync -ahv ./dir1/ ./dir2/ --exclude 'XXX' --exclude 'YYY' --exclude 'ZZZ'
+```
