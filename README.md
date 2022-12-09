@@ -18,7 +18,7 @@
 
 ### モデリングと可視化
 - [Atomskのインストールと使い方](./Atomsk_installation/README.md)
-- [OVITOのTips](./OVITO_tips/README.md)
+- [OVITOの使い方メモ](./OVITO_tips/README.md)
 
 
 ### 密度汎関数(DFT)理論に基づく第一原理計算ソフトウェア: OpenMX
