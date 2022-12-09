@@ -27,3 +27,9 @@
 - Add modification -> Displacement Vectorsを選ぶ。Refrece configuration sourceにExternal fileを選択し、フォルダアイコンからエクスポートした0stepのデータを読み込む
 - File -> Export File。ファイル名:「disp_mag.*」、LAMMPS Dump File形式、Range: 全フレーム＆File sequence、Select allでOK。各フレームにおける全原子の座標とDisplacementが出力される
 - Python等でデータ解析する
+
+### 結晶粒の可視化
+- データのimport
+- Add modification -> Modification -> Wrap at Periodic Boundaries
+- Add modification -> Structure Identification -> Polyheral template matching (Lattice Orientationsにチェックを入れること)
+- Add modification -> Analysis -> Grain segmentation
