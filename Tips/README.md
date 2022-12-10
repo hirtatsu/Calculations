@@ -53,6 +53,6 @@ rsync -ahv ./dir1/ ./dir2/ --exclude 'XXX' --exclude 'YYY' --exclude 'ZZZ'
 
 ### find + sed で一斉置換
 ```
-# 対象ファイルをファイル名のパターンで限定する場合は find にオプションを
+# ファイル名のパターンで対象ファイルを検索し、中身の文字列hogeをHOGEに買い替える
 find . -type f -name "*.txt" -print0 | xargs -0 sed -i -e "s/hoge/HOGE/"
 ```
