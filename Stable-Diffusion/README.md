@@ -11,11 +11,16 @@
 - [https://www.nvidia.co.jp/Download/index.aspx?lang=jp](https://www.nvidia.co.jp/Download/index.aspx?lang=jp)
 - Game ReadyとStudio、どっちでもOK。Studioの方が安定してる？？
 ### NVIDIA CUDA ToolkitをUbuntu上にインストール
-- WSL上のUbuntu上でnvidia-cuda-toolkitをインストール
+- WSL上のUbuntu上でnvidia-cuda-toolkitをインストール -> [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)
+(Operating System: Linux, Architecture: x86_64, Distribution: WSL-Ubuntu, Version: 2.0, Installer Type: どれでも)
+
+- インストールされているか確認する
 ```
-sudo apt update
-sudo apt upgrade
-sudo apt install nvidia-cuda-toolkit
+nvidia-smi
+```
+- nvccも
+```
+nvcc --version
 ```
 
 ### Stable Diffusion WebUI の設定
