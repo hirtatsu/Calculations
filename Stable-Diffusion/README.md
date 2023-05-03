@@ -71,7 +71,7 @@ cd ~/stable-diffusion-webui/
 ![image](https://user-images.githubusercontent.com/64639043/235908725-6deb7a0f-2e16-4354-ad17-a3a402ef52a7.png)
 
 ### VAEを設定する
-VAEとは、Variasional Auto Encorderの略で、画像をきれいにするのに役立つのだとか。
+VAEとは、Variasional Auto Encorderの略で、潜在空間と画像を変換するアルゴリズムのこと。画像の質が変化する。
 - モデルと生成したい画像に適したVAEファイルをダウンロードしてくる。例えば[ここ](https://huggingface.co/)から。
 ![image](https://user-images.githubusercontent.com/64639043/235912275-83f80a4f-8f1a-4b47-9514-a12e57f67f4f.png)
 
