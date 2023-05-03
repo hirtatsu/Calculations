@@ -18,7 +18,7 @@ sudo apt upgrade
 sudo apt install nvidia-cuda-toolkit
 ```
 
-### Stable Diffusion WebUI のインストール
+### Stable Diffusion WebUI の設定
 - ユーザーの home ディレクトリで git clone コマンドを実行する
 ```
 cd
@@ -35,7 +35,13 @@ export COMMANDLINE_ARGS="--xformers"
 wget https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors
 ```
 
-### 
-- 
+### Stable Diffusion WebUIの実行（初回はインストールも）
+```
+cd ~/stable-diffusion-webui
+./webui.sh
+```
+- 表示されたアドレスをコピーしてブラウザで開く
+
+
 
 
