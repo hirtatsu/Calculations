@@ -71,6 +71,17 @@ cd ~/stable-diffusion-webui/
 ![image](https://user-images.githubusercontent.com/64639043/235908725-6deb7a0f-2e16-4354-ad17-a3a402ef52a7.png)
 
 ### VAEを設定する
+VAEとは、Variasional Auto Encorderの略で、画像をきれいにするのに役立つのだとか。
+- モデルと生成したい画像に適したVAEファイルをダウンロードしてくる。例えば[ここ](https://huggingface.co/)から。
+![image](https://user-images.githubusercontent.com/64639043/235912275-83f80a4f-8f1a-4b47-9514-a12e57f67f4f.png)
+
+- ダウンロードしてきたファイルを、~/stable-diffusion-webui/models/VAEに移動する
+```
+cp /mnt/c/Users/(ユーザー名)/Downloads/(ダウンロードしたVAEファイル名) ~/stable-diffusion-webui/models/VAE/
+```
+- Stable diffusion Webuiを再起動したのち、Settings -> Stable Diffusion -> SD VAEから選択する
+![image](https://user-images.githubusercontent.com/64639043/235913475-a2516b59-070b-43b8-a032-d3faee183808.png)
+
 
 
 
