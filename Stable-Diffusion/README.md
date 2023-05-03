@@ -49,10 +49,28 @@ cd ~/stable-diffusion-webui
 - ブラウザ上で画像が生成できる！
 
 ## 画像の生成
-好みの画像を生成してみよう
+好みの画像を生成してみよう。そのためには、生成した画像に適した学習済みモデルと、起動オプション設定が必要。
 
-### 生成した画像に適した学習済みモデルをダウンロードしてくる。
+### 生成した画像に適した学習済みモデルをダウンロードしてくる
+例として、リアル系で有名なモデル(Realistic_Vision)を適用してみる。
 
+- モデルを配布しているWebサイト(例：[https://huggingface.co/](https://huggingface.co/))にアクセスし、検索欄からRealistic_Vision_V2.0を探して、ダウンロード。（safetensorsと記載のあるものが安全っぽい）
+ ![image](https://user-images.githubusercontent.com/64639043/235906592-7d76c4c7-20e7-411d-bb9b-05666cab0b94.png)
+
+- ダウンロードしたファイルを、~/stable-diffusion-webui/models/Stable-diffusion/に移動する
+```
+cd /mnt/c/Users/(ユーザー名)/Download/(ダウンロードしたモデルファイル名) ~/stable-diffusion-webui/models/Stable-diffusion/
+```
+- 再度Stable Diffusionを起動する
+```
+cd ~/stable-diffusion-webui/
+./webui.sh
+```
+- 表示されたアドレスをブラウザで開く
+- 使われているモデルを確認する。画面左上に現在使っているモデルが表示される。今回入手したモデルが表示されていれば成功！
+![image](https://user-images.githubusercontent.com/64639043/235908725-6deb7a0f-2e16-4354-ad17-a3a402ef52a7.png)
+
+### VAEを設定する
 
 
 
