@@ -1,7 +1,7 @@
 # Stable Diffusion
 画像生成AIを使ってみましょう
 
-## Stable Diffusionのインストール
+## Stable Diffusionのインストールと起動
 ### 環境
 - Windows11のWSL2上のUbuntu 22.04.2 LTS
 - GPUはNVIDIA RTX3060 12GB
@@ -34,7 +34,7 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 export COMMANDLINE_ARGS="--xformers"
 ```
 
-### 学習済みモデルのダウンロード
+### とりあえず適当な学習済みモデルのダウンロード
 - 以下のコマンドを入力
 ```
 wget https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors
@@ -46,6 +46,12 @@ cd ~/stable-diffusion-webui
 ./webui.sh
 ```
 - 表示されたアドレスをコピーしてブラウザで開く
+- ブラウザ上で画像が生成できる！
+
+## 画像の生成
+好みの画像を生成してみよう
+
+### 生成した画像に適した学習済みモデルをダウンロードしてくる。
 
 
 
