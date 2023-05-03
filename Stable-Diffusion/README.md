@@ -5,15 +5,37 @@
 ### 環境
 - Windows11のWSL2上のUbuntu 22.04.2 LTS
 - GPUはNVIDIA RTX3060 12GB
+- あらかじめUbuntu上にPython環境を構築しておくこと
 
 ### NVIDIA GPUのドライバをWindows上にインストール
 - [https://www.nvidia.co.jp/Download/index.aspx?lang=jp](https://www.nvidia.co.jp/Download/index.aspx?lang=jp)
 - Game ReadyとStudio、どっちでもOK。Studioの方が安定してる？？
 ### NVIDIA CUDA ToolkitをUbuntu上にインストール
 - WSL上のUbuntu上でnvidia-cuda-toolkitをインストール
-'''
+```
 sudo apt update
 sudo apt upgrade
 sudo apt install nvidia-cuda-toolkit
-'''
+```
+
+### Stable Diffusion WebUI のインストール
+- ユーザーの home ディレクトリで git clone コマンドを実行する
+```
+cd
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+```
+- webui_user.sh の編集（xformers を有効にするために、webui-user.sh 内の COMMANDLINE_ARGS の先頭の # を消して有効にして、xformers のオプションを入力する
+```
+export COMMANDLINE_ARGS="--xformers"
+```
+
+### 学習済みモデルのダウンロード
+- 以下のコマンドを入力
+```
+wget https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors
+```
+
+### 
+- 
+
 
