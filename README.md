@@ -54,7 +54,7 @@
 - [Gitの設定](./Git/README.md)
 
 ### AI画像生成 (Stable Diffusion)
-- [Stable Diffusionのインストール](./Calculations/Stable-Diffusion/README.md)
+- [Stable Diffusionのインストール](./Stable-Diffusion/README.md)
 
 
 ### Dockerの準備いろいろ
