@@ -37,12 +37,8 @@ export COMMANDLINE_ARGS="--xformers"
 ### とりあえず適当な学習済みモデルのダウンロード
 - 以下のコマンドを入力
 ```
-cd
-wget https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.safetensors
-```
-- ダウンロードしたファイルを、モデルを格納するディレクトリに移動する
-```
-mv ./v2-1_768-ema-pruned.safetensors ~/stable-diffusion/models/Stable-diffusion
+cd ~/stable-diffusion-webui/models/Stable-diffusion/
+wget https://huggingface.co/stabilityai/stable-diffusion-2-1-base/resolve/main/v2-1_512-ema-pruned.safetensors
 ```
 
 ### Stable Diffusion WebUIの実行（初回はインストールも）
