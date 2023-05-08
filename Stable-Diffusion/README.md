@@ -29,7 +29,7 @@ nvcc --version
 cd
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 ```
-- webui_user.sh の編集（xformers を有効にするために、webui-user.sh 内の COMMANDLINE_ARGS の先頭の # を消して有効にして、xformers のオプションを入力する
+- webui-user.sh の編集（xformers を有効にするために、webui-user.sh 内の COMMANDLINE_ARGS の先頭の # を消して有効にして、xformers のオプションを入力する
 ```
 export COMMANDLINE_ARGS="--xformers"
 ```
