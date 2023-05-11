@@ -44,6 +44,9 @@
 
 ## 2次元画像から3次元構造予測 (GAN: 敵対的生成ネットワーク)
 - [SliceGAN](https://github.com/hirtatsu/SliceGAN)
+
+### AI画像生成 (Stable Diffusion)
+- [Stable Diffusionのインストール](./Stable-Diffusion/README.md)
 ---
  
 ## 研究室計算サーバ構築
@@ -53,10 +56,6 @@
 ## その他
 - [もろもろTips](./Tips/README.md)
 - [Gitの設定](./Git/README.md)
-
-### AI画像生成 (Stable Diffusion)
-- [Stable Diffusionのインストール](./Stable-Diffusion/README.md)
-
 
 ### Dockerの準備いろいろ
 - [Docker上でのLinux環境構築１](./Docker/Docker_tutorial2/README.md)
