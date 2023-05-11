@@ -31,29 +31,29 @@
 - [OpenMXを使ったDFT計算1 (Inputファイルの作成)](./OpenMX/OpenMX_calculation/README.md)
 - [OpenMXを使ったDFT計算2 (計算の実行)](./OpenMX/OpenMX_calculation2/README.md)
 
-## スパコンを使ってもっと本格的な材料計算を行いたい方
+### スパコンを使ってもっと本格的な材料計算を行いたい方
 - [阪大スパコンSquidでのOpenMXコンパイル](./OpenMX/OpenMX_installation2/README.md)
 
 
-## (とりあえず材料科学計算に触れてみたい方)
+### (とりあえず材料科学計算に触れてみたい方)
 - [MateriApps LIVE!のインストール](./MateriAppsLive_installation/README.md)
 
 
-## 有料ライセンスソフトウェア（研究室学生向け）
+### 有料ライセンスソフトウェア（研究室学生向け）
 - [ANSYSのインストール](./ANSYS_installation/README.md)
 
-## 2次元画像から3次元構造予測 (GAN: 敵対的生成ネットワーク)
+### 2次元画像から3次元構造予測 (GAN: 敵対的生成ネットワーク)
 - [SliceGAN](https://github.com/hirtatsu/SliceGAN)
 
 ### AI画像生成 (Stable Diffusion)
 - [Stable Diffusionのインストール](./Stable-Diffusion/README.md)
 ---
  
-## 研究室計算サーバ構築
+### 研究室計算サーバ構築
 - [sshの初期設定](./SSH_installation/README.md)
 - [Linux上へのDockerのインストール](./Docker/Docker_installation1/README.md)
 
-## その他
+### その他
 - [もろもろTips](./Tips/README.md)
 - [Gitの設定](./Git/README.md)
 
@@ -61,4 +61,3 @@
 - [Docker上でのLinux環境構築１](./Docker/Docker_tutorial2/README.md)
 - [Docker上でのLinux環境構築３ (NVIDIA Container Toolkitを用いたコンテナの作成)](./Docker/Docker_tutorial4/README.md)
 
-test test test
