@@ -42,7 +42,8 @@
 ## 有料ライセンスソフトウェア（研究室学生向け）
 - [ANSYSのインストール](./ANSYS_installation/README.md)
 
-
+## 2次元画像から3次元構造予測 (GAN: 敵対的生成ネットワーク)
+- [SliceGAN](https://github.com/hirtatsu/SliceGAN)
 ---
  
 ## 研究室計算サーバ構築
