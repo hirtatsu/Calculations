@@ -84,5 +84,7 @@ cp /mnt/c/Users/(ユーザー名)/Downloads/(ダウンロードしたVAEファ�
 ![image](https://user-images.githubusercontent.com/64639043/235913475-a2516b59-070b-43b8-a032-d3faee183808.png)
 
 
-
-
+### 画像を生成してみる
+- Prompt欄に、作成したい画像の情報を入力する
+- Negative prompt欄に、作成したくない画像の情報を入力する
+- 画像サイズの標準は512x512 pixels。例えば縦長が良ければ768 x 512 pixelsなど。サイズによって生成される画像が変化することに注意。Stable Diffusionのモデルは512x512で学習しているんだとか。なので、むやみに大きなサイズの画像を生成すると、変な画像ができあがる可能性大。
