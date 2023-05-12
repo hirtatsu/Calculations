@@ -46,7 +46,7 @@
 - [SliceGAN](https://github.com/hirtatsu/SliceGAN)
 
 ### AI画像生成 (Stable Diffusion)
-- [Stable Diffusionのインストール](./Stable-Diffusion/README.md)
+- [Stable Diffusion](./Stable-Diffusion/README.md)
 ---
  
 ### 研究室計算サーバ構築
