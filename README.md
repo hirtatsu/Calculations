@@ -3,6 +3,7 @@
 - [WSL2のインストール](./WSL2_installation/README.md)
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
 - [Pythonの環境構築](./Python_installation/README.md)
+- [MPI環境の構築](./MPI/README.md)
 
 ### Mac環境の準備
 - [Homebrewのインストール](./Homebrew_installation/README.md)
