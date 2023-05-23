@@ -65,24 +65,6 @@ sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi
 
 
 ## LAMMPSのインストール
-### Intel oneapiで入手したコンパイラのPATHを通す
-```
-cd
-vim .bashrc
-```
-で開いて、最後に行を追加して以下を入力して保存する。
-```
-source /opt/intel/oneapi/setvars.sh
-```
-そして、以下のコマンドでPATHを反映させる。
-```
-source .bashrc
-```
-ちゃんとインストールできたか確認する。バージョンとか表示されればOK。
-```
-icc -v
-```
-
 
 ### MD用ディレクトリを作成して移動
 ```
