@@ -47,3 +47,9 @@ export PATH=/usr/local/cuda-11.8/bin:$PATH
 ```
 source .bashrc
 ```
+
+- インストールされたか確認
+```
+nvidia-smi
+nvcc --version
+```
