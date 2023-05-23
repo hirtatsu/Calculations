@@ -94,9 +94,9 @@ cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=i
 ```
 cmake ../cmake/presets/basic.cmake -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
 ```
-コンパイルして生成されるファイル名は通常「lmp」。もし「lmp_XXX」にしたい場合は
+コンパイルして生成されるファイル名は通常「lmp」。もし「lmp_XXX」にしたい場合は、上記cmakeするときに、以下を追加しておくこと
 ```
-cmake ../cmake/presets/basic.cmake -D LAMMPS_MACHINE=xxx, ....
+-D LAMMPS_MACHINE=xxx
 ```
 にする。
 
