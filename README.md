@@ -4,6 +4,7 @@
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
 - [Pythonの環境構築](./Python_installation/README.md)
 - [MPI環境の構築](./MPI/README.md)
+- [GPU環境の構築](./GPGPU/README.md)
 
 ### Mac環境の準備
 - [Homebrewのインストール](./Homebrew_installation/README.md)
