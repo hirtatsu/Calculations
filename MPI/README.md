@@ -29,7 +29,6 @@ Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/dev
 
 を選択して、表示される'Command Line Download'に記載のコードをUbuntu上で実行する。
 すると、インストール画面が別ウインドウで立ち上がるので、画面の指示に従ってインストールする。
-(カスタムインストールを選択する場合は、Math Carnel Libraryを必ずインストールすること)
 
 続いて、[Intel oneAPI HPC Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html)をクリック。上と同様にインストールする。
 カスタムインストールにて、DPC++/C++ Compiler, MPI Library, Fortran Compilerをインストールする。
