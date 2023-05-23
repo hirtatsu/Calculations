@@ -1,4 +1,6 @@
 ## CUDA on WSLを使ってGPGPUでLAMMPS計算する
+### GPGPU環境を構築する
+[こちら](../../GPGPU/README.md)
 [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
 ### wslをUPDATEしておく。Powershell開いて以下入力する。
