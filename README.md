@@ -3,7 +3,8 @@
 - [WSL2のインストール](./WSL2_installation/README.md)
 - [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
 - [MPI環境の構築](./MPI/README.md)
-- [GPU環境の構築](./GPGPU/README.md)- [Pythonの環境構築](./Python_installation/README.md)
+- [GPU環境の構築](./GPGPU/README.md)
+- [Pythonの環境構築](./Python_installation/README.md)
 
 
 ### Mac環境の準備
