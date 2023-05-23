@@ -12,7 +12,7 @@ sudo apt install build-essential cmake -y
 ### (1) Intel OneAPIを使う場合
 ### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
 
-- Docker上のUbuntuなどグラフィック環境がない場合は[こちらの方法](../Docker_tutorial3/README.md)を参照してIntel oneAPIをインストールし、LAMMPSのインストールへ進む。
+- Docker上のUbuntuなどグラフィック環境がない場合は[こちらの方法](../Docker_tutorial3/README.md)を参照してIntel oneAPIをインストールする。
 
 - WSL上の場合は以下でいけるはず。
 
