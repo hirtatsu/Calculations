@@ -58,7 +58,7 @@ icc -v
 sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
                     libfftw3-dev libjpeg-dev libpng-dev python3-dev python3-pip \
                     python3-virtualenv libblas-dev liblapack-dev libhdf5-serial-dev \
-                    hdf5-tools clang-format
+                    hdf5-tools clang-format ffmpeg
 ```
 
 ---
