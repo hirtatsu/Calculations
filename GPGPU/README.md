@@ -40,7 +40,8 @@ vim .bashrc
 ```
 -一番最後の行に以下を追加
 ```
-export PATH=/usr/local/cuda-11.8/bin:$PATH
+export PATH=/usr/local/cuda-/bin:$PATH
+export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 ```
 -追記したら反映させる
 ```
