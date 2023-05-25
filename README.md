@@ -1,16 +1,16 @@
 ## 材料科学計算の進め方
 ### Windows(WSL2)環境の準備
-- [WSL2のインストール](./WSL2_installation/README.md)
-- [X Window Systemのセットアップ](./Xwindowsystem_installation/README.md)
-- [MPI環境の構築](./MPI/README.md)
-- [GPGPU環境の構築](./GPGPU/README.md)
-- [Pythonの環境構築](./Python_installation/README.md)
+- [WSL2のインストール](./Setting_WSL/WSL2_installation/README.md)
+- [X Window Systemのセットアップ](./Setting_WSL/Xwindowsystem_installation/README.md)
+- [MPI環境の構築](./Setting_WSL/MPI/README.md)
+- [GPGPU環境の構築](./Setting_WSL/GPGPU/README.md)
+- [Pythonの環境構築](./Setting_WSL/Python_installation/README.md)
 
 
 ### Mac環境の準備
-- [Homebrewのインストール](./Homebrew_installation/README.md)
-- [X Window Systemのセットアップ](./Xwindowsystem_mac_installation/README.md)
-- [Pythonの環境構築](./Python_mac_installation/README.md)
+- [Homebrewのインストール](./Setting_mac/Homebrew_installation/README.md)
+- [X Window Systemのセットアップ](./Setting_mac/Xwindowsystem_mac_installation/README.md)
+- [Pythonの環境構築](./Setting_mac/Python_mac_installation/README.md)
 
 ### 研究室の計算サーバへの接続
 - [接続方法](./Howtoaccess_server/README.md)
