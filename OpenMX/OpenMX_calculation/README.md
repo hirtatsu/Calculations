@@ -27,7 +27,7 @@ DATA.PATH			../DFT_DATA19
 - (1) 原子記号
 - (2) Pseudo-atomic orbitals (Cutoff半径): 
 OpenMXのHPの[Database](https://www.openmx-square.org/vps_pao2019/)を確認し、"Calculation of the total energy as a function of lattice constant in the diamond structure"のグラフの中で、比較的一致している曲線の中から電子数の少ない軌道を選ぶとよい。
-(3) Fully relativistic pseudopotentials:
+- (3) Fully relativistic pseudopotentials:
 同じくHPのDatabaseを見て、「*_PBE*」を選択する
 
 ```
