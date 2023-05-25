@@ -13,7 +13,7 @@
 - [Pythonの環境構築](./Setting_mac/Python_mac_installation/README.md)
 
 ### 研究室の計算サーバへの接続
-- [接続方法](./Howtoaccess_server/README.md)
+- [接続方法](./Server_setting/Howtoaccess_server/README.md)
 
 ### (必要あれば)Dockerの基本的な使い方とUbuntu環境(コンテナ)の構築
 - [Dockerの基本的な使い方](./Docker/Docker_tutorial1/README.md)
@@ -23,42 +23,37 @@
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
 - [LAMMPSのインストール1](./LAMMPS/LAMMPS_installation/README.md)
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS/LAMMPS_installation2/README.md)
-
-### モデリングと可視化
-- [Atomskのインストールと使い方](./Atomsk_installation/README.md)
-- [OVITOの使い方メモ](./OVITO_tips/README.md)
-
+- [Atomskのインストールと使い方](./LAMMPS/Atomsk_installation/README.md)
+- [OVITOの使い方メモ](./LAMMPS/OVITO_tips/README.md)
 
 ### 密度汎関数(DFT)理論に基づく第一原理計算ソフトウェア: OpenMX
 - [OpenMXのインストール](./OpenMX/OpenMX_installation/README.md)
 - [OpenMXを使ったDFT計算1 (Inputファイルの作成)](./OpenMX/OpenMX_calculation/README.md)
 - [OpenMXを使ったDFT計算2 (計算の実行)](./OpenMX/OpenMX_calculation2/README.md)
-
-### スパコンを使ってもっと本格的な材料計算を行いたい方
 - [阪大スパコンSquidでのOpenMXコンパイル](./OpenMX/OpenMX_installation2/README.md)
 
 
 ### (とりあえず材料科学計算に触れてみたい方)
-- [MateriApps LIVE!のインストール](./MateriAppsLive_installation/README.md)
+- [MateriApps LIVE!のインストール](./Others/MateriAppsLive_installation/README.md)
 
 
 ### 有料ライセンスソフトウェア（研究室学生向け）
-- [ANSYSのインストール](./ANSYS_installation/README.md)
+- [ANSYSのインストール](./Others/ANSYS_installation/README.md)
 
 ### 2次元画像から3次元構造予測 (GAN: 敵対的生成ネットワーク)
 - [SliceGAN](https://github.com/hirtatsu/SliceGAN)
 
 ### AI画像生成 (Stable Diffusion)
-- [Stable Diffusion](./Stable-Diffusion/README.md)
+- [Stable Diffusion](./GenerativeAI/Stable-Diffusion/README.md)
 ---
  
 ### 研究室計算サーバ構築
-- [sshの初期設定](./SSH_installation/README.md)
+- [sshの初期設定](./Server_setting/SSH_installation/README.md)
 - [Linux上へのDockerのインストール](./Docker/Docker_installation1/README.md)
 
 ### その他
-- [もろもろTips](./Tips/README.md)
-- [Gitの設定](./Git/README.md)
+- [もろもろTips](./Others/Tips/README.md)
+- [Gitの設定](./Others/Git/README.md)
 
 ### Dockerの準備いろいろ
 - [Docker上でのLinux環境構築１](./Docker/Docker_tutorial2/README.md)
