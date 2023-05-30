@@ -60,6 +60,7 @@ CC = mpiicc -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp -I${MKLROOT}/include/fft
 FC = mpiifort -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp
 LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lifcore
 ```
+
 ### makeする
 ```
 make -j
@@ -68,4 +69,27 @@ make -j
 最後に、以下で終わり。
 ```
 make install
+```
+## ジョブ投入方法
+### ジョブスクリプト
+- ジョブスクリプトファイル（ファイル名：openmx.sh）を作成する例。2ノード・1時間使用の場合。
+```
+#!/bin/bash
+#------- qsub option -----------
+#PBS -q SQUID            #バッチリクエストを投入するキュー名の指定
+#PBS --group=グループ名   #所属するグループ名
+#PBS -m b                #バッチリクエスト実行開始時にメールを送信
+#PBS -l cpunum_job=76    #使用するCPUコア数の要求値
+#PBS -T intmpi
+#PBS -b 2		 #使用するノード数
+#PBS -l elapstim_req=01:00:00   #ジョブの最大実行時間の要求値  1時間の例
+#PBS -v OMP_NUM_THREADS=76
+#------- Program execution -----------
+module load BaseCPU/2022 #ベース環境をロードします
+cd $PBS_O_WORKDIR        #qsub実行時のカレントディレクトリへ移動
+mpirun ${NQSV_MPIOPTS} -np 76 ./openmx in.dat -nt 2 > log.txt     #プログラムの実行
+```
+- 計算したいディレクトリにコンパイルしたopenmxファイル、インプットファイル、ジョブスクリプトファイルを格納したうえで
+```
+qsub openmx.sh
 ```
