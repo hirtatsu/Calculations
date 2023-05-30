@@ -51,7 +51,7 @@ mv kpoint.in ../work/
 ## OpenMXのコンパイル(阪大スパコンSquid用)
 ### スパコン側で標準で用意してくれている環境を呼び出す
 ```
-module load BaseCPU/2022
+module load BaseCPU/2023
 ```
 ### makefileを編集する
 openmx3.9/source3.9.9/makefileを次のように編集する。
