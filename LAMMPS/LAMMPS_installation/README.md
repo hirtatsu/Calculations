@@ -62,6 +62,22 @@ sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi
 
 ---
 
+## 前準備2 (VORONOIパッケージを使う場合)
+- [VORO++](https://math.lbl.gov/voro++/)をインストールする。上記のダウンロードページから、最新バージョンのダウンロードリンクをコピーしてくる。
+```
+cd
+wget https://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz
+tar -xvf voro++-0.4.6.tar.gz # 2023.6.10現在、Ver. 4.6が最新
+cd voro++-0.4.6
+make -j
+sudo make install
+```
+- PATHを通す。デフォルトでは/usr/local/binになっているはず。.bashrcの一番下あたりに以下を記入してから再起動。
+```
+export PATH=/usr/local/bin:$PATH
+```
+
+
 
 ## LAMMPSのインストール
 
@@ -84,10 +100,14 @@ cd lammps-23Jun2022
 mkdir build
 cd build
 ```
-### cmakeでMakefileを作成する(MPI, MANYBODYパッケージを追加)
+### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOIパッケージを追加)
 - Intel OneAPIを用いる場合
 ```
-cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
+cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes \
+-D DOWNLOAD_VORO=value    # download Voro++ for build, value = no (default) or yes \
+-D VORO_LIBRARY=path      # Voro++ library file (only needed if at custom location) \
+-D VORO_INCLUDE_DIR=path  # Voro++ include directory (only needed if at custom location)\
+-D ../cmake
 ```
 - GNUコンパイラを用いる場合
 ```
