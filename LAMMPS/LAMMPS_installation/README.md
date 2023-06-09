@@ -103,11 +103,7 @@ cd build
 ### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOIパッケージを追加)
 - Intel OneAPIを用いる場合
 ```
-cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes \
--D DOWNLOAD_VORO=value    # download Voro++ for build, value = no (default) or yes \
--D VORO_LIBRARY=path      # Voro++ library file (only needed if at custom location) \
--D VORO_INCLUDE_DIR=path  # Voro++ include directory (only needed if at custom location)\
--D ../cmake
+cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes ../cmake
 ```
 - GNUコンパイラを用いる場合
 ```
