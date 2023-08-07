@@ -1,6 +1,6 @@
 ### 計算結果の各種解析
 - log.txtファイルから、MD計算時のUtotデータを抽出して、テキストファイルとして出力する
 ```
-cat log.txt | grep "Utot  " | awk '{print $3}' > Utot_MD.txt
 # ①ログファイル開いて、②「Utot  」を含む行だけ抽出して、③該当する行の3列目(Utotの数値)のみ抽出して、④テキストファイルとして出力する
+cat log.txt | grep "Utot  " | awk '{print $3}' > Utot_MD.txt
 ```
