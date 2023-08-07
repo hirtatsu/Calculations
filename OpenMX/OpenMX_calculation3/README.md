@@ -16,3 +16,11 @@ gnuplot> exit
 
 ### AIScopeを用いた原子位置の可視化
 - AIScopeのダウンロード
+[AIScope](http://www-fps.nifs.ac.jp/ito/software/aiscope/index.html)
+
+- 可視化するファイルの編集 (.mdファイルを編集して.md3ファイルを作成する)
+```
+
+```
+
+- 
