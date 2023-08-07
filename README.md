@@ -31,7 +31,7 @@
 - [OpenMXを使ったDFT計算1 (Inputファイルの作成)](./OpenMX/OpenMX_calculation/README.md)
 - [OpenMXを使ったDFT計算2 (計算の実行)](./OpenMX/OpenMX_calculation2/README.md)
 - [阪大スパコンSquidでのOpenMXコンパイル](./OpenMX/OpenMX_installation2/README.md)
-
+- [核融合研スパコンPlasmaSimulatorでのOpenMX利用](./OpenMX/PlasmaSimulator/README.md)
 
 ### (とりあえず材料科学計算に触れてみたい方)
 - [MateriApps LIVE!のインストール](./Others/MateriAppsLive_installation/README.md)
