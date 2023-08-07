@@ -20,7 +20,8 @@ gnuplot> exit
 
 - 可視化するファイルの編集 (.mdファイルを編集して.md3ファイルを作成する)
 ```
-
+# .mdファイルの「Cell_Vectors=」を「\n(改行)BOX」で置換する
+sed s/Cell_Vectors=/\\nBOX/ result.md > result.md3
 ```
 
-- 
+- AIScopeで可視化する。AIScopeを開いて、.md3ファイルをドラッグアンドドロップ。
