@@ -30,6 +30,7 @@
 - [OpenMXのインストール](./OpenMX/OpenMX_installation/README.md)
 - [OpenMXを使ったDFT計算1 (Inputファイルの作成)](./OpenMX/OpenMX_calculation/README.md)
 - [OpenMXを使ったDFT計算2 (計算の実行)](./OpenMX/OpenMX_calculation2/README.md)
+- [OpenMXを使ったDFT計算3 (計算結果の解析)](./OpenMX/OpenMX_calculation3/README.md)
 - [阪大スパコンSquidでのOpenMXコンパイル](./OpenMX/OpenMX_installation2/README.md)
 - [核融合研スパコンPlasmaSimulatorでのOpenMX利用](./OpenMX/PlasmaSimulator/README.md)
 
