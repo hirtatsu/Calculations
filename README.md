@@ -43,6 +43,7 @@
 
 ### 2次元画像から3次元構造予測 (GAN: 敵対的生成ネットワーク)
 - [SliceGAN](https://github.com/hirtatsu/SliceGAN)
+- [Image preprocessing for SliceGAN](https://github.com/hirtatsu/Calculations/SliceGAN/README.md)
 
 ### AI画像生成 (Stable Diffusion)
 - [Stable Diffusion](./GenerativeAI/Stable-Diffusion/README.md)
