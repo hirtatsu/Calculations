@@ -1,4 +1,4 @@
-# Preprocess for SliceGAN training
+# SliceGAN training procedure
 
 ### Image processing
 - Open an image by ImageJ.
@@ -18,5 +18,6 @@
 
 ### Train by SliceGAN
 ```
-python run_slicegan_64model.py 1
+python run_slicegan_64model 1 # 通常解像度
+python run_slicegan_128model 1 # 高解像度
 ```
