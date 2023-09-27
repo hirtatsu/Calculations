@@ -8,3 +8,15 @@
 - Process -> Filters -> Median -> radius 3.0 pixels -> OK
 - Image -> Adjust -> Threshold -> [x] Dark background, [ ] Stack histogram, [x] Don't reset range, [ ] Raw values -> Auto -> Apply
 - Save as -> Tiff
+
+### Store the preprocessed image file
+- Make a directory as "./SliceGAN_mod/Trained_Generators/Project_dirname/Project_name/"
+    - Project_dir = "Trained_Generators/Project_dirname"
+    - Project_name = "Project_name"
+- Copy the tiff file at "./SliceGAN_mod/Examples/XX/"
+    - data_path = "Examples/XX/XXXXX.tif"
+
+### Train by SliceGAN
+```
+python run_slicegan_64model.py 1
+```
