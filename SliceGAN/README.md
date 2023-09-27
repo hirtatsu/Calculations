@@ -3,6 +3,7 @@
 ### Image processing
 - Open an image by ImageJ.
 - Image -> Type -> 8bit
+- Measure scale bar to know the scale information of "um/pixel"
 - Select area by "Rectangle tool" as a square of 800x800 pixels (Use shift key).
 - Image -> Crop
 - Process -> Filters -> Median -> radius 3.0 pixels -> OK
