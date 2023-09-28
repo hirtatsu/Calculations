@@ -4,7 +4,7 @@
 - Open an image by ImageJ.
 - Image -> Type -> 8bit
 - Measure scale bar to know the scale information of "um/pixel"
-- Select area by "Rectangle tool" as a square of 800x800 pixels (Use shift key).
+- Select area by "Rectangle tool" as a square of 880x880 pixels (Use shift key), with left-top as origin.
 - Image -> Crop
 - Process -> Filters -> Median -> radius 3.0 pixels -> OK
 - Image -> Adjust -> Threshold -> [x] Dark background, [ ] Stack histogram, [x] Don't reset range, [ ] Raw values -> Auto -> Apply
