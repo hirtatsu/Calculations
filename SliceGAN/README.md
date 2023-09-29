@@ -38,7 +38,6 @@
     - Summary
     - Results
     - Overlay image
-        - Right click -> Control panel -> Save as -> Tiff
 
 ### Store the preprocessed image file
 - Make a directory as "./SliceGAN_mod/Trained_Generators/Project_dirname/Project_name/"
