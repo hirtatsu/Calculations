@@ -26,7 +26,14 @@
     - Size: 0-Infinity
     - Circularity:0.0-1.0
     - Show: Overlay
-    - [x] Display results, [x] Clear results, [x] Summarize, [ ] Add to Manager, [ ] Exclude on edges, [ ] Include holes, [ ] Overlay, [ ] Composite ROIs
+    - [x] Display results
+    - [x] Clear results
+    - [x] Summarize
+    - [ ] Add to Manager
+    - [ ] Exclude on edges
+    - [ ] Include holes
+    - [ ] Overlay
+    - [ ] Composite ROIs
 - Save
     - Summary
     - Results
