@@ -7,8 +7,12 @@
 - Analyze -> Set Scale
 - Select area by "Rectangle tool" as a square of 880x880 pixels (Use shift key), with left-top as origin.
 - Image -> Crop
-- Process -> Filters -> Median -> radius 3.0 pixels -> OK
-- Image -> Adjust -> Threshold -> [x] Dark background, [ ] Stack histogram, [x] Don't reset range, [ ] Raw values -> Auto -> Apply
+- Process -> Filters -> Median -> radius 3.0 pixels (x1000), 1.3 pixels (x300) -> OK
+- Image -> Adjust -> Threshold -> [x] Dark background, [x] Stack histogram, [x] Don't reset range, [ ] Raw values -> Threshold adjustment -> Apply
+    - memo for threshold values (x300, x1000)
+        - 58Bi: Auto, Auto
+        - 40Bi: Auto, threshold=193
+        - 20Bi: threshold=193, 193
 - Save as -> Tiff
 
 ### Image analysis by ImageJ
