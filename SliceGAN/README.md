@@ -8,7 +8,12 @@
 - Select area by "Rectangle tool" as a square of 880x880 pixels (Use shift key), with left-top as origin.
 - Image -> Crop
 - Process -> Filters -> Median -> radius 3.0 pixels (x1000), 1.3 pixels (x300) -> OK
-- Image -> Adjust -> Threshold -> [x] Dark background, [x] Stack histogram, [x] Don't reset range, [ ] Raw values -> Threshold adjustment -> Apply
+- Image -> Adjust -> Threshold
+        [x] Dark background
+        [ ] Stack histogram
+        [ ] Don't reset range
+        [ ] Raw values
+  -> Threshold adjustment -> Apply
     - memo for threshold values (x300, x1000)
         - 58Bi: Auto, Auto
         - 40Bi: Auto, threshold=193
@@ -26,22 +31,21 @@
         - Aspect ratio (AR)
         - Roundness
     - Area fraction
-- Analyze Particles
+- Analyze -> Analyze Particles
     - Size: 0-Infinity
     - Circularity:0.0-1.0
-    - Show: Overlay
+    - Show: Outlines
     - [x] Display results
     - [x] Clear results
-    - [x] Summarize
+    - [ ] Summarize
     - [ ] Add to Manager
     - [ ] Exclude on edges
     - [ ] Include holes
     - [ ] Overlay
     - [ ] Composite ROIs
 - Save
-    - Summary
     - Results
-    - Overlay image
+    - Outline image
 
 ### Store the preprocessed image file
 - Make a directory as "./SliceGAN_mod/Trained_Generators/Project_dirname/Project_name/"
