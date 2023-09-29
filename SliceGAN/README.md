@@ -7,7 +7,6 @@
 - Analyze -> Set Scale
 - Select area by "Rectangle tool" as a square of 880x880 pixels (Use shift key), with left-top as origin.
 - Image -> Crop
-![Crop image](SliceGAN/Crop.tif)
 - Process -> Filters -> Median -> radius 3.0 pixels -> OK
 - Image -> Adjust -> Threshold -> [x] Dark background, [ ] Stack histogram, [x] Don't reset range, [ ] Raw values -> Auto -> Apply
 - Save as -> Tiff
