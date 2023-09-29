@@ -8,7 +8,7 @@
 - Select area by "Rectangle tool" as a square of 880x880 pixels (Use shift key), with left-top as origin.
 - Image -> Crop
 
-![crop](SliceGAN/Threshold.png "Threshold")
+![crop](Threshold.png "Threshold")
 
 
 - Process -> Filters -> Median -> radius 3.0 pixels (x1000), 1.3 pixels (x300) -> OK
