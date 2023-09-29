@@ -44,8 +44,8 @@
     - [ ] Overlay
     - [ ] Composite ROIs
 - Save
-    - Results
-    - Outline image
+    - Results (csv file)
+    - Outline image (capture)
 
 ### Store the preprocessed image file
 - Make a directory as "./SliceGAN_mod/Trained_Generators/Project_dirname/Project_name/"
