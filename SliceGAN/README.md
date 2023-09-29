@@ -9,11 +9,10 @@
 - Image -> Crop
 - Process -> Filters -> Median -> radius 3.0 pixels (x1000), 1.3 pixels (x300) -> OK
 - Image -> Adjust -> Threshold
-        [x] Dark background
-        [ ] Stack histogram
-        [ ] Don't reset range
-        [ ] Raw values
-  -> Threshold adjustment -> Apply
+    - [x] Dark background
+    - [ ] Stack histogram
+    - [ ] Don't reset range
+    - [ ] Raw values          -> Threshold adjustment -> Apply
     - memo for threshold values (x300, x1000)
         - 58Bi: Auto, Auto
         - 40Bi: Auto, threshold=193
