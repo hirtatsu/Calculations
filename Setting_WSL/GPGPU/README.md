@@ -59,4 +59,6 @@ nvcc --version
 インストール方法は公式マニュアル見てなんとかする。
 
 [https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
+
+
 [https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
