@@ -53,3 +53,7 @@ source .bashrc
 nvidia-smi
 nvcc --version
 ```
+
+
+### WSLのUbuntu上でCuDNNを準備する
+[https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
