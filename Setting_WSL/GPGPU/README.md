@@ -81,3 +81,20 @@ sudo apt install zlib1g
 
 - NVIDIA CuDNN Download
 [NVIDIA CuDNN Homepage](https://developer.nvidia.com/cudnn)
+
+- Copy the downloaded file to the home directory
+
+- Ubuntu22.04, CuDNN8.9.7.29, cuda12.1, then,
+```
+cd
+sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-*/cudnn-local-*-keyring.gpg /usr/share/keyrings/
+sudo apt update
+sudo apt install libcudnn8=8.9.7.29-1+cuda12.1
+```
+
+
+- Download (tar)
+- Copy
+- unpack
+- copy
