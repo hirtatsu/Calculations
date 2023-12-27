@@ -101,3 +101,19 @@ sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.g
 ```
 sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
 ```
+
+- Check libcudnn8 packages available
+```
+apt list libcudnn8 -a
+```
+
+- Installation
+```
+sudo apt install libcudnn8=8.9.7.29-1+cuda12.2
+sudo apt install libcudnn8-dev=8.9.7.29-1+cuda12.2
+sudo apt install libcudnn8-samples=8.9.7.29-1+cuda12.2
+```
+
+
+
+
