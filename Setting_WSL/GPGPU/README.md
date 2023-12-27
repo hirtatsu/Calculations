@@ -66,7 +66,7 @@ nvcc --version
 
 
 ## 3. CuDNN installation on WSL Ubuntu
-インストール方法は公式マニュアル見てなんとかする。
+インストール方法の詳細は公式マニュアル参照。
 
 [https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
 
