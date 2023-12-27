@@ -1,4 +1,5 @@
 ## CUDA on WSLを使ってGPGPUで計算する
+NVIDIA Driver installation -> CUDA Toolkits installation -> CuDNN installation
 
 ### wslをUPDATEしておく。Powershell開いて以下入力する。
 ```
