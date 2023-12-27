@@ -2,7 +2,7 @@
 
 3steps. Versions should be supported according to the [Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html?ncid=em-prod-337416).
 1. NVIDIA Driver installation
-2. CUDA Toolkit installation
+2. CUDA Toolkit installation. [Version archives](https://developer.nvidia.com/cuda-toolkit-archive)
 3. CuDNN installation
 
 
