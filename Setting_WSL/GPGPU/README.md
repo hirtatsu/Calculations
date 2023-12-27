@@ -83,19 +83,21 @@ sudo apt install zlib1g
 Local Installer for Ubuntu22.04 x86_64 (Deb)
 @ [NVIDIA CuDNN Homepage](https://developer.nvidia.com/cudnn)
 
-- Move the downloaded file to the home directory
+- Move the downloaded file to the home directory and execute
 
-- Ubuntu22.04, CuDNN8.9.7.29, cuda12.1, then,
 ```
 cd
 sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
-sudo cp /var/cudnn-local-repo-*/cudnn-local-*-keyring.gpg /usr/share/keyrings/
-sudo apt update
-sudo apt install libcudnn8=8.9.7.29-1+cuda12.1
 ```
 
+- You may find the following message:
+```
+The public cudnn-local-repo-ubuntu2204-8.9.7.29 GPG key does not appear to be installed.
+To install the key, run this command:
+sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
+```
 
-- Download (tar)
-- Copy
-- unpack
-- copy
+- Then, do
+```
+sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
+```
