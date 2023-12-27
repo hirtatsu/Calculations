@@ -72,3 +72,12 @@ nvcc --version
 
 
 [https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
+
+
+- Installing Zlib
+```
+sudo apt install zlib1g
+```
+
+- NVIDIA CuDNN Download
+[NVIDIA CuDNN Homepage](https://developer.nvidia.com/cudnn)
