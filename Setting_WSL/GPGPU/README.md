@@ -19,11 +19,11 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-### 1. NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
+## 1. NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 
-### 2. CUDA Toolkits on WSL Ubuntu
+## 2. CUDA Toolkits on WSL Ubuntu
 [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
 [Further installation manual](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
@@ -65,7 +65,7 @@ nvcc --version
 ```
 
 
-### WSLのUbuntu上でCuDNNを準備する
+## 3. CuDNN installation on WSL Ubuntu
 インストール方法は公式マニュアル見てなんとかする。
 
 [https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
