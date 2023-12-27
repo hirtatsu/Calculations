@@ -1,6 +1,6 @@
 ## CUDA on WSLを使ってGPGPUで計算する
 
-3steps. Versions should be supported.
+3steps. Versions should be supported according to the [Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html?ncid=em-prod-337416).
 1. NVIDIA Driver installation
 2. CUDA Toolkits installation
 3. CuDNN installation
