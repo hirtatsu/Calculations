@@ -50,6 +50,13 @@ pip list
 deactivate
 ```
 
+## Pytorchのインストール
+[Pytorchホームページ](https://pytorch.org/)のInstall pytorchで、環境に応じて選択ののち、コマンドをコピーして実行。
+例。
+```
+pip3 install torch torchvision torchaudio
+```
+
 ## WindowsのVSCodeで、WSL上のVenvを使ったPython仮想環境を使えるようにする
 ### VSCodeのインストール
 [https://azure.microsoft.com/ja-jp/products/visual-studio-code/](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)
