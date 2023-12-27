@@ -30,7 +30,7 @@ sudo apt upgrade -y
 ```
 sudo apt-key del 7fa2af80
 ```
-- CUDA Toolkit (WSL-Ubuntu Package)をインストールする
+- CUDA Toolkit (WSL-Ubuntu Package)をインストールする。ここではCuda Toolkit 12.1を例に。
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
 sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
