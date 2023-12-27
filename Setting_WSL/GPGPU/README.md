@@ -2,7 +2,7 @@
 
 3steps. Versions should be supported according to the [Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html?ncid=em-prod-337416).
 1. NVIDIA Driver installation
-2. CUDA Toolkits installation
+2. CUDA Toolkit installation
 3. CuDNN installation
 
 
@@ -30,7 +30,7 @@ sudo apt upgrade -y
 ```
 sudo apt-key del 7fa2af80
 ```
-- CUDA Toolkit (WSL-Ubuntu Package)をインストールする。ここではCuda Toolkit 12.1を例に。
+- CUDA Toolkit (WSL-Ubuntu Package)をインストールする。ここではCuda Toolkit 12.1.1を例に。
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
 sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
