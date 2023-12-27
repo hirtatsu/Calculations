@@ -50,30 +50,7 @@ pip list
 deactivate
 ```
 
-## Pytorchのインストール
-[Pytorchホームページ](https://pytorch.org/)のInstall pytorchで、環境に応じて選択ののち、コマンドをコピーして実行。
-- 例。
-```
-pip3 install torch torchvision torchaudio
-```
 
-- 動作確認
-```
-python3
->> import torch
->> print(torch.__version__)
-# 1.7.1
->> print(torch.cuda.is_available())
-# True
->> print(torch.cuda.device_count())
-# 1
->> print(torch.cuda.current_device())
-# 0
->> print(torch.cuda.get_device_name())
-# GeForce GTX 1080 Ti
->> print(torch.cuda.get_device_capability())
-# (6, 1)
-```
 
 ## WindowsのVSCodeで、WSL上のVenvを使ったPython仮想環境を使えるようにする
 ### VSCodeのインストール
@@ -101,3 +78,27 @@ code test.py
 ```
 - 完了
 
+## （番外編）Pytorchのインストール
+[Pytorchホームページ](https://pytorch.org/)のInstall pytorchで、環境に応じて選択ののち、コマンドをコピーして実行。
+- 例。
+```
+pip3 install torch torchvision torchaudio
+```
+
+- 動作確認
+```
+python3
+>> import torch
+>> print(torch.__version__)
+# 1.7.1
+>> print(torch.cuda.is_available())
+# True
+>> print(torch.cuda.device_count())
+# 1
+>> print(torch.cuda.current_device())
+# 0
+>> print(torch.cuda.get_device_name())
+# GeForce GTX 1080 Ti
+>> print(torch.cuda.get_device_capability())
+# (6, 1)
+```
