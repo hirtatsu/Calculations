@@ -26,6 +26,8 @@ sudo apt upgrade -y
 ### 2. CUDA Toolkits on WSL Ubuntu
 [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
+[Further installation manual](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+
 - 古いGPGキーを削除。
 ```
 sudo apt-key del 7fa2af80
