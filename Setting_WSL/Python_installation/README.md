@@ -52,7 +52,7 @@ deactivate
 
 ## Pytorchのインストール
 [Pytorchホームページ](https://pytorch.org/)のInstall pytorchで、環境に応じて選択ののち、コマンドをコピーして実行。
-例。
+- 例。
 ```
 pip3 install torch torchvision torchaudio
 ```
