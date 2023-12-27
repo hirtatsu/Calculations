@@ -13,11 +13,11 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-### NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
+### 1. NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 
-### CUDA Toolkits on WSL Ubuntu
+### 2. CUDA Toolkits on WSL Ubuntu
 [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
 - 古いGPGキーを削除。
