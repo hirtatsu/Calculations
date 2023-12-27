@@ -1,5 +1,4 @@
 ## CUDA on WSLを使ってGPGPUで計算する
-[公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 
 ### wslをUPDATEしておく。Powershell開いて以下入力する。
 ```
@@ -17,7 +16,9 @@ sudo apt upgrade -y
 [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 
-### WSLのUbuntu上でCUDA Toolkitを準備する
+### CUDA Toolkits on WSL Ubuntu
+[公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
+
 - 古いGPGキーを削除。
 ```
 sudo apt-key del 7fa2af80
