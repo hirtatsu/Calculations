@@ -47,7 +47,8 @@ pjstat
 ### 計算時間の比較
 計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。
 
-富岳: 1ノード、4プロセッサ、12並列
+富岳: 4MPIプロセス×12スレッド並列（1ノード）。
+- 1ノードの場合: 0:00:38
 
 計算環境1: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
 
