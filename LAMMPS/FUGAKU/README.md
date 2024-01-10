@@ -43,4 +43,26 @@ pjsub ./lammps.sh
 ```
 pjstat
 ```
-- 
+
+### 計算時間の比較
+計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。
+
+富岳: 1ノード、4プロセッサ、12並列
+
+計算環境1: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
+
+- 並列なしの場合: 0:06:59 (Ref.)
+- 8並列の場合: 0:01:39 (-76%)
+- 12並列の場合: 0:01:18 (-81%)
+- GPUの場合: 0:00:29 (-93%)
+
+計算環境2: CPUにIntel Core i7 13700KF、GPUにNVIDIA RTX A4000。
+
+- 並列なしの場合: 0:05:40 (Ref.)
+- 12並列の場合: 0:00:52 (-84%)
+- 20並列の場合: 0:00:42 (-88%)
+- GPUの場合: 0:00:24 (-93%)
+
+計算環境3: CPUにIntel Core i7 13700KF、GPUにNVIDIA RTX 4090。
+
+- GPUの場合: 0:00:19 (-94%)
