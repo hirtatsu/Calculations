@@ -36,7 +36,7 @@ mpiexec -np $PJM_MPI_PROC lmp -in in.lj -sf omp -pk omp $OMP_NUM_THREADS -log lo
 ### バッチジョブの投入
 - 以下のコマンドを実行（ジョブスクリプトファイル名がlammps.shの場合）。ただしdataディレクトリ内で行うこと。
 ```
-pjsub lammps.sh
+pjsub ./lammps.sh
 ```
 ### ジョブ状態の表示
 - 以下のコマンド。
