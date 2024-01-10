@@ -25,6 +25,7 @@
 - [LAMMPSのインストール2 (GPU環境用)](./LAMMPS/LAMMPS_installation2/README.md)
 - [Atomskのインストールと使い方](./LAMMPS/Atomsk_installation/README.md)
 - [OVITOの使い方メモ](./LAMMPS/OVITO_tips/README.md)
+- [富岳を用いたLAMMPS計算](./LAMMPS/FUGAKU/README.md)
 
 ### 密度汎関数(DFT)理論に基づく第一原理計算ソフトウェア: OpenMX
 - [OpenMXのインストール](./OpenMX/OpenMX_installation/README.md)
