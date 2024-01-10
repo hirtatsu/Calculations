@@ -38,7 +38,7 @@ mpiexec -np $PJM_MPI_PROC lmp -in in.lj -sf omp -pk omp $OMP_NUM_THREADS -log lo
 ```
 #!/bin/sh
 #PJM -g hp000000*
-#PJM -L "node=1"
+#PJM -L "node=2"
 #PJM -L "rscgrp=small"
 #PJM -L "elapse=0:10:00"
 #PJM --mpi "max-proc-per-node=4"
@@ -70,7 +70,7 @@ pjstat
 ```
 
 ### 計算時間の比較
-計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。
+計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。50,0000原子。
 
 比較環境1: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
 
@@ -92,4 +92,5 @@ pjstat
 
 富岳: 4MPIプロセス×12スレッド並列（1ノード）。
 - 1ノードの場合: 0:00:38
-- 2ノードの場合: 0:00:38
+- 2ノードの場合: 0:00:21
+- 4ノードの場合: 
