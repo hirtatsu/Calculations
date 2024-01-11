@@ -5,7 +5,7 @@
 ```
 docker ps
 ```
-- Dockerコンテナの起動（Ubuntu上の~/hpciworkと、Dockerコンテナ上の/home/hpciuser/workとをバインドマウントする。これにより、コンテナと Ubuntu の間でファイルを共有できる）
+- （コンテナが起動していなければ）Dockerコンテナの起動（Ubuntu上の~/hpciworkと、Dockerコンテナ上の/home/hpciuser/workとをバインドマウントする。これにより、コンテナと Ubuntu の間でファイルを共有できる）
 ```
 docker run -d --rm --name gsi-openssh -v ~/hpciwork:/home/hpciuser/work hpci/gsi-openssh:20231128
 ```
@@ -13,7 +13,7 @@ docker run -d --rm --name gsi-openssh -v ~/hpciwork:/home/hpciuser/work hpci/gsi
 ```
 docker exec -i -t gsi-openssh /bin/bash
 ```
-- 代理証明書をダウンロードする。詳細は[マニュアル](https://www.hpci.nii.ac.jp/gt6/docker/HPCI-Login-noDesktop-win10.html)。
+- （コンテナを起動しなおした場合は）代理証明書をダウンロードする。詳細は[マニュアル](https://www.hpci.nii.ac.jp/gt6/docker/HPCI-Login-noDesktop-win10.html)。
 - 富岳にログインする
 ```
 gsissh -p 2222 login.fugaku.r-ccs.riken.jp
