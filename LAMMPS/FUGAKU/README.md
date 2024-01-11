@@ -39,6 +39,20 @@ ssh ユーザ名@login.fugaku.r-ccs.riken.jp
 docker stop gsi-openssh
 ```
 
+## HPCI共用ストレージの利用
+- クラウドストレージゲートウェイノードへログインする
+```
+gsissh -p2222 u00000@csgw.fugaku.r-ccs.riken.jp
+```
+- （必要あれば）マウントする
+```
+mount.hpci
+```
+- ディレクトリは以下になるはず
+```
+/gfarm/hp000000/u000000　（富岳グループID（課題ID）とユーザID）
+```
+
 ## LAMMPSの利用
 - LAMMPSは[RISTが利用支援の一環として整備したアプリケーションソフトウェア](https://www.hpci-office.jp/for_users/appli_software)のひとつなので、すでに富岳の計算ノードにインストールされている。
 - [富岳にインストールされているLAMMPSの詳細](https://www.hpci-office.jp/for_users/appli_software/appli_lammps/lammps_r-ccs_riken-2)
