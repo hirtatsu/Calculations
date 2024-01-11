@@ -1,5 +1,5 @@
 # 富岳を用いたMDシミュレーション
-### ログイン
+## ログイン
 - HPCIアカウントでログインする場合、Dockerコンテナ上からgsisshでログインする。代理証明書が必要。詳細はHPCIのマニュアル参照([https://www.hpci-office.jp/for_users/hpci_info_manuals](https://www.hpci-office.jp/for_users/hpci_info_manuals))
 - Dockerの起動確認。Dockerが正常に自動起動していると、以下のコマンドでなんか表示される
 ```
@@ -31,7 +31,7 @@ ssh ユーザ名@login.fugaku.r-ccs.riken.jp
 docker stop gsi-openssh
 ```
 
-### LAMMPSの利用
+## LAMMPSの利用
 - LAMMPSは[RISTが利用支援の一環として整備したアプリケーションソフトウェア](https://www.hpci-office.jp/for_users/appli_software)のひとつなので、すでに富岳の計算ノードにインストールされている。
 - [富岳にインストールされているLAMMPSの詳細](https://www.hpci-office.jp/for_users/appli_software/appli_lammps/lammps_r-ccs_riken-2)
 
