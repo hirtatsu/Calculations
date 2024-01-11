@@ -5,6 +5,10 @@
 ```
 docker ps
 ```
+- Dockerコンテナの起動（Ubuntu上の~/hpciworkと、Dockerコンテナ上の/home/hpciuser/workとをバインドマウントする。これにより、コンテナと Ubuntu の間でファイルを共有できる）
+```
+docker run -d --rm --name gsi-openssh -v ~/hpciwork:/home/hpciuser/work hpci/gsi-openssh:20231128
+```
 - Dockerコンテナ上のBASHに入る
 ```
 docker exec -i -t gsi-openssh /bin/bash
@@ -21,6 +25,10 @@ ssh ユーザ名@login.fugaku.r-ccs.riken.jp
 ### 使用後は
 - exitでログインサーバ からコンテナの bash に戻る。
 - 再度exitでコンテナのbashから抜ける。このときDockerコンテナは停止しない。
+- Dockerコンテナを停止したい場合は以下。ただし、コンテナ上に作成、保存したファイルも削除される。
+```
+docker stop gsi-openssh
+```
 
 ### LAMMPSの利用
 - LAMMPSは[RISTが利用支援の一環として整備したアプリケーションソフトウェア](https://www.hpci-office.jp/for_users/appli_software)のひとつなので、すでに富岳の計算ノードにインストールされている。
