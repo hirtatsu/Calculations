@@ -1,6 +1,6 @@
 # 富岳を用いたMDシミュレーション
 ### ログイン
-- HPCIアカウントでログインする場合、Dockerコンテナ上からgsisshでログインする。あらかじめ代理証明書のダウンロードが必要。詳細はHPCIのマニュアル参照([https://www.hpci-office.jp/for_users/hpci_info_manuals](https://www.hpci-office.jp/for_users/hpci_info_manuals))
+- HPCIアカウントでログインする場合、Dockerコンテナ上からgsisshでログインする。代理証明書が必要。詳細はHPCIのマニュアル参照([https://www.hpci-office.jp/for_users/hpci_info_manuals](https://www.hpci-office.jp/for_users/hpci_info_manuals))
 - Dockerの起動確認。Dockerが正常に自動起動していると、以下のコマンドでなんか表示される
 ```
 docker ps
@@ -13,6 +13,7 @@ docker run -d --rm --name gsi-openssh -v ~/hpciwork:/home/hpciuser/work hpci/gsi
 ```
 docker exec -i -t gsi-openssh /bin/bash
 ```
+- 代理証明書をダウンロードする。詳細は[マニュアル](https://www.hpci.nii.ac.jp/gt6/docker/HPCI-Login-noDesktop-win10.html)。
 - 富岳にログインする
 ```
 gsissh -p 2222 login.fugaku.r-ccs.riken.jp
