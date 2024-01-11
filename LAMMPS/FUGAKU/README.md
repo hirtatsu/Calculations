@@ -1,5 +1,10 @@
 # 富岳を用いたMDシミュレーション
 ### ログイン
+- HPCIアカウントでログインする場合、Dockerコンテナ上からgsisshでログインする。あらかじめ代理証明書のダウンロードが必要。詳細はHPCIのマニュアル参照([https://www.hpci-office.jp/for_users/hpci_info_manuals](https://www.hpci-office.jp/for_users/hpci_info_manuals))
+```
+gsissh -p 2222 login.fugaku.r-ccs.riken.jp
+```
+- ローカルアカウントでログインする場合
 ```
 ssh ユーザ名@login.fugaku.r-ccs.riken.jp
 ```
