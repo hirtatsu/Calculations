@@ -13,7 +13,15 @@ docker run -d --rm --name gsi-openssh -v ~/hpciwork:/home/hpciuser/work hpci/gsi
 ```
 docker exec -i -t gsi-openssh /bin/bash
 ```
-- （コンテナを起動しなおした場合は）代理証明書をダウンロードする。詳細は[マニュアル](https://www.hpci.nii.ac.jp/gt6/docker/HPCI-Login-noDesktop-win10.html)。
+- （コンテナを起動しなおした場合、有効期限が切れ場合は）代理証明書を発行して、以下のコマンドを実行する。詳細は[マニュアル](https://www.hpci.nii.ac.jp/gt6/docker/HPCI-Login-noDesktop-win10.html)。
+```
+myproxy-logon -s portal.hpci.nii.ac.jp -l [HPCI-ID]
+```
+- 代理証明書の情報確認
+```
+grid-proxy-info
+```
+
 - 富岳にログインする
 ```
 gsissh -p 2222 login.fugaku.r-ccs.riken.jp
