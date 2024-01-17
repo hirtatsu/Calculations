@@ -1,5 +1,11 @@
 # 富岳を用いたMDシミュレーション
-## ログイン
+
+## ログイン（ローカルアカウントでログインする場合）
+```
+ssh ユーザ名@login.fugaku.r-ccs.riken.jp
+```
+## ログイン（HPCIアカウントでログインする場合）
+### Dockerコンテナからgsisshでログインする
 - HPCIアカウントでログインする場合、Dockerコンテナ上からgsisshでログインする。代理証明書が必要。詳細はHPCIのマニュアル参照([https://www.hpci-office.jp/for_users/hpci_info_manuals](https://www.hpci-office.jp/for_users/hpci_info_manuals))
 - Dockerの起動確認。Dockerが正常に自動起動していると、以下のコマンドでなんか表示される
 ```
@@ -25,10 +31,6 @@ grid-proxy-info
 - 富岳にログインする
 ```
 gsissh -p 2222 login.fugaku.r-ccs.riken.jp
-```
-- （参考）ローカルアカウントでログインする場合
-```
-ssh ユーザ名@login.fugaku.r-ccs.riken.jp
 ```
 
 ### 使用後は
