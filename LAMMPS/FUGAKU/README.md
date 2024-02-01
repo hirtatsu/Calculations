@@ -55,6 +55,17 @@ mount.hpci
 /gfarm/hp000000/u000000　（富岳グループID（課題ID）とユーザID）
 ```
 
+## Open Source Software (OSS)を使う。
+- Spackを使って環境を読み込みます。
+```
+. /vol0004/apps/oss/spack/share/spack/setup-env.sh
+```
+- ビルド済みパッケージの確認
+```
+$ spack find -x
+```
+
+
 ## LAMMPSの利用
 - LAMMPSは[RISTが利用支援の一環として整備したアプリケーションソフトウェア](https://www.hpci-office.jp/for_users/appli_software)のひとつなので、すでに富岳の計算ノードにインストールされている。
 - [富岳にインストールされているLAMMPSの詳細](https://www.hpci-office.jp/for_users/appli_software/appli_lammps/lammps_r-ccs_riken-2)
