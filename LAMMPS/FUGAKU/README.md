@@ -55,6 +55,13 @@ mount.hpci
 /gfarm/hp000000/u000000　（富岳グループID（課題ID）とユーザID）
 ```
 
+## Python venv環境構築
+```
+python3 -m venv /home/XXXXXX/test-env/
+source /home/XXXXXX/test-env/bin/activate
+```
+
+
 ## Open Source Software (OSS)を使う。
 - Spackを使って環境を読み込みます。
 ```
