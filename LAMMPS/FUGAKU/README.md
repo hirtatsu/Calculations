@@ -62,7 +62,11 @@ mount.hpci
 ```
 - ビルド済みパッケージの確認
 ```
-$ spack find -x
+spack find -x
+```
+- 例えばpipを利用可能にしたい場合
+```
+spack load py-pip@23.0
 ```
 
 
