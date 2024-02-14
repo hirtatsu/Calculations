@@ -69,9 +69,9 @@ nvcc --version
 インストール方法の詳細は公式マニュアル参照。
 
 [https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
+[Cudnn9のダウンロードページ](https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
 
-
-[https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
+[Cudnn8.xのダウンロードページ](https://developer.nvidia.com/rdp/cudnn-archive)
 
 
 - Zlibをインストールする
