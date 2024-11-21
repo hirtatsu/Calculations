@@ -1,3 +1,7 @@
+## ANSYS installation
+- Check NAS.
+
+
 ## Simpleware to ANSYS
 ### Simplewareの出力条件
 - Contactsはadd possible all
