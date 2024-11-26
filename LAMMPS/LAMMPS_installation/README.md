@@ -100,10 +100,10 @@ cd lammps-23Jun2022
 mkdir build
 cd build
 ```
-### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOIパッケージを追加)
+### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOI, ReaxFFパッケージを追加)
 - Intel OneAPIを用いる場合
 ```
-cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes ../cmake
+cmake ../cmake/presets/basic.cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D BUILD_REAXFF=yes ../cmake
 ```
 - GNUコンパイラを用いる場合
 ```
