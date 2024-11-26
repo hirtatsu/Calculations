@@ -4,26 +4,14 @@ MDで計算するモデルを簡単に作成するためのソフトウェア。
 公式は[こちら](https://atomsk.univ-lille.fr/tutorial_install.php)
 
 ### Ubuntuへのインストール
-- 必要なファイルのダウンロード [https://atomsk.univ-lille.fr/dl.php](https://atomsk.univ-lille.fr/dl.php)。WSL環境の場合は、Linux amd64
-(64 bits)を選べばよい。その場合は以下。
+- 必要なファイルのダウンロード [https://atomsk.univ-lille.fr/dl.php](https://atomsk.univ-lille.fr/dl.php)。Ubuntuの場合は、Debian/Ubuntu(64 bits)を選べばよい。その場合は以下。
 ```
 cd
-wget https://atomsk.univ-lille.fr/code/atomsk_b0.11.2_Linux-amd64.tar.gz
+wget https://atomsk.univ-lille.fr/code/atomsk_b0.13.1_amd64.deb
 ```
-- 解凍してディレクトリに入る
+- dpkgして完成。
 ```
-tar -xzvf atomsk_b0.11.2_Linux-amd64.tar.gz
-cd atomsk_b0.11.2_Linux-amd64/
-```
-- インストール
-```
-sudo sh install.sh # root権限の場合
-sh install.sh # ユーザ権限の場合
-```
-
-- (必要があれば).bashrcを反映させてPathを通す
-```
-source .bashrc
+sudo dpkg -i atomsk_b0.13.1_amd64.deb
 ```
 
 - 動作確認。格子定数4.02ÅでFCC構造のAlの構造ファイル.xsfを作成する。各原子の座標が記載されたXSFファイルが作成される
