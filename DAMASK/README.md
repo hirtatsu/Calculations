@@ -22,12 +22,12 @@ source ~/miniconda3/bin/activate
 conda init --all
 ```
 ## VenvでPython環境を構築している場合は、Venv環境とConda環境を適宜切り替える必要がある。
-### Conda → venv に切り替える
+### ① Conda → venv に切り替える
 ```
 conda deactivate
 source ~/test-env(自分のディレクトリ名)/bin/activate
 ```
-### venv → Conda に切り替える
+### ② venv → Conda に切り替える
 ```
 deactivate
 source ~/miniconda3/bin/activate
