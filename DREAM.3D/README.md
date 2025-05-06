@@ -18,5 +18,5 @@
 - BookmarksのPrebuilt pipelinesを参考にするのがわかりやすそう(例えば、Prebuilt pipelines → Workshop → EBSD Reconstruction)。
 
 ### マニュアル
-[公式Help](https://dream3d.bluequartz.net/Help/)
-[公式Youtube](https://www.youtube.com/channel/UCjeF8pFMzET5ZN3vsBHATpg)
+- [公式Help](https://dream3d.bluequartz.net/Help/)
+- [公式Youtube](https://www.youtube.com/channel/UCjeF8pFMzET5ZN3vsBHATpg)
