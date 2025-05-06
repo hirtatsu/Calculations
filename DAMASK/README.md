@@ -1,5 +1,13 @@
 # DAMASKのインストール
+### 公式に基づいて、パッケージ管理からインストールする
+[https://damask-multiphysics.org/installation/index.html](https://damask-multiphysics.org/installation/index.html)
+上記から、Method→[Package Manager](https://damask-multiphysics.org/installation/package_manager.html#package-manager)を選択。
 
+```
+sudo add-apt-repository ppa:damask-multiphysics/ppa
+sudo apt update
+sudo apt install -y damask
+```
 
 画面左下のWindowsボタンを押して、検索窓にPowershellを入力し、表示される**管理者として実行する**をクリック。以下を入力してEnter。
 ```
