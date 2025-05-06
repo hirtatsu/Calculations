@@ -8,4 +8,10 @@ sudo add-apt-repository ppa:damask-multiphysics/ppa
 sudo apt update
 sudo apt install -y damask
 ```
-これでインストール完了！
+これでインストール完了！以下のコマンドを実行してなんか表示されればOK。
+```
+DAMASK_grid --help
+DAMASK_mesh --help
+
+```
+
