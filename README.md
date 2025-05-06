@@ -35,6 +35,9 @@
 - [阪大スパコンSquidでのOpenMXコンパイル](./OpenMX/OpenMX_installation2/README.md)
 - [核融合研スパコンPlasmaSimulatorでのOpenMX利用](./OpenMX/PlasmaSimulator/README.md)
 
+### 結晶塑性有限要素法(Crystal Plasticity Finite Element Modeling)計算: DAMSK
+- [DAMASKのインストール](./)
+
 ### (とりあえず材料科学計算に触れてみたい方)
 - [MateriApps LIVE!のインストール](./Others/MateriAppsLive_installation/README.md)
 
