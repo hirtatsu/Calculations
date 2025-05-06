@@ -17,6 +17,5 @@
 - 基本的に、個別の処理(Filterという)を順番に並べた一連の処理(Pipelineという)を実行することで、モデル作成やデータ解析を行う。
 - BookmarksのPrebuilt pipelinesを参考にするのがわかりやすそう(例えば、Prebuilt pipelines → Workshop → EBSD Reconstruction)。
 
-### マニュアル
-- [公式Help](https://dream3d.bluequartz.net/Help/)
-- [公式Youtube](https://www.youtube.com/channel/UCjeF8pFMzET5ZN3vsBHATpg)
+### [公式マニュアル](https://dream3d.bluequartz.net/Help/)
+### [公式Youtubeチャンネル](https://www.youtube.com/channel/UCjeF8pFMzET5ZN3vsBHATpg)
