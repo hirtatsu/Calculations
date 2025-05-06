@@ -36,7 +36,7 @@
 - [核融合研スパコンPlasmaSimulatorでのOpenMX利用](./OpenMX/PlasmaSimulator/README.md)
 
 ### 結晶塑性有限要素法(Crystal Plasticity Finite Element Modeling)計算: DAMSK
-- [EBSDデータから3Dモデルを作成: DREAM.3D](./DREAM.3D)
+- [EBSDデータから3Dモデルを作成: DREAM.3D](./DREAM.3D/README.md)
 - [DAMASKのインストール](./DAMASK/README.md)
 
 ### (とりあえず材料科学計算に触れてみたい方)
