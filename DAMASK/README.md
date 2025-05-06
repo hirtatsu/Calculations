@@ -16,9 +16,12 @@ rm ~/miniconda3/miniconda.sh
 続いて
 ```
 source ~/miniconda3/bin/activate
+```
+もし毎回自動的にconda環境で起動＆PATHを通すには？（venv環境を常用の場合は非推奨）
+```
 conda init --all
 ```
-## VenvでPython環境を構築している場合は、Venv環境とConda環境を適宜切り替える必要がありそう。
+## VenvでPython環境を構築している場合は、Venv環境とConda環境を適宜切り替える必要がある。
 ### Conda → venv に切り替える
 ```
 conda deactivate
@@ -27,7 +30,7 @@ source ~/test-env(自分のディレクトリ名)/bin/activate
 ### venv → Conda に切り替える
 ```
 deactivate
-conda activate
+source ~/miniconda3/bin/activate
 ```
 
 公式サイトによる手順は[こちら](https://www.anaconda.com/docs/getting-started/miniconda/install#linux)。
