@@ -17,7 +17,7 @@ rm ~/miniconda3/miniconda.sh
 ```
 source ~/miniconda3/bin/activate
 ```
-もし毎回自動的にconda環境で起動＆PATHを通すには？（venv環境を常用の場合は非推奨）
+(venv環境を常用の場合は非推奨) もし毎回自動的にconda環境で起動＆PATHを通すには？
 ```
 conda init --all
 ```
