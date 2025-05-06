@@ -36,7 +36,7 @@
 - [核融合研スパコンPlasmaSimulatorでのOpenMX利用](./OpenMX/PlasmaSimulator/README.md)
 
 ### 結晶塑性有限要素法(Crystal Plasticity Finite Element Modeling)計算: DAMSK
-- [DAMASKのインストール](./)
+- [DAMASKのインストール](./DAMASK/README.md)
 
 ### (とりあえず材料科学計算に触れてみたい方)
 - [MateriApps LIVE!のインストール](./Others/MateriAppsLive_installation/README.md)
