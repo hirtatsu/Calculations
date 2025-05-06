@@ -18,7 +18,9 @@ DAMASK_grid --help
 ```
 DAMASK_mesh --help
 ```
-- Pythonパッケージである<b>damask</b>もインストールされているはず。プレ＆ポストプロセス用。 Python3で使えるモジュール。ただし、/usr/lib/python3/dist-packages/にインストールされるので、Venv環境からは使えないっぽい。もしVenv環境下であるなら、先にdeactivateすること。
+Pythonパッケージである<b>damask</b>もインストールされているはず。プレ＆ポストプロセス用。
+- Python3で使えるモジュール。/usr/lib/python3/dist-packages/にインストールされる。
+- Venv環境からは使えないっぽい。もしVenv環境下であるなら、先にdeactivateすること。
 ```
 Python3
 >>> import damask
