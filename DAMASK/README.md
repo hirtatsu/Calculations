@@ -9,9 +9,17 @@ sudo apt update
 sudo apt install -y damask
 ```
 これでインストール完了！以下のコマンドを実行してなんか表示されればOK。
+
+- DAMASK_grid, the included solver for regular grids
 ```
 DAMASK_grid --help
-DAMASK_mesh --help
-
 ```
-
+- DAMASK_mesh, the included solver for unstructured meshes
+```
+DAMASK_mesh --help
+```
+- Pythonパッケージである<b>damask</b>もインストールされているはず。プレ＆ポストプロセス用。 確認するには
+```
+Python3
+>> import damask
+```
