@@ -21,6 +21,8 @@ source ~/miniconda3/bin/activate
 ```
 conda init --all
 ```
+公式サイトによる手順は[こちら](https://www.anaconda.com/docs/getting-started/miniconda/install#linux)。
+
 ## VenvでPython環境を構築している場合は、Venv環境とConda環境を適宜切り替える必要がある。
 ### ① Conda → venv に切り替える
 ```
@@ -33,8 +35,6 @@ deactivate
 source ~/miniconda3/bin/activate
 ```
 
-公式サイトによる手順は[こちら](https://www.anaconda.com/docs/getting-started/miniconda/install#linux)。
-- Conda
 
 画面左下のWindowsボタンを押して、検索窓にPowershellを入力し、表示される**管理者として実行する**をクリック。以下を入力してEnter。
 ```
