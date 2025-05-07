@@ -37,7 +37,7 @@
 
 ### 結晶塑性有限要素法(Crystal Plasticity Finite Element Modeling)計算: DAMSK
 - [EBSDデータから3Dモデルを作成: DREAM.3D](./DREAM.3D/README.md)
-- [DAMASKのインストール](./DAMASK/README.md)
+- [DAMASKを用いた結晶組成有限要素シミュレーション](./DAMASK/README.md)
 
 ### (とりあえず材料科学計算に触れてみたい方)
 - [MateriApps LIVE!のインストール](./Others/MateriAppsLive_installation/README.md)
