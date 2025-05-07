@@ -40,11 +40,15 @@ Python3
 - DREAM3Dデータを読み込む(読み込めるはず)
 ```
 >>> config_material = damask.ConfigMaterial.load_DREAM3D('test01.dream3d')
->>> print(config_material)
 ```
+- materialのphase名を変更
+```
+>>> config_material.material_rename_phase({1: 'Beta-Sn'})
+```
+
 - 弾性定数を定義(BCT構造のStiffness Matrixは[こちら](https://damask-multiphysics.org/documentation/crystal_structures/body-centered-tetragonal.html#body-centered-tetragonal-ti))。
 ```
-config_material['phase']['1'] = {
+config_material['phase']['Beta-Sn'] = {
   'mechanical': {
     'elastic': {
       'type': 'Hooke',
@@ -65,7 +69,7 @@ config_material.is_complete # Trueならファイル構成はOK。
 
 - YAMLファイルを保存する。
 ```
-config_material.save('ファイル名')
+config_material.save('test.yaml')
 ```
 
 
