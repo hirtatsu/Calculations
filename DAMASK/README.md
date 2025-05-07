@@ -61,6 +61,7 @@ config_material['phase']['1'] = {
 ```
 config_material.is_complete # Trueならファイル構成はOK。
 ```
+※Phase名が1だと通らない。なぜ。。。とりあえずテキストエディタで"A"に置き換えたらいけた。
 
 - YAMLファイルを保存する。
 ```
