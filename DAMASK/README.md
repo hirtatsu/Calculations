@@ -26,7 +26,7 @@ deactivate
 ```
 - インストール確認。importしてエラー出なければOK。
 ```
-Python3
+python3
 >>> import damask
 ```
 
