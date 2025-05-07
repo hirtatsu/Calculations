@@ -78,5 +78,8 @@ config_material.is_complete # Trueならファイル構成はOK。
 ```
 config_material.save('test01.yaml')
 ```
-
+- YAMLファイルを読み込む。
+```
+config_material = damask.ConfigMaterial.load('test01.yaml')
+```
 
