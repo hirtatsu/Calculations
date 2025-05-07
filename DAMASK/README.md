@@ -43,7 +43,14 @@ Python3
 ```
 - materialのphase名を変更
 ```
->>> config_material.material_rename_phase({1: 'Beta-Sn'})
+# すべての material の constituent に含まれる phase を 'Beta-Sn' に変える
+for material in config_material['material']:
+    for constituent in material['constituents']:
+        if constituent['phase'] == 1:
+            constituent['phase'] = 'Beta-Sn'
+
+# そして phase 定義のキーも 'Beta-Sn' に変える
+config_material['phase']['Beta-Sn'] = config_material['phase'].pop('1')
 ```
 
 - 弾性定数を定義(BCT構造のStiffness Matrixは[こちら](https://damask-multiphysics.org/documentation/crystal_structures/body-centered-tetragonal.html#body-centered-tetragonal-ti))。
