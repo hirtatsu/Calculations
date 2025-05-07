@@ -42,14 +42,6 @@ Python3
 >>> config_material = damask.ConfigMaterial.load_DREAM3D('test01.dream3d')
 >>> print(config_material)
 ```
-- ファイルの妥当性チェック
-```
-config_material.is_complete # Trueならファイル構成はOK。
-```
-- Phase名をRename
-```
-config_material.material_rename_phase({"1": "β-Sn"})
-```
 - 弾性定数を定義(BCT構造のStiffness Matrixは[こちら](https://damask-multiphysics.org/documentation/crystal_structures/body-centered-tetragonal.html#body-centered-tetragonal-ti))。
 ```
 config_material['phase']['1'] = {
@@ -65,6 +57,10 @@ config_material['phase']['1'] = {
 ```
 ※β-Sn。[参考文献](https://doi.org/10.2320/matertrans.MH201808)
 
+- ファイルの妥当性チェック
+```
+config_material.is_complete # Trueならファイル構成はOK。
+```
 
 - YAMLファイルを保存する。
 ```
