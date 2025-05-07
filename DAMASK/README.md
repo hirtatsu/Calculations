@@ -76,7 +76,7 @@ config_material.is_complete # Trueならファイル構成はOK。
 
 - YAMLファイルを保存する。
 ```
-config_material.save('test.yaml')
+config_material.save('test01.yaml')
 ```
 
 
