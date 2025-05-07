@@ -19,3 +19,14 @@
 
 ### [公式マニュアル](https://dream3d.bluequartz.net/Help/)
 ### [公式Youtubeチャンネル](https://www.youtube.com/channel/UCjeF8pFMzET5ZN3vsBHATpg)
+
+### EBSDからDAMASKの元データ作成の流れ（概要）
+- Convert Hexagonal Grid Data to Square Grid Data (TSL - .ang)
+- Import Orientation File(s) to H5EBSD
+- Import H5EBSD File
+- モデル調整(不要なデータの削除、セグメンテーション、微小欠陥部の除去等)
+- 必要に応じて可視化(Generate IPF Colors、ITK::Image Writer)
+- Export DAMASK Files(以下のファイルが生成される)
+  - material.config
+  - xxxxx.geom
+- Write DREAM.3D Data File
