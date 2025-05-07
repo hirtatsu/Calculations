@@ -31,3 +31,11 @@ Python3
 ```
 
 # DAMASK Pre-processing
+### Pythonのdamaskモジュールを使ってインプットファイル作成
+```
+Python3
+>>> import damask
+>>> config_material = damask.ConfigMaterial()
+>>> config_material
+```
+なんかできる。
