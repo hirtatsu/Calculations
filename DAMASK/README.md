@@ -50,20 +50,20 @@ config_material.is_complete # Trueならファイル構成はOK。
 ```
 config_material.material_rename_phase({"1": "β-Sn"})
 ```
-- 弾性定数を定義。
+- 弾性定数を定義(BCT構造のStiffness Matrixは[こちら](https://damask-multiphysics.org/documentation/crystal_structures/body-centered-tetragonal.html#body-centered-tetragonal-ti))。
 ```
 config_material['phase']['1'] = {
   'mechanical': {
     'elastic': {
       'type': 'Hooke',
-      'c': [[66.5, 35.4, 33.9,  0,  0,  0],
-            [35.4, 66.5, 33.9,  0,  0,  0],
-            [33.9, 33.9, 70.7,  0,  0,  0],
-            [0,    0,    0,   23.5, 0,  0],
-            [0,    0,    0,    0, 23.5, 0],
-            [0,    0,    0,    0,   0, 15.6]]}}}
+      'c': [[72.3, 59.4, 35.8,  0,    0,    0],
+            [0,    72.3, 35.8,  0,    0,    0],
+            [0,    0,    88.4,  0,    0,    0],
+            [0,    0,    0,     22.0, 0,    0],
+            [0,    0,    0,     0,    22.0, 0],
+            [0,    0,    0,     0,    0,    24.0]]}}}
 ```
-
+※β-Sn。[参考文献](https://doi.org/10.2320/matertrans.MH201808)
 
 
 - YAMLファイルを保存する。
