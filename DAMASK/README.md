@@ -32,10 +32,34 @@ python3
 
 # DAMASK Pre-processing
 ### Pythonのdamaskモジュールを使ってインプットファイル作成
+- python3からdamaskモジュールを呼び出す
 ```
 Python3
 >>> import damask
->>> config_material = damask.ConfigMaterial()
->>> config_material
 ```
-なんかできる。
+- DREAM3Dデータを読み込む(読み込めるはず)
+```
+>>> config_material = damask.ConfigMaterial.load_DREAM3D('test01.dream3d')
+>>> print(config_material)
+```
+- ファイルの妥当性チェック
+```
+config_material.is_complete # Trueならファイル構成はOK。
+```
+- Phase名をRename
+```
+config_material.material_rename_phase({"1": "β-Sn"})
+```
+- 弾性定数を定義。
+```
+config_material['phase']['1'] = {'mechanical': {'elastic': {'type': 'Hooke', 'c': [[66.5, 35.4, 33.9,  0,  0,  0], [35.4, 66.5, 33.9,  0,  0,  0], [33.9, 33.9, 70.7,  0,  0,  0], [0,     0,    0,  23.5, 0,  0], [0,     0,    0,    0, 23.5, 0], [0,     0,    0,    0,   0, 15.6]]}}}
+```
+
+
+
+- YAMLファイルを保存する。
+```
+config_material.save('ファイル名')
+```
+
+
