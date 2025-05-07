@@ -10,11 +10,11 @@ sudo apt install -y damask
 ```
 これでインストール完了！以下のコマンドを実行してなんか表示されればOK。
 
-- DAMASK_grid, the included solver for regular grids
+- DAMASK_grid (ソルバー for regular grids)
 ```
 DAMASK_grid --help
 ```
-- DAMASK_mesh, the included solver for unstructured meshes
+- DAMASK_mesh (ソルバー for unstructured meshes)
 ```
 DAMASK_mesh --help
 ```
