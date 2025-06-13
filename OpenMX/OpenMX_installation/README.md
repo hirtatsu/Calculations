@@ -42,7 +42,7 @@ source .bashrc
 ```
 ちゃんとインストールできたか確認する。バージョンとか表示されればOK。
 ```
-icc -v
+icx -v
 ```
 
 ## OpenMXのインストール準備
@@ -103,12 +103,10 @@ vim makefile
 
 openmx3.9.9/source/makefileを次のように編集する。
 ```
-MKLROOT = /opt/intel/oneapi/mkl/latest
-CC = mpiicc -O3 -ip -no-prec-div -qopenmp -I$(MKLROOT)/include/fftw
-FC = mpiifort -O3 -ip -no-prec-div -qopenmp
-LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lifcore
-```
-### makeする
+MKLROOT = /opt/intel/oneapi/mkl/2025.1/
+CC  = mpiicx -O3 -xHOST -fiopenmp -fcommon -Wno-error=implicit-function-declaration -I${MKLROOT}/include/fftw
+FC  = mpiifx -O3 -xHOST -fiopenmp
+LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lifcore -lmkl_blacs_intelmpi_lp64 -liomp5 -lpthread -lm -ldl
 ```
 make -j 4 # 数字は使用するCPUコア数
 ```
