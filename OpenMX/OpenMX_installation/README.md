@@ -108,6 +108,8 @@ CC  = mpiicx -O3 -xHOST -fiopenmp -fcommon -Wno-error=implicit-function-declarat
 FC  = mpiifx -O3 -xHOST -fiopenmp
 LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lifcore -lmkl_blacs_intelmpi_lp64 -liomp5 -lpthread -lm -ldl
 ```
+### Makeする
+```
 make -j 4 # 数字は使用するCPUコア数
 ```
 エラーが出たら何回も繰り返す。
