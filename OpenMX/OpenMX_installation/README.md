@@ -94,11 +94,8 @@ cd source3.9.9
 tar xvfz ../patch/patch3.9.9.tar.gz
 mv kpoint.in ../work/
 ```
-## さらにパッチを充てる（2025年7月8日）
-[https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31)
 
-
-### makefileを編集する
+### makefileを編集する（2025年7月時点で不要。代わりに以下のパッチを充てる）
 ```
 cd ~/DFT/openmx3.9/source3.9.9
 vim makefile
@@ -111,6 +108,10 @@ CC  = mpiicx -O3 -xHOST -fiopenmp -fcommon -Wno-error=implicit-function-declarat
 FC  = mpiifx -O3 -xHOST -fiopenmp
 LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lifcore -lmkl_blacs_intelmpi_lp64 -liomp5 -lpthread -lm -ldl
 ```
+
+## さらにパッチを充てる（2025年7月8日）
+[https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31)
+
 ### Makeする
 ```
 make -j 4 # 数字は使用するCPUコア数
