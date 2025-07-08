@@ -94,6 +94,9 @@ cd source3.9.9
 tar xvfz ../patch/patch3.9.9.tar.gz
 mv kpoint.in ../work/
 ```
+## さらにパッチを充てる（2025年7月8日）
+[https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31)
+
 
 ### makefileを編集する
 ```
