@@ -37,7 +37,17 @@ cmake ../cmake/presets/basic.cmake -D LAMMPS_MACHINE=gpu -D PKG_GPU=yes -D GPU_A
 ```
 ### AMDのAPUアクセラレータ（AMD Instinct MI300A）を用いる場合（Plasma Simulator）
 ```
-cmake ../cmake/presets/basic.cmake -D LAMMPS_MACHINE=gpu -D PKG_GPU=yes -D GPU_API=HIP -D HIP_ARCH=gfx942 -D CMAKE_CXX_COMPILER=/opt/rocm-6.3.3/bin/hipcc -D CMAKE_CXX_FLAGS="-mcmodel=large" -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D PKG_REAXFF=yes ../cmake
+cmake ../cmake/presets/basic.cmake \
+-D LAMMPS_MACHINE=gpu \
+-D PKG_GPU=yes \
+-D GPU_API=HIP \
+-D HIP_ARCH=gfx942 \
+-D CMAKE_CXX_COMPILER=hipcc \
+-D CMAKE_CXX_FLAGS="-mcmodel=large" \
+-D BUILD_MPI=yes \
+-D PKG_MANYBODY=yes \
+-D PKG_VORONOI=yes \
+-D PKG_REAXFF=yes ../cmake
 ```
 
 
