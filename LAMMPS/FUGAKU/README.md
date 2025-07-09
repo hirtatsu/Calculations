@@ -162,7 +162,7 @@ accountd
 ```
 
 ### 計算時間の比較
-計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。50,0000原子。
+計算内容: examples/melt/in.meltをもとに、「region box block 0 50 0 50 0 50」「run 2500」に変更。500,000原子。
 
 比較環境1: CPUにIntel Core i5 12400F、GPUにNVIDIA GeForce RTX 3060。
 
