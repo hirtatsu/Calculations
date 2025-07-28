@@ -51,7 +51,7 @@ cmake ../cmake/presets/basic.cmake \
 -D GPU_API=HIP \
 -D HIP_ARCH=gfx942 \
 -D CMAKE_CXX_COMPILER=hipcc \
--D CMAKE_CXX_FLAGS="-mcmodel=large" \
+-D CMAKE_CXX_FLAGS="-mcmodel=large --offload-arch=gfx942" \
 -D BUILD_MPI=yes \
 -D PKG_MANYBODY=yes \
 -D PKG_VORONOI=yes \
