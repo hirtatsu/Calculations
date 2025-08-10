@@ -33,7 +33,7 @@ cd build
 ### cmakeでMakefileを作成する(GPU関連, MPI, MANYBODY, VORONOI, ReaxFFパッケージを追加, Intelコンパイラを使用)
 - GPU_ARCHは[こちら](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)でチェック。例: GeForce RTX 3060、RTX A4000はsm_86、RTX4090はsm_89、6000Adaもsm_89。
 ```
-cmake ../cmake/presets/basic.cmake \
+cmake ../cmake/presets/most.cmake \
 -D LAMMPS_MACHINE=gpu \
 -D PKG_GPU=yes \
 -D GPU_API=cuda \
@@ -41,6 +41,7 @@ cmake ../cmake/presets/basic.cmake \
 -D BUILD_MPI=yes \
 -D PKG_MANYBODY=yes \
 -D PKG_VORONOI=yes \
+-D PKG_MEAM=yes \
 -D PKG_REAXFF=yes ../cmake
 ```
 ### AMDのAPUアクセラレータ（AMD Instinct MI300A）を用いる場合（Plasma Simulator）
@@ -48,7 +49,7 @@ cmake ../cmake/presets/basic.cmake \
 module load openmpi/5.0.7/rocm6.3.3
 ```
 ```
-cmake ../cmake/presets/basic.cmake \
+cmake ../cmake/presets/most.cmake \
 -D LAMMPS_MACHINE=gpu \
 -D PKG_GPU=yes \
 -D GPU_API=HIP \
@@ -58,6 +59,7 @@ cmake ../cmake/presets/basic.cmake \
 -D BUILD_MPI=yes \
 -D PKG_MANYBODY=yes \
 -D PKG_VORONOI=yes \
+-D PKG_MEAM=yes \
 -D PKG_REAXFF=yes ../cmake
 ```
 
