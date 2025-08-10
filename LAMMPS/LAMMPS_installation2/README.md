@@ -61,6 +61,8 @@ cmake ../cmake/presets/basic.cmake \
 -D PKG_REAXFF=yes ../cmake
 ```
 
+CMAKEのプリセットは[こちら](https://docs.lammps.org/Build_package.html#cmake-presets-for-installing-many-packages)
+
 ### ビルドする
 ```
 make -j 4  # Numberは並列コア数
