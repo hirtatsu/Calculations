@@ -5,7 +5,7 @@
 - [MPI環境の構築](./Setting_WSL/MPI/README.md)
 - [GPGPU環境の構築](./Setting_WSL/GPGPU/README.md)
 - [Pythonの環境構築](./Setting_WSL/Python_installation/README.md)
-
+- [研究室NASのマウント](./Setting_WSL/NASMount/README.md)
 
 ### Mac環境の準備
 - [Homebrewのインストール](./Setting_mac/Homebrew_installation/README.md)
