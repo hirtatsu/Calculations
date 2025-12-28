@@ -15,9 +15,8 @@ alias ls='ls --color=auto -ltr' # lsの表示を好みに変更
 source .bashrc
 ```
 
-### Tool類の準備
-- Atomskのインストール
-- 
+### Atomskのインストール
+
 
 ### ssh接続環境の構築
 Matlantis公式ドキュメント参照：[SSH接続 設定方法](https://matlantis.zendesk.com/hc/ja/articles/40524152374169-SSH%E6%8E%A5%E7%B6%9A-%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95)
