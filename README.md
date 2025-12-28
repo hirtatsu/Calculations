@@ -53,8 +53,8 @@
 ### AI画像生成 (Stable Diffusion)
 - [Stable Diffusion](./GenerativeAI/Stable-Diffusion/README.md)
 
-### Matlantis環境構築
-- [Matlantis](./Matlantis/README.md)
+### Matlantis
+- [Matlantis環境構築](./Matlantis/README.md)
 ---
  
 ### 研究室計算サーバ構築
