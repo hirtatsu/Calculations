@@ -31,7 +31,7 @@ cd tool
 ```
 tar -xzvf atomsk_b0.13.1_Linux-amd64.tar.gz
 cd atomsk_b0.13.1_Linux-amd64
-sh istall.sh
+sh install.sh
 ```
 - Pathが追加されるはずなので、それを反映。
 ```
