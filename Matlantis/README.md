@@ -23,3 +23,4 @@ Matlantis公式ドキュメント参照：[SSH接続 設定方法](https://matla
 
 ### LAMMPSのインストール（PFPを力場としたLAMMPS計算）
 Matlantis公式ドキュメント参照：[LAMMPS連携パッケージ(matlantis-lammps)のインストール](https://matlantis.zendesk.com/hc/ja/articles/33994518415257-LAMMPS%E9%80%A3%E6%90%BA%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8-matlantis-lammps-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95)
+LAMMPS実行ファイル（lmp_serial）が作成されて、pyenv環境下にインストールされる。Pathが通っているはず。
