@@ -96,7 +96,7 @@ cd source3.9.9
 tar xvfz ../patch/patch3.9.9.tar.gz
 mv kpoint.in ../work/
 ```
-### さらに、最新のパッチを当てたsource3.9.9-v1を作成する。
+### さらに、最新のパッチを当てたsource3.9.9-v1を作成する。詳細は[こちら]([https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31))。
 ```
 cd ../
 cp -rp source3.9.9 source3.9.9-v1
@@ -104,23 +104,18 @@ cd source3.9.9-v1
 tar xvfz ../patch/v1.tar.gz --strip-components 1
 ```
 
-### （補足）makefileを編集する（2025年7月時点で不要。代わりに以下のパッチを充てる）
-```
-cd ~/DFT/openmx3.9/source3.9.9
-vim makefile
-```
-
-openmx3.9.9/source/makefileを次のように編集する。
-```
-MKLROOT = /opt/intel/oneapi/mkl/2025.1/
-CC  = mpiicx -O3 -xHOST -fiopenmp -fcommon -Wno-error=implicit-function-declaration -I${MKLROOT}/include/fftw
-FC  = mpiifx -O3 -xHOST -fiopenmp
-LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lifcore -lmkl_blacs_intelmpi_lp64 -liomp5 -lpthread -lm -ldl
-```
-
-## さらにパッチを充てる（2025年7月8日）
-[https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31)
-
+    - （補足）makefileを編集する（2025年7月時点で不要。代わりに以下のパッチを充てる）
+    ```
+    cd ~/DFT/openmx3.9/source3.9.9
+    vim makefile
+    ```
+    - openmx3.9.9/source/makefileを次のように編集する。
+    ```
+    MKLROOT = /opt/intel/oneapi/mkl/2025.1/
+    CC  = mpiicx -O3 -xHOST -fiopenmp -fcommon -Wno-error=implicit-function-declaration -I${MKLROOT}/include/fftw
+    FC  = mpiifx -O3 -xHOST -fiopenmp
+    LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lifcore -lmkl_blacs_intelmpi_lp64 -liomp5 -lpthread -lm -ldl
+    ```
 
 ### Makeする
 ```
