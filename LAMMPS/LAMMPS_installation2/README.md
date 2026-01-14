@@ -34,16 +34,21 @@ cd build
 - GPU_ARCHは[こちら](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)でチェック。例: GeForce RTX 3060、RTX A4000はsm_86、RTX4090はsm_89、6000Adaもsm_89。
 ```
 cmake -C ../cmake/presets/most.cmake \
--D LAMMPS_MACHINE=gpu \
--D PKG_GPU=yes \
--D GPU_API=cuda \
--D GPU_ARCH=sm_86 \
--D BUILD_MPI=yes \
--D PKG_MANYBODY=yes \
--D PKG_VORONOI=yes \
--D DOWNLOAD_VORO=yes \
--D PKG_MEAM=yes \
--D PKG_REAXFF=yes ../cmake
+ -D LAMMPS_MACHINE=gpu \
+ -D CMAKE_C_COMPILER=icx \
+ -D CMAKE_CXX_COMPILER=icpx \
+ -D CMAKE_Fortran_COMPILER=ifx \
+ -D FFT=MKL \
+ -D PKG_GPU=yes \
+ -D GPU_API=cuda \
+ -D GPU_ARCH=sm_89 \
+ -D BUILD_MPI=yes \
+ -D PKG_MANYBODY=yes \
+ -D PKG_VORONOI=yes \
+ -D DOWNLOAD_VORO=yes \
+ -D PKG_MEAM=yes \
+ -D PKG_REAXFF=yes \
+ ../cmake
 ```
 
 ### AMDのAPUアクセラレータ（AMD Instinct MI300A）を用いる場合（Plasma Simulator）
