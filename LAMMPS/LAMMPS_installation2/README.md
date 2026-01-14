@@ -119,6 +119,11 @@ lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 ```
 なんか計算がはじまって、最後に'Total wall time: xx:xx:xx'と表示されていれば成功！
 
+- GPUとCPUのハイブリッドで計算する場合
+```
+mpirun -n 24 lmp_gpu -sf gpu -pk gpu 1 -in in.melt
+```
+
 ### 結果の確認
 ```
 ls
@@ -159,6 +164,7 @@ log.lammps # ← ログファイル。
 - 42並列の場合: 0:00:16 (-96%)
 - 48並列の場合: 0:00:20 (-95%)
 - GPUの場合: 0:00:32 (-92%)
+- CPU24並列＋GPUの場合: 
 
 計算環境5: GPUにAMDAMD Instinct MI300A @プラズマシミュレータ。
 
