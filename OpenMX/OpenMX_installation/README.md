@@ -112,6 +112,12 @@ LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_
 ## さらにパッチを充てる（2025年7月8日）
 [https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31)
 
+```
+cd ~/DFT/openmx3.9/source3.9.9
+wget https://github.com/atsushi-m-ito/openmx-patch-oneapi/archive/refs/tags/v1.tar.gz
+tar xvfz v1.tar.gz --strip-components 1
+```
+
 ### Makeする
 ```
 make -j 4 # 数字は使用するCPUコア数
