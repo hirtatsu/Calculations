@@ -1,6 +1,75 @@
 ## WSL上へのPythonの環境構築
 詳細は[こちら](https://learn.microsoft.com/ja-jp/windows/python/web-frameworks)
 
+### pyenvのインストール
+Pythonのバージョン管理の利便性のため、pyenv上にpythonをインストールすることにします。
+- pyenvの公式は[こちら](https://github.com/pyenv/pyenv)
+
+- まず必要なライブラリを一括インストールしておく
+```
+# パッケージリストの更新
+sudo apt update
+
+# 依存ライブラリの一括インストール（長いですが全部必要です）
+sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
+libffi-dev liblzma-dev
+```
+
+- 以下を実行する
+```
+curl -fsSL https://pyenv.run | bash
+```
+- 次に、ホームディレクトリにある.bashrcの末尾に追記するためのコマンドをまとめて実行する。
+```
+echo 'pyenv用のスクリプト' >> ~/.bashrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
+```
+- その次に、ホームディレクトリに.profile, .bash_profile, あるいは.bash_loginがあれば、これらすべてに同様に追記するため、以下を実行する。
+  - ~/.profileの場合
+    ```
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+    echo 'eval "$(pyenv init - bash)"' >> ~/.profile    
+    ```
+  - ~/.bash_profileの場合
+    ```
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+    echo 'eval "$(pyenv init - bash)"' >> ~/.bash_profile    ```
+  - ~/.bash_loginの場合
+    ```
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_login
+    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_login
+    echo 'eval "$(pyenv init - bash)"' >> ~/.bash_login    
+    ```
+- `PATH`に反映するために以下を実行する。
+```
+exec "$SHELL"
+```
+- pyenvが使えるか確認。バージョンが表示されればOK。
+```
+pyenv --version
+```
+
+### pyenvでPythonをインストールする
+- まず、利用できるpythonのバージョンを確認する
+```
+pyenv install -l
+```
+- 所望のバージョンを決めて(とりあえず3.XX.Yの中から新しそうなもの？)、以下を実行する。ここでは例として、3.13.11の場合を示す。
+```
+pyenv install 3.13.11
+```
+- インストールできたか確認する。`system`とは別に、先ほど指定したバージョン(ここでは`3.13.11`)が表示されていればOK。
+```
+pyenv versions
+```
+
+
 ### Python3, pip, venvのインストール
 - Python3。バージョン番号が表示されればOK。
 ```
