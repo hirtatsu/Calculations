@@ -96,7 +96,7 @@ cd source3.9.9
 tar xvfz ../patch/patch3.9.9.tar.gz
 mv kpoint.in ../work/
 ```
-### さらに、最新のパッチを当てたsource3.9.9-v1を作成する。詳細は[こちら]([https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31))。
+### さらに、最新のパッチを当てたsource3.9.9-v1を作成する。詳細は[こちら](https://qiita.com/pochman/items/1a7b80107850e027ad31))。
 ```
 cd ../
 cp -rp source3.9.9 source3.9.9-v1
