@@ -52,22 +52,6 @@ icx -v
 ```
 ---
 
-## 前準備2 (VORONOIパッケージを使う場合)
-- [VORO++](https://math.lbl.gov/voro++/)をインストールする。上記のダウンロードページから、最新バージョンのダウンロードリンクをコピーしてくる。
-```
-cd
-wget https://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz
-tar -xvf voro++-0.4.6.tar.gz # 2023.6.10現在、Ver. 4.6が最新
-cd voro++-0.4.6
-make -j
-sudo make install
-```
-- PATHを通す。デフォルトでは/usr/local/binになっているはず。.bashrcの一番下あたりに以下を記入してから再起動。
-```
-export PATH=/usr/local/bin:$PATH
-```
-
-
 
 ## LAMMPSのインストール
 
@@ -93,7 +77,7 @@ cd build
 ### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOI, MEAM, ReaxFFパッケージを追加)
 - Intel OneAPIを用いる場合
 ```
-cmake ../cmake/presets/most.cmake -D LAMMPS_MACHINE=cpu -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DCMAKE_Fortran_COMPILER=ifx -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D DOWNLOAD_VORO=yes -D PKG_REAXFF=yes -D PKG_MEAM=yes ../cmake
+cmake -C ../cmake/presets/most.cmake -D LAMMPS_MACHINE=cpu -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DCMAKE_Fortran_COMPILER=ifx -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D DOWNLOAD_VORO=yes -D PKG_REAXFF=yes -D PKG_MEAM=yes ../cmake
 ```
 
 上記でコンパイルして生成されるファイル名は「lmp_cpu」。もし「lmp_XXX」にしたい場合は、上記cmakeするときに、以下を追加しておくこと
