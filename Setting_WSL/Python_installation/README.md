@@ -83,7 +83,7 @@ cd ~/my_test_project
 pyenv local 3.13.11
 ```
 
-## venvによる環境構築
+## venvによるパッケージ管理環境の構築
 ### venvのインストール
 ```
 sudo apt install python3-venv
