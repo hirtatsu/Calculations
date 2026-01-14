@@ -48,18 +48,8 @@ source .bashrc
 ```
 ちゃんとインストールできたか確認する。バージョンとか表示されればOK。
 ```
-icc -v
+icx -v
 ```
-
-### (2) GNUコンパイラを使う場合
-### 必要なパッケージをインストールする
-```
-sudo apt install -y cmake build-essential ccache gfortran openmpi-bin libopenmpi-dev \
-                    libfftw3-dev libjpeg-dev libpng-dev python3-dev python3-pip \
-                    python3-virtualenv libblas-dev liblapack-dev libhdf5-serial-dev \
-                    hdf5-tools clang-format ffmpeg
-```
-
 ---
 
 ## 前準備2 (VORONOIパッケージを使う場合)
@@ -103,12 +93,9 @@ cd build
 ### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOI, MEAM, ReaxFFパッケージを追加)
 - Intel OneAPIを用いる場合
 ```
-cmake ../cmake/presets/most.cmake -D LAMMPS_MACHINE=cpu -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DCMAKE_Fortran_COMPILER=ifx -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D PKG_REAXFF=yes -D PKG_MEAM=yes ../cmake
+cmake ../cmake/presets/most.cmake -D LAMMPS_MACHINE=cpu -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DCMAKE_Fortran_COMPILER=ifx -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D DOWNLOAD_VORO=yes -D PKG_REAXFF=yes -D PKG_MEAM=yes ../cmake
 ```
-- GNUコンパイラを用いる場合
-```
-cmake ../cmake/presets/basic.cmake -D LAMMPS_MACHINE=cpu -D BUILD_MPI=yes -D PKG_MANYBODY=yes ../cmake
-```
+
 上記でコンパイルして生成されるファイル名は「lmp_cpu」。もし「lmp_XXX」にしたい場合は、上記cmakeするときに、以下を追加しておくこと
 ```
 -D LAMMPS_MACHINE=xxx
