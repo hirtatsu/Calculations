@@ -28,6 +28,8 @@ sudo apt upgrade -y
 
 [Further installation manual](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 
+★ドライバのバージョンとCudaのバージョンの対応表を確認すること。[こちら](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions)
+
 - 古いGPGキーを削除。
 ```
 sudo apt-key del 7fa2af80
