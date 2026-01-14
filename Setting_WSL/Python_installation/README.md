@@ -1,7 +1,7 @@
-## WSL上へのPythonの環境構築
+# WSL上へのPythonの環境構築
 詳細は[こちら](https://learn.microsoft.com/ja-jp/windows/python/web-frameworks)
 
-### pyenvのインストール
+## pyenvのインストール
 Pythonのバージョン管理の利便性のため、pyenv上にpythonをインストールすることにします。
 - pyenvの公式は[こちら](https://github.com/pyenv/pyenv)
 
@@ -55,7 +55,8 @@ exec "$SHELL"
 pyenv --version
 ```
 
-### pyenvでPythonをインストールする
+## pyenvでPython環境を構築する
+### Pythonをインストールする
 - まず、利用できるpythonのバージョンを確認する
 ```
 pyenv install -l
@@ -68,28 +69,27 @@ pyenv install 3.13.11
 ```
 pyenv versions
 ```
+### Pythonのバージョンを指定する
+- PC全体のデフォルトとなるバージョンを指定する（最初だけ。ここでは3.13.11を例に。）
+```
+pyenv global 3.13.11
+```
+- プロジェクトごとにバージョンを指定する。当該プロジェクトのディレクトリに移動して、以下を実行する（このプロジェクトで使うバージョンが固定される）。
+```
+pyenv local 3.13.11
+```
 
-
-### Python3, pip, venvのインストール
-- Python3。バージョン番号が表示されればOK。
-```
-python3 --version
-```
-- Pythonのパッケージ管理ツールpipのインストール
-```
-sudo apt install python3-pip
-```
-- Python仮想環境作成のためのツールvenvをインストール
+## venvによる環境構築
+### venvのインストール
 ```
 sudo apt install python3-venv
 ```
 
 ### 仮想環境の作成とパッケージのインストール
-- 仮想環境「test-env」を作成する
+- 仮想環境「test-env」を作成する。★上述のプロジェクトのディレクトリ内で実行すること。
 ```
 python3 -m venv /home/ユーザ名/test-env/
 ```
-
 - 仮想環境「test-env」をActivateする
 ```
 source /home/ユーザ名/test-env/bin/activate
