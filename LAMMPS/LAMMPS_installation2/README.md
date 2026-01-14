@@ -121,7 +121,7 @@ lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 
 - GPUとCPUのハイブリッドで計算する場合
 ```
-mpirun -n 24 lmp_gpu -sf gpu -pk gpu 1 -in in.melt
+mpirun -n 8 lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 ```
 
 ### 結果の確認
@@ -164,7 +164,7 @@ log.lammps # ← ログファイル。
 - 42並列の場合: 0:00:16 (-96%)
 - 48並列の場合: 0:00:20 (-95%)
 - GPUの場合: 0:00:32 (-92%)
-- CPU24並列＋GPUの場合: 
+- CPU8並列＋GPUの場合: 0:00:09 (-94%)
 
 計算環境5: GPUにAMDAMD Instinct MI300A @プラズマシミュレータ。
 
