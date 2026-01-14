@@ -82,6 +82,7 @@ cmake -C ../cmake/presets/most.cmake \
 -D CMAKE_C_COMPILER=icx \
 -D CMAKE_CXX_COMPILER=icpx \
 -D CMAKE_Fortran_COMPILER=ifx \
+-D FFT=MKL \
 -D BUILD_MPI=yes \
 -D PKG_MANYBODY=yes \
 -D PKG_VORONOI=yes \
