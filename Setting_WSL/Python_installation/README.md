@@ -23,7 +23,7 @@ curl -fsSL https://pyenv.run | bash
 ```
 - 次に、ホームディレクトリにある.bashrcの末尾に追記するためのコマンドをまとめて実行する。
 ```
-echo 'pyenv用のスクリプト' >> ~/.bashrc
+echo '# pyenv用のスクリプト' >> ~/.bashrc
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
