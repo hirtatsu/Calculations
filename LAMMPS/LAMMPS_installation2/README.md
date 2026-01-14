@@ -33,7 +33,7 @@ cd build
 ### cmakeでMakefileを作成する(GPU関連, MPI, MANYBODY, VORONOI, ReaxFFパッケージを追加, Intelコンパイラを使用)
 - GPU_ARCHは[こちら](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)でチェック。例: GeForce RTX 3060、RTX A4000はsm_86、RTX4090はsm_89、6000Adaもsm_89。
 ```
-cmake ../cmake/presets/most.cmake \
+cmake -C ../cmake/presets/most.cmake \
 -D LAMMPS_MACHINE=gpu \
 -D PKG_GPU=yes \
 -D GPU_API=cuda \
@@ -49,7 +49,7 @@ cmake ../cmake/presets/most.cmake \
 module load openmpi/5.0.7/rocm6.3.3
 ```
 ```
-cmake ../cmake/presets/most.cmake \
+cmake -C ../cmake/presets/most.cmake \
 -D LAMMPS_MACHINE=gpu \
 -D PKG_GPU=yes \
 -D GPU_API=HIP \
