@@ -77,7 +77,17 @@ cd build
 ### cmakeでMakefileを作成する(MPI, MANYBODY, VORONOI, MEAM, ReaxFFパッケージを追加)
 - Intel OneAPIを用いる場合
 ```
-cmake -C ../cmake/presets/most.cmake -D LAMMPS_MACHINE=cpu -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DCMAKE_Fortran_COMPILER=ifx -D BUILD_MPI=yes -D PKG_MANYBODY=yes -D PKG_VORONOI=yes -D DOWNLOAD_VORO=yes -D PKG_REAXFF=yes -D PKG_MEAM=yes ../cmake
+cmake -C ../cmake/presets/most.cmake \
+-D LAMMPS_MACHINE=cpu \
+-D CMAKE_C_COMPILER=icx \
+-D CMAKE_CXX_COMPILER=icpx \
+-D CMAKE_Fortran_COMPILER=ifx \
+-D BUILD_MPI=yes \
+-D PKG_MANYBODY=yes \
+-D PKG_VORONOI=yes \
+-D DOWNLOAD_VORO=yes \
+-D PKG_REAXFF=yes \
+-D PKG_MEAM=yes ../cmake
 ```
 
 上記でコンパイルして生成されるファイル名は「lmp_cpu」。もし「lmp_XXX」にしたい場合は、上記cmakeするときに、以下を追加しておくこと
