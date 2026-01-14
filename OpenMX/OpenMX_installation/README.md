@@ -67,16 +67,15 @@ wget入力して貼り付けしてEnter。ダウンロードされる(2022/9/22�
 ```
 wget http://www.openmx-square.org/bugfixed/21Oct17/patch3.9.9.tar.gz
 ```
-次に、解凍。
+さらに、最新パッチ（伊藤先生ご提供）をダウンロード。
+```
+wget https://github.com/atsushi-m-ito/openmx-patch-oneapi/archive/refs/tags/v1.tar.gz
+```
+
+次に、解凍した後にその中に入る。以下のディレクトリが見つかるはず。
 ```
 tar xvfz openmx3.9.tar.gz
-```
-ディレクトリに入る。
-```
 cd openmx3.9
-```
-中には以下のディレクトリが見つかるはず。
-```
 ls
 ```
 - DFT_DATA19　←　基底関数＆擬ポテンシャル
@@ -84,18 +83,28 @@ ls
 - work　←　サンプルファイル
 
 ## ソースにパッチを適用する
-もともとのsourceディレクトリ(Ver.3.9用)にパッチを適用した、source3.9.9を作成する。
+まずは、ダウンロードしたパッチファイルをpatchディレクトリに格納しておく。
 ```
 mkdir patch
 mv ../patch3.9.9.tar.gz ./patch/
-
+mv ../v1.tar.gz ./patch/
+```
+### もともとのsourceディレクトリ(Ver.3.9用)にパッチを適用した、source3.9.9を作成する。
+```
 cp -rp source source3.9.9
 cd source3.9.9
 tar xvfz ../patch/patch3.9.9.tar.gz
 mv kpoint.in ../work/
 ```
+### さらに、最新のパッチを当てたsource3.9.9-v1を作成する。
+```
+cd ../
+cp -rp source3.9.9 source3.9.9-v1
+cd source3.9.9-v1
+tar xvfz ../patch/v1.tar.gz --strip-components 1
+```
 
-### makefileを編集する（2025年7月時点で不要。代わりに以下のパッチを充てる）
+### （補足）makefileを編集する（2025年7月時点で不要。代わりに以下のパッチを充てる）
 ```
 cd ~/DFT/openmx3.9/source3.9.9
 vim makefile
@@ -112,11 +121,6 @@ LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_
 ## さらにパッチを充てる（2025年7月8日）
 [https://qiita.com/pochman/items/1a7b80107850e027ad31](https://qiita.com/pochman/items/1a7b80107850e027ad31)
 
-```
-cd ~/DFT/openmx3.9/source3.9.9
-wget https://github.com/atsushi-m-ito/openmx-patch-oneapi/archive/refs/tags/v1.tar.gz
-tar xvfz v1.tar.gz --strip-components 1
-```
 
 ### Makeする
 ```
