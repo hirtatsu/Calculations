@@ -21,18 +21,7 @@ cd
 ```
 
 Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.d1jvm6)にアクセスして、Intel oneAPI Base ToolkitとIntel oneAPI HPC Toolkitを以下の通りインストールする。
-
-まず、[Intel oneAPI Base Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html)をクリック。
-
-- Operating system: Linux
-- Select distribution: Online
-
-を選択して、表示される'Command Line Download'に記載のコードをUbuntu上で実行する。
-すると、インストール画面が別ウインドウで立ち上がるので、画面の指示に従ってインストールする。
-※カスタムを選ぶ場合、必ずMath Karnel Libraryを選ぶこと。
-
-続いて、[Intel oneAPI HPC Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html)をクリック。上と同様にインストールする。
-カスタムインストールにて、DPC++/C++ Compiler, MPI Library, Fortran Compilerをインストールする。
+Linuxにて。Offlineインストールがおすすめ。
 
 ### Intel OneAPIの設定を反映する（毎回、要実施）
 ```
