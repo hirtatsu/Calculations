@@ -10,7 +10,7 @@ wget https://gist.github.com/hirtatsu/171b170489c3cc35e7b6f206b416bbe5/raw/d04be
 # Tatsumi Research Environment Config (Smart Auto-Detect Edition)
 # ======================================================================
 # .bashrc (または .zshrc) の一番下に、以下の1行を追加する。
-#    [ -f ~/.research_env ] && source ~/.research_env
+[ -f ~/.research_env ] && source ~/.research_env
 # ======================================================================
 ```
 
