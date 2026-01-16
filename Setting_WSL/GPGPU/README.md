@@ -45,6 +45,7 @@ sudo apt update
 sudo apt -y install cuda
 ```
 
+### （参考）もし.bashrcに記載してPATHを通すなら。
 - PATHを通す
 ```
 cd
