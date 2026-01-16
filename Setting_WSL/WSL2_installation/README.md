@@ -46,7 +46,7 @@ vim .bashrc
 ```
 そして、最終行に以下を追記する。
 ```
-alias ls="ls -lGtr"
+alias ls="ls -lGtr --color=auto"
 ```
 
 
