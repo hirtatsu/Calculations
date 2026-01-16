@@ -34,7 +34,13 @@ Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/dev
 続いて、[Intel oneAPI HPC Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html)をクリック。上と同様にインストールする。
 カスタムインストールにて、DPC++/C++ Compiler, MPI Library, Fortran Compilerをインストールする。
 
-### Intel oneapiで入手したコンパイラのPATHを通す
+### Intel OneAPIの設定を反映する（毎回、要実施）
+```
+source /opt/intel/oneapi/setvars.sh
+```
+
+### （参考）Intel oneapiで入手したコンパイラのPATHを通す
+そうすると、毎回上述のコマンドを打つ必要がなくなる。
 ```
 cd
 vim .bashrc
