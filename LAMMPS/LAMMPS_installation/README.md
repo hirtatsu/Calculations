@@ -9,48 +9,21 @@ sudo apt install build-essential cmake -y
 ---
 
 ## 前準備 (計算サーバにはすでにIntel oneAPIを導入済みのためスキップ)
-### (1) Intel OneAPIを使う場合
-### インストールで必要なパッケージをIntel oneAPI Toolkitsで入手する
-
-- Docker上のUbuntuなどグラフィック環境がない場合は[こちらの方法](../Docker_tutorial3/README.md)を参照してIntel oneAPIをインストールし、LAMMPSのインストールへ進む。
-
-- WSL上の場合は以下でいけるはず。
-
-```
-cd
-```
-
+## Intel oneAPI Toolkitsを入手する
+### インストール
 Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.d1jvm6)にアクセスして、Intel oneAPI Base ToolkitとIntel oneAPI HPC Toolkitを以下の通りインストールする。
-
-まず、[Intel oneAPI Base Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html)をクリック。
-
 - Operating system: Linux
-- Select distribution: Online
+- Select distribution: Offline
+インストール完了する。
 
-を選択して、表示される'Command Line Download'に記載のコードをUbuntu上で実行する。
-すると、インストール画面が別ウインドウで立ち上がるので、画面の指示に従ってインストールする。
-
-続いて、[Intel oneAPI HPC Toolkitのダウンロード](https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html)をクリック。上と同様にインストールする。
-カスタムインストールにて、DPC++/C++ Compiler, MPI Library, Fortran Compilerをインストールする。
-
-### Intel oneapiで入手したコンパイラのPATHを通す
-```
-cd
-vim .bashrc
-```
-で開いて、最後に行を追加して以下を入力して保存する。
+### 環境呼び出し。計算モードの読み込みスイッチを未導入であれば以下を実行する。
 ```
 source /opt/intel/oneapi/setvars.sh
 ```
-そして、以下のコマンドでPATHを反映させる。
-```
-source .bashrc
-```
-ちゃんとインストールできたか確認する。バージョンとか表示されればOK。
+ちゃんと環境を呼び出せたか確認する。バージョンとか表示されればOK。
 ```
 icx -v
 ```
----
 
 
 ## LAMMPSのインストール
