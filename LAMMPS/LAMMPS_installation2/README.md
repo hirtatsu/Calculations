@@ -50,6 +50,22 @@ cmake -C ../cmake/presets/most.cmake \
  -D PKG_REAXFF=yes \
  ../cmake
 ```
+- Ubuntuのバージョン次第では、nvccとintelコンパイラが競合して(?)うまくいかないかも？その場合は以下でどうでしょう。
+```
+cmake -C ../cmake/presets/most.cmake \
+ -D LAMMPS_MACHINE=gpu \
+ -D FFT=MKL \
+ -D PKG_GPU=yes \
+ -D GPU_API=cuda \
+ -D GPU_ARCH=sm_89 \
+ -D BUILD_MPI=yes \
+ -D PKG_MANYBODY=yes \
+ -D PKG_VORONOI=yes \
+ -D DOWNLOAD_VORO=yes \
+ -D PKG_MEAM=yes \
+ -D PKG_REAXFF=yes \
+ ../cmake
+```
 
 ### AMDのAPUアクセラレータ（AMD Instinct MI300A）を用いる場合（Plasma Simulator）
 ```
