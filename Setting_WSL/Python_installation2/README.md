@@ -43,3 +43,19 @@ conda deactivate # Conda環境から出る
 ```
 
 # Pythonのインストール
+- 利用できるPythonのバージョンをチェック
+```
+conda search python | tail -n 20 # とりあえず最新を20件表示
+```
+- 環境を構築(ここでは3.13.11で)
+```
+conda create -n test-env python=3.13.11
+```
+- 作成した環境をアクティベイト
+```
+conda activate test-env
+```
+- 環境を無効化するときは以下。
+```
+deactivate
+```
