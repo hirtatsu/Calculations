@@ -47,7 +47,7 @@ conda deactivate # Conda環境から出る
 ```
 conda search python | tail -n 20 # とりあえず最新を20件表示
 ```
-- 環境を構築(ここでは3.13.11で)
+- 仮想環境を構築（ここではPython バージョン 3.13.11を例に）
 ```
 conda create -n test-env python=3.13.11
 ```
@@ -55,7 +55,7 @@ conda create -n test-env python=3.13.11
 ```
 conda activate test-env
 ```
-- 環境を無効化するときは以下。
+- 環境を無効化するときは以下
 ```
 deactivate
 ```
