@@ -55,6 +55,8 @@ conda create -n test-env python=3.13.11
 ```
 conda activate test-env
 ```
+行頭に`(test-env)`が表示されれば成功
+
 - 環境を無効化するときは以下
 ```
 deactivate
