@@ -21,3 +21,25 @@ bash Miniforge3-$(uname)-$(uname -m).sh
 - Initializationの要否についての質問（起動時に自動的に`conda`コマンドを使えるようにしますか？的な）に対して、`yes`を入力する
 - 完了！
 
+### 動作確認と最新バージョンのインストール
+- 一旦ターミナルを立ち下げて再度Ubuntuを起動
+- 行のはじめに`(base)`が表示されていればOK
+- 以下でバージョン確認できるはず
+```
+conda --version
+```
+- 最新のバージョンにアップデート
+```
+conda update conda
+```
+- 毎回勝手に起動するのが煩わしいので、以下で自動起動を`false`に
+```
+conda config --set auto_activate_base false
+```
+- 次回から、自動的には`(base)`が出なくなる。使用時に適宜以下を実行する
+```
+conda activate  # Conda環境に入る (baseが出る)
+conda deactivate # Conda環境から出る
+```
+
+# Pythonのインストール
