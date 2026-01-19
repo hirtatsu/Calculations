@@ -32,6 +32,11 @@ curl -fsSL https://tailscale.com/install.sh | sh
 ```
 sudo tailscale up
 ```
+### 起動状態の確認
+```
+sudo systemctl status tailscaled
+```
+`active`と表示されていればOK。
 - 表示されたWebサイトにアクセスして機器登録して完了
 
 ### 操作一覧
