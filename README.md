@@ -13,7 +13,7 @@
 ### Mac環境の準備
 - [Homebrewのインストール](./Setting_mac/Homebrew_installation/README.md)
 - ~~[X Window Systemのセットアップ](./Setting_mac/Xwindowsystem_mac_installation/README.md)~~
-- [Pythonの環境構築](./Setting_mac/Python_mac_installation/README.md)
+- [Pythonの環境構築(pyenv, venv版)](./Setting_mac/Python_mac_installation/README.md)
 
 ### 研究室の計算サーバへの接続
 - [接続方法](./Server_setting/Howtoaccess_server/README.md)
