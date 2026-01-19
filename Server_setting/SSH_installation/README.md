@@ -11,6 +11,8 @@ sudo systemctl status ssh
 ```
 `active`と表示されていればOK。
 
+### 操作一覧
+
 |操作	| コマンド|
 |---|---|
 |SSHサーバーの停止	|sudo systemctl stop ssh|
