@@ -23,7 +23,8 @@ vim ~/.smbcredentials
 2. 以下の内容を記述して保存します。NASにアクセスするためのユーザ名とパスワードです、間違えないように。
 ```
 username=XXXXX
-password=XXXXX 
+password=XXXXX
+
 ```
 3. 他人に見られないよう権限を変更します。
 ```
