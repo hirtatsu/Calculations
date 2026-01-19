@@ -11,7 +11,7 @@ Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/dev
 - Operating system: Linux
 - Select distribution: Offline
 
-### 環境呼び出し
+### 環境呼び出し。計算モードの読み込みスイッチを未導入であれば以下を実行する。
 ```
 source /opt/intel/oneapi/setvars.sh
 ```
