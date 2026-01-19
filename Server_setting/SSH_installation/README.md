@@ -33,3 +33,14 @@ curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 ```
 - 表示されたWebサイトにアクセスして機器登録して完了
+
+### 操作一覧
+
+|操作	| コマンド|
+|---|---|
+|Tailscaleの停止	|sudo systemctl stop tailscaled|
+|Tailscaleの起動	|sudo systemctl start tailscaled|
+|Tailscaleの再起動	|sudo systemctl restart tailscaled|
+|設定のリロード	|sudo systemctl reload tailscaled|
+|自動起動の有効化	|sudo systemctl enable tailscaled|
+|自動起動の無効化	|sudo systemctl disable tailscaled|
