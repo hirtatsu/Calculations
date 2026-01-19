@@ -21,4 +21,23 @@ wget https://gist.github.com/hirtatsu/171b170489c3cc35e7b6f206b416bbe5/raw/d04be
 ```
 load_calc
 ```
-- ターミナルに`[HPC-MODE]`と表示されるようになる。
+- ターミナルに`[HPC-MODE]`と表示されるようになる。例。
+```
+XXXXXXXXXXXXXXXXX:~$ load_calc
+Loading HPC Environment...
+  -> Intel OneAPI Loaded.
+  -> System CUDA Loaded: /usr/local/cuda
+✅ Ready for HPC calculations (OpenMX / LAMMPS).
+```
+
+### 動作確認
+- Intel OneAPI。バージョン情報等表示されればOK。
+```
+icx --version
+```
+
+- Nvidia Cuda Toolkit。バージョン情報等表示されればOK。
+```
+nvcc --version
+```
+以上
