@@ -16,7 +16,8 @@ wget https://gist.github.com/hirtatsu/171b170489c3cc35e7b6f206b416bbe5/raw/f9128
 # ======================================================================
 ```
 
-### 計算環境の読み込み方法
+## 計算(HPC)環境の読み込み方法
+### 動作確認
 - 以下のコマンドを実施する
 ```
 load_calc
@@ -29,8 +30,6 @@ Loading HPC Environment...
   -> System CUDA Loaded: /usr/local/cuda
 ✅ Ready for HPC calculations (OpenMX / LAMMPS).
 ```
-
-### 動作確認
 - Intel OneAPI。バージョン情報等表示されればOK。
 ```
 icx --version
@@ -40,4 +39,20 @@ icx --version
 ```
 nvcc --version
 ```
-以上
+
+
+## 計算(python @ miniforge)環境の読み込み方法
+### 動作確認
+- 以下のコマンドを実施する
+```
+load_py
+```
+- ターミナルに`[ML-MODE]`と表示されるようになる。例。
+```
+XXXXXXXXXXXXXXXXX:~$ load_py
+✅ Miniforge Environment Activated: test-env
+```
+- Conda。バージョン情報等表示されればOK。
+```
+conda --version
+```
