@@ -1,6 +1,21 @@
 # Stable Diffusion
 画像生成AIを使ってみましょう
 
+# Forge版
+### Forge環境でのインストール
+```
+git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git
+```
+以上。Forgeなら簡単。
+
+### 使用方法
+```
+cd stable-diffusion-webui-forge
+./webui.sh
+```
+あとはブラウザ上でポチポチ。
+
+# 以下はForge使わない版（Cuda toolkitから要環境構築）
 ## Stable Diffusionのインストールと起動
 ### 環境
 - Windows11のWSL2上のUbuntu 22.04.2 LTS
