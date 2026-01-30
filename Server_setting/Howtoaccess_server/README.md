@@ -36,15 +36,37 @@ get -r ローカルのディレクトリ名 リモートのディレクトリ名
 
 ## 手元のPCからのSSH接続
 ### 名前解決
-`hosts`ファイルにて、IPアドレスとホスト名を関連付ける
+~/.ssh/configを書く
 ```
-sudo vim /etc/hosts
+vim ~/.ssh/config
 ```
+内容は以下の通り。
+```
+# ==========================================
+# 共通設定
+# ==========================================
+Host *
+  IdentityFile ~/.ssh/id_ed25519
+  ServerAliveInterval 60
+  AddKeysToAgent yes
+  UseKeychain yes
+  # ↓これを書いておくと、接続時にknown_hostsエラーが出た時に
+  #   勝手に/dev/nullに飛ばして無視する（開発環境なら便利だが自己責任で）
+  # StrictHostKeyChecking no
+  # UserKnownHostsFile /dev/null
 
+# ==========================================
+# Linuxサーバー & NAS
+# ==========================================
+# サーバーごとに設定
+Host XXXX # 接続するときに使う名前
+  HostName xxx.xxx.xxx.xxx
+  User xxxxxxx
+```
 ### 接続
 - ssh接続する
 ```
-ssh ユーザ名@ホスト名
+ssh XXXX # 接続するときに使う名前として設定したもの
 ```
 
 - ssh接続を切断する
