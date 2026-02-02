@@ -1,11 +1,13 @@
 # Stable Diffusion
 画像生成AIを使ってみましょう
 
-# Comfy UI版
-### [こちら](https://comfyui-wiki.com/ja/install/install-comfyui/install-comfyui-on-linux)
-
-
-
+# reForge版
+### インストール
+仮想環境に入ってから
+```
+git clone https://github.com/Panchovix/stable-diffusion-webui-reForge.git
+```
+以上。Forgeなら簡単。
 
 # （旧情報）Forge版
 ### Forge環境でのインストール
