@@ -59,5 +59,5 @@ conda activate test-env
 
 - 環境を無効化するときは以下
 ```
-deactivate
+conda deactivate
 ```
