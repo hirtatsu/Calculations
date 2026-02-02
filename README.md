@@ -7,8 +7,8 @@
 - [研究室NASのマウント](./Setting_WSL/NASMount/README.md)
 - [MPI環境の構築](./Setting_WSL/MPI/README.md)
 - [GPGPU環境の構築](./Setting_WSL/GPGPU/README.md)
-- [計算モードの読み込みスイッチの導入](./Setting_WSL/load_calc/README.md)
 - [Pythonの環境構築(miniforge版)](./Setting_WSL/Python_installation2/README.md)
+- [計算モードの読み込みスイッチの導入](./Setting_WSL/load_calc/README.md)
 - [Pythonの環境構築(pyenv, venv版)](./Setting_WSL/Python_installation/README.md)
 
 
