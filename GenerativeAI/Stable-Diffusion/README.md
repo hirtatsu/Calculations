@@ -7,18 +7,11 @@
 ```
 git clone https://github.com/Panchovix/stable-diffusion-webui-reForge.git
 ```
-以上。Forgeなら簡単。
-
-# （旧情報）Forge版
-### Forge環境でのインストール
-```
-git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git
-```
-以上。Forgeなら簡単。
+以上。reForgeなら簡単。
 
 ### 使用方法
 ```
-cd stable-diffusion-webui-forge
+cd stable-diffusion-webui-reforge
 ./webui.sh
 ```
 あとはブラウザ上でポチポチ。
