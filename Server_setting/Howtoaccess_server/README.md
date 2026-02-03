@@ -36,33 +36,21 @@ get -r ローカルのディレクトリ名 リモートのディレクトリ名
 
 ## 手元のPCからのSSH接続
 ### SSH接続の基礎知識は[こちら](https://qiita.com/tag1216/items/5d06bad7468f731f590e#fn2)
-### 名前解決
-~/.ssh/configを書く
-```
-vim ~/.ssh/config
-```
-内容は以下の通り。
-```
-# ==========================================
-# 共通設定
-# ==========================================
-Host *
-  IdentityFile ~/.ssh/id_ed25519
-  ServerAliveInterval 60
-  AddKeysToAgent yes
-  UseKeychain yes
-  # ↓これを書いておくと、接続時にknown_hostsエラーが出た時に
-  #   勝手に/dev/nullに飛ばして無視する（開発環境なら便利だが自己責任で）
-  # StrictHostKeyChecking no
-  # UserKnownHostsFile /dev/null
 
-# ==========================================
-# Linuxサーバー & NAS
-# ==========================================
-# サーバーごとに設定
-Host XXXX # 接続するときに使う名前
+# SSH接続
+### 鍵作成
+```
+ssh-keygen -t ed25519 -f .ssh/id_ed25519_hoge
+```
+
+### Configの設定
+`~/.ssh/config`ファイルに設定を書く。
+```
+Host hoge
+  User sampleuser
+  Port 22
   HostName xxx.xxx.xxx.xxx
-  User xxxxxxx
+  IdentityFile ~/.ssh/id_rsa
 ```
 ### 接続
 - ssh接続する
@@ -84,22 +72,3 @@ nohup mpirun -np 12 lmp < in.lmp &
 ```
 tail -F nohup.out
 ```
-# SSH接続
-### 鍵作成
-```
-ssh-keygen -t ed25519 -f .ssh/id_ed25519_hoge
-```
-
-### Configの設定
-`~/.ssh/config`ファイルに設定を書く。
-```
-Host hoge
-  User sampleuser
-  Port 22
-  HostName xxx.xxx.xxx.xxx
-  IdentityFile ~/.ssh/id_rsa
-```
-
-
-
-#
