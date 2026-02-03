@@ -86,7 +86,7 @@ tail -F nohup.out
 # SSH接続
 ### 鍵作成
 ```
-ssh-keygen -t {暗号化形式, rsaとか} -f .ssh/id_rsa_hoge
+ssh-keygen -t ed25519 -f .ssh/id_ed25519_hoge
 ```
 
 ### Configの設定
