@@ -83,4 +83,16 @@ nohup mpirun -np 12 lmp < in.lmp &
 ```
 tail -F nohup.out
 ```
+# SSHの接続Configの設定
+`~/.ssh/config`ファイルに設定を書く。
+```
+Host hoge
+  User sampleuser
+  Port 22
+  HostName xxx.xxx.xxx.xxx
+  IdentityFile ~/.ssh/id_rsa
+```
 
+
+
+#
