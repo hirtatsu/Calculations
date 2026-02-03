@@ -33,11 +33,10 @@ get ローカルのファイル名 リモートのディレクトリ名
 get -r ローカルのディレクトリ名 リモートのディレクトリ名
 ```
 
+# SSH接続
 
-## 手元のPCからのSSH接続
 ### SSH接続の基礎知識は[こちら](https://qiita.com/tag1216/items/5d06bad7468f731f590e#fn2)
 
-# SSH接続
 ### 鍵作成
 ```
 ssh-keygen -t ed25519 -f .ssh/id_ed25519_hoge
