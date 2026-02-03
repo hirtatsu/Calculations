@@ -83,7 +83,13 @@ nohup mpirun -np 12 lmp < in.lmp &
 ```
 tail -F nohup.out
 ```
-# SSHの接続Configの設定
+# SSH接続
+### 鍵作成
+```
+ssh-keygen -t {暗号化形式, rsaとか} -f .ssh/id_rsa_hoge
+```
+
+### Configの設定
 `~/.ssh/config`ファイルに設定を書く。
 ```
 Host hoge
