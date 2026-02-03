@@ -35,6 +35,7 @@ get -r ローカルのディレクトリ名 リモートのディレクトリ名
 
 
 ## 手元のPCからのSSH接続
+### SSH接続の基礎知識は[こちら](https://qiita.com/tag1216/items/5d06bad7468f731f590e#fn2)
 ### 名前解決
 ~/.ssh/configを書く
 ```
