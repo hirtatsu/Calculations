@@ -67,7 +67,7 @@ cmake -C ../cmake/presets/most.cmake \
  ../cmake
 ```
 ### cmakeでMakefileを作成する(Kokkos＋CUDA用, Intelコンパイラを使用)
-- GPU_ARCHは[こちら](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)でチェック。例: GeForce RTX 3060、RTX A4000はsm_86、RTX4090はsm_89、6000Adaもsm_89。
+- 詳細は[こちら]([https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012](https://docs.lammps.org/Build_extras.html#kokkos))でチェック。
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos_cuda \
