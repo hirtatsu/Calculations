@@ -72,6 +72,7 @@ cmake -C ../cmake/presets/most.cmake \
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos \
+ -D PKG_KOKKOS=ON \
  -D Kokkos_ARCH_SPR=yes \
  -D Kokkos_ARCH_ADA89=yes \
  -D Kokkos_ENABLE_CUDA=yes \
