@@ -79,7 +79,7 @@ cd source3.9.9-v1
 tar xvfz ../patch/v1.tar.gz --strip-components 1
 ```
 
-    - （補足）makefileを編集する（2025年7月時点で不要。代わりに以下のパッチを充てる）
+    - （補足）makefileを編集する（2025年7月時点で不要。代わりに上記のパッチを充てる）
     ```
     cd ~/DFT/openmx3.9/source3.9.9
     vim makefile
