@@ -72,11 +72,6 @@ cmake -C ../cmake/presets/most.cmake \
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos \
- -D CMAKE_C_COMPILER=icx \
- -D CMAKE_CXX_COMPILER=icpx \
- -D CMAKE_Fortran_COMPILER=ifx \
- -D CMAKE_CUDA_FLAGS="-allow-unsupported-compiler" \
- -D FFT=MKL \
  -D BUILD_MPI=yes \
  -D PKG_KOKKOS=yes \
  -D Kokkos_ARCH_SPR=yes \
