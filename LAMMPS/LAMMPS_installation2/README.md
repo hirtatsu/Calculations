@@ -76,6 +76,7 @@ cmake -C ../cmake/presets/most.cmake \
  -D CMAKE_CXX_COMPILER=icpx \
  -D CMAKE_Fortran_COMPILER=ifx \
  -D FFT=MKL \
+ -D CMAKE_CUDA_HOST_COMPILER=/usr/bin/g++ \
  -D BUILD_MPI=yes \
  -D PKG_KOKKOS=yes \
  -D Kokkos_ARCH_SPR=yes \
