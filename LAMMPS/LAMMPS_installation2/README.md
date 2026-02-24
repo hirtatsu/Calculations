@@ -78,6 +78,8 @@ cmake -C ../cmake/presets/most.cmake \
  -D Kokkos_ENABLE_CUDA=yes \
  -D Kokkos_ENABLE_OPENMP=yes \
  -D BUILD_OMP=yes \
+ -D CMAKE_CXX_COMPILER=`which mpicxx` \
+ -D MPI_C_COMPILER=`which mpicc` \
  -D PKG_MEAM=yes \
  -D PKG_MANYBODY=yes \
  -D PKG_VORONOI=yes \
