@@ -128,6 +128,7 @@ cmake -C ../cmake/presets/most.cmake \
  -D Kokkos_ENABLE_HIP=yes \
  -D Kokkos_ENABLE_OPENMP=yes \
  -D BUILD_OMP=yes \
+ -D BUILD_MPI=yes \
  -D CMAKE_CXX_COMPILER=hipcc \
  -D CMAKE_CXX_FLAGS="-fopenmp -mcmodel=large --offload-arch=gfx942" \
  -D PKG_MEAM=yes \
