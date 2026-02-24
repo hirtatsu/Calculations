@@ -54,7 +54,6 @@ cmake -C ../cmake/presets/most.cmake \
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=gpu \
- -D FFT=MKL \
  -D PKG_GPU=yes \
  -D GPU_API=cuda \
  -D GPU_ARCH=sm_89 \
