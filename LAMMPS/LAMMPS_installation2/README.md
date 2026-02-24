@@ -75,9 +75,9 @@ cmake -C ../cmake/presets/most.cmake \
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos \
  -D Kokkos_ARCH_SPR=yes \
- -D Kokkos_ARCH_ADA89=yes \  
+ -D Kokkos_ARCH_ADA89=yes \
  -D Kokkos_ENABLE_CUDA=yes \
- -D Kokkos_ENABLE_OPENMP=yes
+ -D Kokkos_ENABLE_OPENMP=yes \
  -D PKG_MEAM=yes \
  -D PKG_MANYBODY=yes \
  -D PKG_VORONOI=yes \
