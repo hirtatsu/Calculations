@@ -4,7 +4,7 @@
 ### 計算環境読み込みスクリプトのダウンロードと設定
 - Github Gistからダウンロードする（.research_env）
 ```
-https://gist.githubusercontent.com/hirtatsu/171b170489c3cc35e7b6f206b416bbe5/raw/a1e81452c1c36ac1b8a4156334c3ddea0a2417de/.research_env
+wget https://gist.githubusercontent.com/hirtatsu/171b170489c3cc35e7b6f206b416bbe5/raw/a1e81452c1c36ac1b8a4156334c3ddea0a2417de/.research_env
 ```
 - .bashrcに追記する
 ```
