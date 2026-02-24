@@ -77,7 +77,7 @@ cmake -C ../cmake/presets/most.cmake \
  -D CMAKE_Fortran_COMPILER=ifx \
  -D FFT=MKL \
  -D BUILD_MPI=yes \
- -D PKG_KOKKOS=ON \
+ -D PKG_KOKKOS=yes \
  -D Kokkos_ARCH_SPR=yes \
  -D Kokkos_ARCH_ADA89=yes \
  -D Kokkos_ENABLE_CUDA=yes \
