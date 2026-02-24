@@ -68,17 +68,16 @@ cmake -C ../cmake/presets/most.cmake \
 ```
 ### cmakeでMakefileを作成する(Kokkos＋CUDA用)
 - 詳細は[こちら](https://docs.lammps.org/Build_extras.html#kokkos)でチェック。
+（例）
+- HOSTARCH = HOST from list above, Intel Sapphire Rapids Xeon Server CPUs (AVX512) @ w7-2495x
+- GPUARCH = GPU from list above, NVIDIA Ada generation CC 8.9 @ RTX6000Ada
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos \
- -D FFT=MKL \
- -D BUILD_MPI=yes \
- -D BUILD_OMP=yes \
- -D PKG_KOKKOS=yes \
+ -D Kokkos_ARCH_SPR=yes \
+ -D Kokkos_ARCH_ADA89=yes \  
  -D Kokkos_ENABLE_CUDA=yes \
- -D Kokkos_ENABLE_OPENMP=yes \
- -D Kokkos_ARCH_ADA89=yes \
- -D Kokkos_ARCH_NATIVE=yes \
+ -D Kokkos_ENABLE_OPENMP=yes
  -D PKG_MEAM=yes \
  -D PKG_MANYBODY=yes \
  -D PKG_VORONOI=yes \
