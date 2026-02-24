@@ -69,6 +69,11 @@ cmake -C ../cmake/presets/most.cmake \
 - 詳細は[こちら](https://docs.lammps.org/Build_extras.html#kokkos)でチェック。
   - HOSTARCH = HOST from list above [(例) SPR：Intel Sapphire Rapids Xeon Server CPUs (AVX512) @ w7-2495x]
   - GPUARCH = GPU from list above, [(例) NVIDIA Ada generation CC 8.9 @ RTX6000Ada]
+- 検証環境は以下。
+  - Ubuntu 24.04
+  - Intel OneAPI 2025.1.0
+  - Cuda Toolkit 13.1
+
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos \
