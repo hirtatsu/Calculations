@@ -14,6 +14,8 @@ sudo apt install build-essential cmake -y
 Windows上で[Intel oneAPI Toolkits](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.d1jvm6)にアクセスして、Intel oneAPI Base ToolkitとIntel oneAPI HPC Toolkitを以下の通りインストールする。
 Linuxにて。Offlineインストールがおすすめ。
 
+過去バージョンはここから手に入るかも[ここ](https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-linux/2025-1/base-online-offline.html)
+
 ### Intel OneAPIの設定を反映する（毎回、要実施）
 ```
 source /opt/intel/oneapi/setvars.sh
