@@ -66,14 +66,11 @@ cmake -C ../cmake/presets/most.cmake \
  -D PKG_REAXFF=yes \
  ../cmake
 ```
-### cmakeでMakefileを作成する(Kokkos＋CUDA用, Intelコンパイラを使用)
+### cmakeでMakefileを作成する(Kokkos＋CUDA用)
 - 詳細は[こちら](https://docs.lammps.org/Build_extras.html#kokkos)でチェック。
 ```
 cmake -C ../cmake/presets/most.cmake \
  -D LAMMPS_MACHINE=kokkos \
- -D CMAKE_C_COMPILER=icx \
- -D CMAKE_CXX_COMPILER=icpx \
- -D CMAKE_Fortran_COMPILER=ifx \
  -D FFT=MKL \
  -D BUILD_MPI=yes \
  -D BUILD_OMP=yes \
