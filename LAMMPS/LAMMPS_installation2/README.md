@@ -87,6 +87,8 @@ cmake -C ../cmake/presets/most.cmake \
  -D PKG_REAXFF=yes \
  ../cmake
 ```
+
+
 ### AMDのAPUアクセラレータ（AMD Instinct MI300A）を用いる場合（Plasma Simulator）
 ```
 module load openmpi/5.0.7/rocm6.3.3
