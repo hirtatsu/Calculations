@@ -77,6 +77,7 @@ cmake -C ../cmake/presets/most.cmake \
  -D Kokkos_ARCH_ADA89=yes \
  -D Kokkos_ENABLE_CUDA=yes \
  -D Kokkos_ENABLE_OPENMP=yes \
+ -D BUILD_OMP=yes \
  -D PKG_MEAM=yes \
  -D PKG_MANYBODY=yes \
  -D PKG_VORONOI=yes \
