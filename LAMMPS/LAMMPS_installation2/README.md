@@ -118,20 +118,22 @@ cmake -C ../cmake/presets/most.cmake \
 ```
 module load openmpi/5.0.7/rocm6.3.3
 ```
-```
 cmake -C ../cmake/presets/most.cmake \
--D LAMMPS_MACHINE=gpu \
--D PKG_GPU=yes \
--D GPU_API=HIP \
--D HIP_ARCH=gfx942 \
--D CMAKE_CXX_COMPILER=hipcc \
--D CMAKE_CXX_FLAGS="-mcmodel=large --offload-arch=gfx942" \
--D BUILD_MPI=yes \
--D PKG_MANYBODY=yes \
--D PKG_VORONOI=yes \
--D DOWNLOAD_VORO=yes \
--D PKG_MEAM=yes \
--D PKG_REAXFF=yes ../cmake
+ -D LAMMPS_MACHINE=kokkos \
+ -D PKG_KOKKOS=yes \
+ -D Kokkos_ARCH_ZEN4=yes \
+ -D Kokkos_ARCH_AMD_GFX942_APU=yes \
+ -D Kokkos_ENABLE_HIP=yes \
+ -D Kokkos_ENABLE_OPENMP=yes \
+ -D BUILD_OMP=yes \
+ -D CMAKE_CXX_COMPILER=`which mpicxx` \
+ -D MPI_C_COMPILER=`which mpicc` \
+ -D PKG_MEAM=yes \
+ -D PKG_MANYBODY=yes \
+ -D PKG_VORONOI=yes \
+ -D DOWNLOAD_VORO=yes \
+ -D PKG_REAXFF=yes \
+ ../cmake
 ```
 
 CMAKEのプリセットは[こちら](https://docs.lammps.org/Build_package.html#cmake-presets-for-installing-many-packages)
