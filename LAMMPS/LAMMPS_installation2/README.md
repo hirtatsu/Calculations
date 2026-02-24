@@ -162,6 +162,11 @@ lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 ```
 mpirun -n 8 lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 ```
+- Kokkosを用いてGPUとCPUのハイブリッドで計算する場合
+```
+mpirun -np 8 lmp_kokkos -k on g 1 -sf kk -in in.melt
+```
+
 
 ### 結果の確認
 ```
