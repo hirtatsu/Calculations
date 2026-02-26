@@ -33,3 +33,9 @@
 - Add modification -> Modification -> Wrap at Periodic Boundaries
 - Add modification -> Structure Identification -> Polyheral template matching (Lattice Orientationsにチェックを入れること)
 - Add modification -> Analysis -> Grain segmentation
+
+# OVITO python version
+### インストール
+```
+conda install --strict-channel-priority -c https://conda.ovito.org -c conda-forge ovito=3.14.1
+```
