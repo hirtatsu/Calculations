@@ -200,6 +200,7 @@ mpirun -n 8 lmp_gpu -sf gpu -pk gpu 1 -in in.melt
 - Kokkosを用いてGPUとCPU(OpenMP)のハイブリッドで計算する場合
 ```
 lmp_kokkos -k on g 1 t 12 -sf kk -in in.melt
+lmp_kokkos -k on g 1 t 12 -sf kk -pk kokkos newton on neigh half -in in.melt #追加でパッケージ指定すると早くなるかも？
 ```
 
 
