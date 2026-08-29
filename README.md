@@ -26,8 +26,8 @@
 - [Docker上のUbuntuの基本的な使い方](./Docker/Docker_tutorial6/README.md)
 
 ### 分子動力学(MD)シミュレーションソフトウェア: LAMMPS
-- [LAMMPSのインストール1](./LAMMPS/LAMMPS_installation/README.md)
-- [LAMMPSのインストール2 (GPU環境用)](./LAMMPS/LAMMPS_installation2/README.md)
+- [LAMMPSのインストール（基本版）](./LAMMPS/LAMMPS_installation/README.md)
+- [LAMMPS環境構築ガイド（CPUサーバー / NVIDIA GPU / Kokkos / AMD APU 統合版）](./LAMMPS/LAMMPS_installation2/README.md)
 - [Atomskのインストールと使い方](./LAMMPS/Atomsk_installation/README.md)
 - [OVITOの使い方メモ](./LAMMPS/OVITO_tips/README.md)
 - [富岳を用いたLAMMPS計算](./LAMMPS/FUGAKU/README.md)
