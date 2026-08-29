@@ -187,10 +187,10 @@ LIB = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel
 
 ```
 cd ~/DFT/openmx4.0/work/      # Ver 3.9.9 の場合は openmx3.9/work/
-mpirun -np 8 ./openmx -runtest -nt 2 < /dev/null > log.txt 2>&1 &
+mpirun -np 8 ./openmx -runtest -nt 2 2>&1 | tee log_runtest.txt
 ```
 
-計算結果と参照値の差分が `runtest.result` に出力されます。差が十分小さければ成功です。
+短時間で終わるため、画面に流れる出力をそのまま確認して構いません。計算結果と参照値の差分が `runtest.result` に出力されます。差が十分小さければ成功です。
 
 ### 並列数の指定について
 
@@ -210,27 +210,48 @@ mpirun -np 16 ./openmx -runtest -nt 1 ...  # 16 × 1 = 16
 
 コンパイルで生成された実行ファイル `openmx` と、入力ファイル（`xx.dat`）を同じディレクトリに置いて実行します。
 
-```
-mpirun -np 8 ./openmx xx.dat -nt 2 < /dev/null > log.txt 2>&1 &
-```
-
-末尾の `&` によりバックグラウンドで実行されます。
-
-実行中のログは以下で確認します。終了するには `Ctrl+C` を押します（計算は継続します）。
+短時間で終わる計算であれば、そのまま実行して構いません。
 
 ```
-tail -F log.txt
+mpirun -np 8 ./openmx xx.dat -nt 2 2>&1 | tee log.txt
 ```
 
-ジョブの状態は以下で確認・操作できます。
+`2>&1 | tee log.txt` により、進捗を画面に表示しながら、同じ内容を `log.txt` にも保存します。
+
+### 長時間の計算を実行する場合
+
+SSH接続を切断してもプロセスが終了しないよう、以下のいずれかの方式を使います。**両者は代替手段なので、混ぜて使わないでください。**
+
+**方式A: tmux（推奨）**
 
 ```
-jobs        # 状況確認
-bg %1       # 停止中のジョブ番号1を再開する
-kill %1     # 実行中のジョブ番号1を停止する
+tmux new -s openmx
+
+# セッション内で実行する
+mpirun -np 8 ./openmx xx.dat -nt 2 2>&1 | tee log.txt
+
+# Ctrl+b を押してから d でセッションを抜ける → SSHを切断してよい
 ```
 
-SSH接続を切断しても計算を継続させたい場合は、`tmux` の利用をおすすめします。詳細は[計算サーバへの接続方法](../../Server_setting/Howtoaccess_server/README.md)を参照してください。
+後から `tmux attach -t openmx` で画面に戻れます。中断する場合はセッション内で `Ctrl+C` を押します。
+
+**方式B: nohup**
+
+tmuxが利用できない環境で使います。
+
+```
+nohup mpirun -np 8 ./openmx xx.dat -nt 2 < /dev/null > log.txt 2>&1 &
+```
+
+画面には何も表示されないため、進捗はログファイルで確認します。
+
+```
+tail -F log.txt      # 表示を終了するには Ctrl+C（計算は継続します）
+jobs                 # 実行中のジョブを確認
+kill %1              # ジョブ番号1を停止する
+```
+
+いずれの方式についても、詳しくは[計算サーバへの接続方法](../../Server_setting/Howtoaccess_server/README.md)を参照してください。
 
 ---
 
