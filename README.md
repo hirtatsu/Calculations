@@ -17,7 +17,6 @@
 
 ### Windows（WSL2）環境の準備
 - [WSL2のインストール](./Setting_WSL/WSL2_installation/README.md)
-- ~~[X Window Systemのセットアップ](./Setting_WSL/Xwindowsystem_installation/README.md)~~ — WSLgの標準搭載により、別途Xサーバ（VcXsrv）を導入する必要はなくなりました。サーバ上のGUIアプリは `ssh -X` で表示できます。
 
 ### Mac環境の準備
 - [Homebrewのインストール](./Setting_mac/Homebrew_installation/README.md)
