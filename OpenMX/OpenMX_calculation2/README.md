@@ -1,132 +1,124 @@
-# 阪大スパコンSQUIDでのOpenMXコンパイルとジョブ投入
+# DFT計算2: 計算の実行
 
-最終更新: 2026-08 ／ 対象: Ver 3.9.9（Ver 4.0は未検証）
+最終更新: 2026-08 ／ 対象: Ver 4.0 および Ver 3.9.9
 
-大阪大学D3センターのスーパーコンピュータ SQUID 上で OpenMX をコンパイルし、バッチジョブとして実行する手順です。
-
-> ## ⚠️ SQUIDはサービス終了が予告されています（2026-08時点）
->
-> SQUIDは **2027年6月30日** をもってサービス終了が予定されています。後継機の導入予定は未定で、終了後はGPUノード・ベクトルノードと同等の計算資源が提供されない見込みです。
->
-> 汎用CPUノードについては、**OCTOPUS**（140ノード）が引き続き利用可能な予定です。OpenMXは汎用CPUノードで実行するため、OCTOPUSへの移行が現実的な選択肢になります。
->
-> 新たに大規模計算を計画する場合は、他機関の計算資源やクラウドの利用も含めて早めに検討してください。最新の情報は[D3センターのお知らせ](https://www.hpc.cmc.osaka-u.ac.jp/)で確認できます。
+作成した入力ファイルを使って、実際にOpenMXの計算を実行し、結果を確認するまでの手順です。
 
 ---
 
-## 1. ソースの取得とパッチの適用
+## 1. ディレクトリの準備
 
-この手順はローカル環境と共通です。[OpenMXのインストール](../OpenMX_installation/README.md)の「Ver 3.9.9 の導入」を参照し、SQUIDのホームディレクトリ上で以下まで進めてください。
+OpenMXを展開したディレクトリの下に、計算用の親ディレクトリを作成します（ここでは `workdir` とします）。
 
-- ソース（`openmx3.9.tar.gz`）とパッチ（`patch3.9.9.tar.gz`）の取得
-- 展開
-- `source3.9.9` の作成とパッチの適用
+```
+cd ~/DFT/openmx4.0/      # Ver 3.9.9 の場合は openmx3.9/
+mkdir workdir
+cd workdir
+```
 
-> **注意**: SQUIDでは、oneAPI対応の追加パッチ（伊藤先生ご提供）は使用しません。SQUIDが提供するコンパイラ環境に合わせた設定を、次項のmakefile編集で行います。
+計算ごとに子ディレクトリを作ります。ここでは `test01` とします。
+
+```
+mkdir test01
+cd test01
+```
+
+このディレクトリに以下の2つを置きます。
+
+- `in.dat` — 入力ファイル（[DFT計算1](../OpenMX_calculation/README.md)を参照）
+- `openmx` — コンパイルした実行ファイル
+
+> 入力ファイル内の `DATA.PATH` は、このディレクトリから見た相対パスになります。階層が変わると計算が始まらないので注意してください。
 
 ---
 
-## 2. コンパイル
-
-### 環境の読み込み
-
-SQUIDでは Environment Modules によって環境設定を行います。汎用CPUノード向けの推奨環境を読み込みます。
+## 2. 計算の実行
 
 ```
-module load BaseCPU
+mpirun -np 8 ./openmx in.dat -nt 2 < /dev/null > log.txt 2>&1 &
 ```
 
-> バージョンを指定せず `BaseCPU` とだけ書くのが公式の案内です。`BaseCPU/2023` のように固定すると、提供が終了した際に動かなくなります。
+- `-np` はMPIプロセス数、`-nt` は1プロセスあたりのOpenMPスレッド数です。**両者の積が物理コア数を超えないようにしてください**（コア数は `nproc` で確認できます）
+- `< /dev/null` を付けておくと、バックグラウンド実行時に標準入力待ちで停止するのを防げます
+- 末尾の `&` によりバックグラウンドで実行されます
 
-### makefileの編集
-
-`openmx3.9/source3.9.9/makefile` を以下のように編集します。
-
-```
-CC  = mpiicc -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp -I${MKLROOT}/include/fftw
-FC  = mpiifort -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp
-LIB = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lifcore
-```
-
-> **補足**: ローカル環境（oneAPI 2024以降）では、コンパイラが `icx` / `ifx` に置き換わり、MPIラッパも `mpiicx` / `mpiifx` を使います。一方SQUIDの `BaseCPU` 環境では、公式マニュアルが引き続き `mpiicc` / `mpiifort` を案内しています。**ページによってコマンドが違うのは環境の違いによるもので、誤りではありません。**
->
-> `-xCORE-AVX512` は SQUID の汎用CPUノード（Intel Xeon Platinum 8368、Ice Lake）向けの最適化指定です。
-
-### ビルド
+### 進捗の確認
 
 ```
-make -j
-make install
+tail -F log.txt
 ```
 
-エラーが出る場合は、`module load BaseCPU` が済んでいるか確認してください。
+表示を終了するには `Ctrl+C` を押します。計算はそのまま継続します。
 
-> **要確認**: Ver 4.0 を SQUID でビルドする手順は未検証です。Ver 4.0 の `README.txt` に記載されたコンパイラ指定を、上記の SQUID 向けオプションに読み替えて適用することになります。
+### ジョブの操作
+
+```
+jobs        # 実行中・停止中のジョブを確認
+bg %1       # 停止中のジョブ番号1を再開する
+kill %1     # 実行中のジョブ番号1を停止する
+```
+
+### SSH接続を切断しても計算を続ける
+
+計算サーバで長時間の計算を回す場合は、`tmux` を使うと接続し直して状況を確認できます。詳細は[計算サーバへの接続方法](../../Server_setting/Howtoaccess_server/README.md)を参照してください。
+
+`nohup` を使う方法もあります。
+
+```
+nohup mpirun -np 8 ./openmx in.dat -nt 2 < /dev/null > log.txt 2>&1 &
+```
 
 ---
 
-## 3. ジョブの投入
+## 3. 計算結果の確認
 
-SQUIDはログインノードで計算を実行しません。ジョブスクリプトを作成してバッチリクエストとして投入します。
-
-### ジョブスクリプトの例
-
-以下は **2ノード・1時間** を使用する場合の例です（ファイル名を `openmx.sh` とします）。
+### ログファイルを読む
 
 ```
-#!/bin/bash
-#------- qsub option -----------
-#PBS -q SQUID                  # 投入するキュー名
-#PBS --group=グループ名          # 所属するグループ名（課題ごとに割り当てられます）
-#PBS -m b                      # 実行開始時にメールを送信
-#PBS -l cpunum_job=76          # 1ノードあたりのCPUコア数
-#PBS -b 2                      # 使用するノード数
-#PBS -T intmpi                 # Intel MPIを使用
-#PBS -l elapstim_req=01:00:00  # 最大実行時間（1時間）
-#PBS -v OMP_NUM_THREADS=2      # 1プロセスあたりのOpenMPスレッド数
-#------- Program execution -----------
-module load BaseCPU            # ベース環境をロード
-cd $PBS_O_WORKDIR              # qsub実行時のディレクトリへ移動
-
-mpirun ${NQSV_MPIOPTS} -np 76 ./openmx in.dat -nt 2 > log.txt
+less log.txt        # 先頭から順に読む（Enterで進む、qで終了）
+cat log.txt         # 全体を一度に表示
 ```
 
-### 並列数の考え方
-
-SQUIDの汎用CPUノードは **1ノードあたり76コア**（Intel Xeon Platinum 8368、38コア×2基）です。上の例では以下のように対応しています。
-
-| 項目 | 値 | 意味 |
-|---|---|---|
-| `cpunum_job=76` | 76 | 1ノードあたり76コアを確保 |
-| `-b 2` | 2 | 2ノード使用 → 合計152コア |
-| `-np 76` | 76 | **総**MPIプロセス数（`-np` はノードあたりではなく総数です） |
-| `-nt 2` | 2 | 1プロセスあたり2スレッド |
-| `OMP_NUM_THREADS=2` | 2 | 上の `-nt` と一致させます |
-
-76プロセス × 2スレッド = 152スレッドとなり、確保した152コアと一致します。
-
-> **注意**: `OMP_NUM_THREADS` は `-nt` と同じ値にしてください。異なる値を指定すると、意図しないスレッド数で動作したり、コア数を超えて性能が低下したりします。
->
-> なお `#PBS -v` で指定した環境変数は全ノードに反映されます。`export` や `setenv` で書くとマスターノードにしか設定されないため、この書き方を使ってください。
-
-### 投入と確認
-
-計算するディレクトリに、コンパイルした `openmx`、入力ファイル、ジョブスクリプトを置いて投入します。
+### 特定の情報だけを取り出す
 
 ```
-qsub openmx.sh
+grep 'XXXXX' log.txt                      # 指定した文字列を含む行を表示
+grep 'Total Computational Time' log.txt   # 計算にかかった時間
+grep 'Utot  ' log.txt                     # 系全体の全エネルギー（単位: Hartree）
 ```
 
-| 操作 | コマンド |
+`Utot` の後ろの空白2つは、他のキーワード（`Utot.` を含む行など）と区別するためのものです。
+
+構造最適化やMD計算では `Utot` が各ステップごとに出力されます。その推移をグラフにする方法は[DFT計算3](../OpenMX_calculation3/README.md)を参照してください。
+
+### 収束したか確認する
+
+SCF計算が収束せずに `scf.maxIter` に達した場合、その旨がログに出力されます。結果を使う前に必ず確認してください。
+
+---
+
+## 4. 出力ファイル
+
+計算が終わると、`System.Name` で指定した接頭辞（例では `result`）を持つファイル群が生成されます。当面重要なものは以下です。
+
+| ファイル | 内容 |
 |---|---|
-| ジョブの状態を確認 | `qstat` |
-| ジョブを削除 | `qdel リクエストID` |
-| 使用状況の確認 | 利用者ポータルから確認できます |
+| `result.out` | 計算結果の要約（全エネルギー、原子に働く力、電荷など） |
+| `result.md` | 各MDステップにおける原子配置 |
+| `result.md2` | 最終MDステップにおける原子配置 |
+| `result.cif` | 初期構造のCIFファイル |
+| `result.tden.cube` | 全電子密度（Gaussian cube形式） |
+| `result.dden.cube` | 原子密度から計算した差電子密度 |
+| `result.v0.cube` | Kohn-Shamポテンシャル |
+| `result.vhart.cube` | Hartreeポテンシャル |
+| `result_rst/` | リスタート用ファイルを格納するディレクトリ |
+
+cube形式のファイルは VESTA や OVITO などで可視化できます。
+
+原子配置の可視化（AIScope用ファイルへの変換を含む）と、エネルギー推移のグラフ化については[DFT計算3](../OpenMX_calculation3/README.md)で扱います。
 
 ---
 
-## 参考
+## 次に読むページ
 
-- [SQUIDの利用方法（D3センター）](https://www.hpc.cmc.osaka-u.ac.jp/system/manual/squid-use/)
-- [OpenMXのインストール（ローカル環境）](../OpenMX_installation/README.md)
-- [DFT計算1（インプットファイルの作成）](../OpenMX_calculation/README.md)
+- [DFT計算3（計算結果の解析）](../OpenMX_calculation3/README.md)
