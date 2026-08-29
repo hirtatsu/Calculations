@@ -361,13 +361,12 @@ lmp_kokkos -k on g 1 t 12 -sf kk -pk kokkos newton on neigh half -in in.melt  # 
 
 | ホスト | ハードウェア | OS / ツールチェーン | LAMMPS | 構成 | 確認日 |
 |---|---|---|---|---|---|
-| TSVR-Juventus | Xeon 6952P（96C） | Ubuntu 24.04.4 / oneAPI 2025.3.2 | 22Jul2025 u5 | A（lmp_cpu） | 2026/08/29 |
-| （w7-2495Xワークステーション） | w7-2495X + RTX 6000 Ada | Ubuntu 24.04 / oneAPI 2025.1.0 / CUDA 13.1 | — | C（lmp_kokkos） | 2025 |
+| Xeon 6952Pワークステーション | Xeon 6952P（96C） | Ubuntu 24.04.4 / oneAPI 2025.3.2 | 22Jul2025 u5 | A（lmp_cpu） | 2026/08/29 |
+| w7-2495Xワークステーション | w7-2495X + RTX 6000 Ada | Ubuntu 24.04 / oneAPI 2025.1.0 / CUDA 13.1 | — | C（lmp_kokkos） | 2025 |
 | WSL2各機 | RTX 3060 / A4000 / 4090 | WSL2 Ubuntu / CUDA on WSL | 23Jun2022ほか | B（lmp_gpu） | 2022–2025 |
 | プラズマシミュレータ | MI300A | rocm 6.3.3 / openmpi 5.0.7 | — | D・E | 2025 |
 
 ## 変更履歴
 
 - 2026/08/29: 全面改訂。表題を統合版に変更、CPU専用サーバー構成（A）と
-  そのベンチマーク（環境6）を追加、安定版を22Jul2025系に更新、
-  PKG_INTEL非互換の注記を追加、実行コマンドを環境別に整理。
+  そのベンチマーク（環境6）を追加、安定版を22Jul2025系に更新、実行コマンドを環境別に整理。
