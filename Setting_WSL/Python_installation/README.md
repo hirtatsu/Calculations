@@ -1,4 +1,15 @@
 # WSL上へのPythonの環境構築
+> ## ⚠️ このページは非推奨です（2026-08）
+>
+> 本リポジトリではPython環境を **Miniforge** に一本化しました。
+> これから環境を構築する場合は [Pythonの環境構築（Miniforge）](../Python_installation2/README.md) を参照してください。
+>
+> **一本化した理由**
+>
+> - pyenv + venv は、Pythonのバージョン管理と仮想環境の管理を別々のツールで行う構成です。動作はしますが、科学計算で必要になるコンパイル済みライブラリ（NumPy/SciPyの数値演算バックエンド等）の依存解決はcondaのほうが容易です。
+> - 本ページの後半ではMinicondaの導入手順も扱っていますが、Minicondaが既定で参照するdefaultsチャネルは、一定規模以上の組織における利用が有償ライセンスの対象とされています。conda-forgeチャネルのみを参照するMiniforgeであれば、この論点を回避できます。
+>
+> 本文は、すでにこの構成で環境を作った方の参照用として残しています。記載内容は2026年1月時点のものです。
 詳細は[こちら](https://learn.microsoft.com/ja-jp/windows/python/web-frameworks)
 
 ## pyenvのインストール
