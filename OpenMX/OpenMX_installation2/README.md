@@ -1,95 +1,51 @@
-## OpenMXのインストール準備
-### OpenMXをダウンロード、解凍して当該ディレクトリへ移動
-任意の場所にDFT用のディレクトリを作成する。例えば「DFT」という名称のディレクトリを作る。その後、作成したディレクトリに移動する。
+# 阪大スパコンSQUIDでのOpenMXコンパイルとジョブ投入
+
+最終更新: 2026-08 ／ 対象: Ver 3.9.9（Ver 4.0は未検証）
+
+大阪大学D3センターのスーパーコンピュータ SQUID 上で OpenMX をコンパイルし、バッチジョブとして実行する手順です。
+
+> ## ⚠️ SQUIDはサービス終了が予告されています（2026-08時点）
+>
+> SQUIDは **2027年6月30日** をもってサービス終了が予定されています。後継機の導入予定は未定で、終了後はGPUノード・ベクトルノードと同等の計算資源が提供されない見込みです。
+>
+> 汎用CPUノードについては、**OCTOPUS**（140ノード）が引き続き利用可能な予定です。OpenMXは汎用CPUノードで実行するため、OCTOPUSへの移行が現実的な選択肢になります。
+>
+> 新たに大規模計算を計画する場合は、他機関の計算資源やクラウドの利用も含めて早めに検討してください。最新の情報は[D3センターのお知らせ](https://www.hpc.cmc.osaka-u.ac.jp/)で確認できます。
+
+---
+
+## 1. ソースの取得とパッチの適用
+
+この手順はローカル環境と共通です。[OpenMXのインストール](../OpenMX_installation/README.md)の「Ver 3.9.9 の導入」を参照し、SQUIDのホームディレクトリ上で以下まで進めてください。
+
+- ソース（`openmx3.9.tar.gz`）とパッチ（`patch3.9.9.tar.gz`）の取得
+- 展開
+- `source3.9.9` の作成とパッチの適用
+
+> **注意**: SQUIDでは、oneAPI対応の追加パッチ（伊藤先生ご提供）は使用しません。SQUIDが提供するコンパイラ環境に合わせた設定を、次項のmakefile編集で行います。
+
+---
+
+## 2. コンパイル
+
+### 環境の読み込み
+
+SQUIDでは Environment Modules によって環境設定を行います。汎用CPUノード向けの推奨環境を読み込みます。
 
 ```
-mkdir DFT
-cd DFT
+module load BaseCPU
 ```
 
-[OpenMXのWebサイト](http://www.openmx-square.org/)のDownloadの「openmx3.9」で右クリックしてリンクのアドレスをコピー。
+> バージョンを指定せず `BaseCPU` とだけ書くのが公式の案内です。`BaseCPU/2023` のように固定すると、提供が終了した際に動かなくなります。
 
-そのあとWSLのコマンドラインに戻って、wgetと入力した後右クリックして貼り付けしてEnter。ダウンロードされる(2022/9/22時点では以下)。
+### makefileの編集
+
+`openmx3.9/source3.9.9/makefile` を以下のように編集します。
 
 ```
-wget http://t-ozaki.issp.u-tokyo.ac.jp/openmx3.9.tar.gz
-```
-
-同様に、「+patch」で右クリックしてリンクのアドレスをコピー。
-wget入力して貼り付けしてEnter。ダウンロードされる(2022/9/22時点では以下)。
-```
-wget http://www.openmx-square.org/bugfixed/21Oct17/patch3.9.9.tar.gz
-```
-次に、解凍。
-```
-tar xvfz openmx3.9.tar.gz
-```
-ディレクトリに入る。
-```
-cd openmx3.9
-```
-中には以下のディレクトリが見つかるはず。
-```
-ls
-```
-- DFT_DATA19　←　基底関数＆擬ポテンシャル
-- source　←　プログラムのソースファイル
-- work　←　サンプルファイル
-
-## ソースにパッチを適用する
-もともとのsourceディレクトリ(Ver.3.9用)にパッチを適用した、source3.9.9を作成する。
-```
-mkdir patch
-mv ../patch3.9.9.tar.gz ./patch/
-
-cp -rp source source3.9.9
-cd source3.9.9
-tar xvfz ../patch/patch3.9.9.tar.gz
-mv kpoint.in ../work/
+CC  = mpiicc -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp -I${MKLROOT}/include/fftw
+FC  = mpiifort -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp
+LIB = -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lifcore
 ```
 
-## OpenMXのコンパイル(阪大スパコンSquid用)
-### スパコン側で標準で用意してくれている環境を呼び出す
-```
-module load BaseCPU/2023
-```
-### makefileを編集する
-openmx3.9/source3.9.9/makefileを次のように編集する。
-```
-CC = mpiicc -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp -I${MKLROOT}/include/fftw
-FC = mpiifort -O3 -xCORE-AVX512 -ip -no-prec-div -qopenmp
-LIB= -L${MKLROOT}/lib/intel64 -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_blacs_intelmpi_lp64 -lpthread -lifcore
-```
-
-### makeする
-```
-make -j
-```
-エラーが出たら何回も繰り返す。
-最後に、以下で終わり。
-```
-make install
-```
-## ジョブ投入方法
-### ジョブスクリプト
-- ジョブスクリプトファイル（ファイル名：openmx.sh）を作成する例。2ノード・1時間使用の場合。
-```
-#!/bin/bash
-#------- qsub option -----------
-#PBS -q SQUID            #バッチリクエストを投入するキュー名の指定
-#PBS --group=グループ名   #所属するグループ名
-#PBS -m b                #バッチリクエスト実行開始時にメールを送信
-#PBS -l cpunum_job=76    #使用するCPUコア数の要求値
-#PBS -T intmpi
-#PBS -b 2		 #使用するノード数
-#PBS -l elapstim_req=01:00:00   #ジョブの最大実行時間の要求値  1時間の例
-#PBS -v OMP_NUM_THREADS=76
-#------- Program execution -----------
-module load BaseCPU/2022 #ベース環境をロードします
-cd $PBS_O_WORKDIR        #qsub実行時のカレントディレクトリへ移動
-mpirun ${NQSV_MPIOPTS} -np 76 ./openmx in.dat -nt 2 > log.txt     #プログラムの実行
-```
-- 計算したいディレクトリにコンパイルしたopenmxファイル、インプットファイル、ジョブスクリプトファイルを格納したうえで
-```
-qsub openmx.sh
-```
+> **補足**: ローカル環境（oneAPI 2024以降）では、コンパイラが `icx` / `ifx` に置き換わり、MPIラッパも `mpiicx` / `mpiifx` を使います。一方SQUIDの `BaseCPU` 環境では、公式マニュアルが引き続き `mpiicc` / `mpiifort` を案内しています。**ページによってコマンドが違うのは環境の違いによるもので、誤りではありません。**
