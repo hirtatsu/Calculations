@@ -2,6 +2,9 @@
 
 研究室で運用する複数の計算環境に対して、LAMMPSをソースからビルドする手順をまとめる（2026/8）。
 
+> **初めてLAMMPSをビルドする場合**は、CPU版1構成に絞った[LAMMPSのインストール（基本版）](../LAMMPS_installation/README.md)から始めるとよい。
+> 本ページは、GPU・Kokkos・AMD APUを含む複数構成を作り分けるための統合ガイドである。
+
 ## 対象環境と作り分け
 
 | 記号 | 環境 | 代表ハード | バイナリ名 |
@@ -38,7 +41,7 @@ which icx icpx ifx mpiicx   # すべてパスが返ることを確認
 
 ### GPU環境（B）
 
-- WSL2の場合: CUDA on WSLのセットアップは [こちら](../../GPGPU/README.md) と
+- WSL2の場合: CUDA on WSLのセットアップは [こちら](../../Setting_WSL/GPGPU/README.md) と
   [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 - ネイティブLinuxの場合: NVIDIAドライバとCUDA Toolkitを導入し `nvidia-smi` と `nvcc --version` を確認
 
