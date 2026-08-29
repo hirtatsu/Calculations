@@ -1,128 +1,155 @@
-## CUDA on WSLを使ってGPGPUで計算する
+# GPGPU環境の構築（CUDA on WSL）
 
-3steps. Versions should be supported according to the [Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html?ncid=em-prod-337416).
-1. NVIDIA Driver installation
-2. CUDA Toolkit installation. [Version archives](https://developer.nvidia.com/cuda-toolkit-archive)
-3. CuDNN installation
+最終更新: 2026-08 ／ 対象: CUDA Toolkit 13系、WSL2上のUbuntu 22.04 / 24.04
 
+NVIDIA GPUを計算に使うための環境を、WSL2上のUbuntuに構築します。LAMMPSのGPU版をビルドする際の前提となる環境です。
 
+構成は3段階です。
 
-### wslをUPDATEしておく。Powershell開いて以下入力する。
+1. NVIDIAドライバのインストール（**Windows側**）
+2. CUDA Toolkitのインストール（**WSL上のUbuntu側**）
+3. cuDNNのインストール（機械学習ライブラリを使う場合のみ）
+
+対応バージョンの組み合わせは[Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/support-matrix.html)で確認できます。
+
+---
+
+## 0. 事前準備
+
+WSLを最新にします。PowerShellを開いて以下を実行します。
+
 ```
 wsl --update
 ```
 
+WSL上のUbuntuでパッケージを更新します。
 
-### 事前準備
 ```
 sudo apt update
 sudo apt upgrade -y
 ```
 
-## 1. NVIDIA Driver for GPU SupportをダウンロードしてWindowsにインストールする
-[https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+---
 
+## 1. NVIDIAドライバをWindowsにインストールする
 
-## 2. CUDA Toolkits on WSL Ubuntu
-[公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
+[NVIDIAドライバのダウンロードページ](https://www.nvidia.com/download/index.aspx)から、お使いのGPUに対応したドライバを入手してWindowsにインストールします。
 
-[Further installation manual](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+> **重要**: WSL上のUbuntuには**ドライバをインストールしません**。Windows側のドライバがWSLから利用される仕組みになっています。Ubuntu側にドライバを入れると、かえって動作しなくなります。
 
-★ドライバのバージョンとCudaのバージョンの対応表を確認すること。[こちら](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions)
+インストール後、WSL上で以下を実行してGPUが認識されているか確認します。
 
-- 古いGPGキーを削除。
 ```
-sudo apt-key del 7fa2af80
+nvidia-smi
 ```
-- CUDA Toolkit (WSL-Ubuntu Package)をインストールする。ここではCuda Toolkit 12.1を例に。
+
+GPU名とドライバのバージョン、CUDAの対応バージョンが表示されれば成功です。
+
+---
+
+## 2. CUDA ToolkitをWSL上のUbuntuにインストールする
+
+公式手順は[CUDA on WSL User Guide](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)にあります。以下はその要点です。
+
+> ドライバのバージョンとCUDAのバージョンには対応関係があります。[対応表](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)を確認してください。
+
+### リポジトリの登録
+
+CUDAのリポジトリ鍵を `cuda-keyring` パッケージで登録します。
+
 ```
-wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
-sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda-repo-wsl-ubuntu-12-1-local_12.1.0-1_amd64.deb
-sudo dpkg -i cuda-repo-wsl-ubuntu-12-1-local_12.1.0-1_amd64.deb
-sudo cp /var/cuda-repo-wsl-ubuntu-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
 sudo apt update
-sudo apt -y install cuda
 ```
 
-### （参考）もし.bashrcに記載してPATHを通すなら。
-- PATHを通す
+> **補足**: 以前の手順書では `sudo apt-key del 7fa2af80` で古い鍵を削除し、ローカルインストーラの `.deb` を版ごとにダウンロードする方法が案内されていました。`apt-key` はUbuntu 22.04で非推奨、24.04系では削除されているため、現在は上記の `cuda-keyring` を使う方法が正式です。
+
+### Toolkitのインストール
+
+インストール可能なバージョンを確認します。
+
+```
+apt list -a cuda-toolkit-*
+```
+
+目的のバージョンを指定してインストールします（例: 13.0系）。
+
+```
+sudo apt install cuda-toolkit-13-0
+```
+
+> **注意**: `sudo apt install cuda` としないでください。`cuda` メタパッケージはNVIDIAドライバまで引き込みます。WSLではWindows側のドライバを使うため、Linux側にドライバを入れると競合します。**Toolkitのみを指す `cuda-toolkit-XX-X` を指定してください。**
+
+### PATHを通す
+
+`~/.bashrc` の末尾に追記します。
+
 ```
 cd
 vim .bashrc
 ```
--一番最後の行に以下を追加
-```
-export PATH=/usr/local/cuda-12.1/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-12.1/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-```
--追記したら反映させる
-```
-source .bashrc
-```
 
-- インストールされたか確認
-```
-nvidia-smi
-nvcc --version
-```
-
-
-## 3. CuDNN installation on WSL Ubuntu
-インストール方法の詳細は公式マニュアル参照。
-
-[https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
-[Cudnn9のダウンロードページ](https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
-
-[Cudnn8.xのダウンロードページ](https://developer.nvidia.com/rdp/cudnn-archive)
-
-
-- Zlibをインストールする
-```
-sudo apt install zlib1g
-```
-
-- NVIDIA CuDNNをダウンロードする
-Local Installer for Ubuntu22.04 x86_64 (Deb)
-@ [NVIDIA CuDNN Homepage](https://developer.nvidia.com/cudnn)
-
-- ダウンロードしたdebファイルをホームディレクトリに持ってきてdpkg
+以下を追加します。`/usr/local/cuda` はインストールした版へのシンボリックリンクなので、バージョン番号を直接書くよりも版の更新に強くなります。
 
 ```
-cd
-sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.7.29_1.0-1_amd64.deb
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 
-- 最後に以下のメッセージが出る。
+反映させます。
+
 ```
-The public cudnn-local-repo-ubuntu2204-8.9.7.29 GPG key does not appear to be installed.
-To install the key, run this command:
-sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
+source ~/.bashrc
 ```
 
-- なので、指示の通り実行する
+### 確認
+
 ```
-sudo cp /var/cudnn-local-repo-ubuntu2204-8.9.7.29/cudnn-local-08A7D361-keyring.gpg /usr/share/keyrings/
+nvidia-smi      # GPUとドライバ
+nvcc --version  # CUDAコンパイラ
 ```
 
-- 次に、libcudnn8をインストールする。なんかマニュアルの通りいかんかったので、インストール可能なlibcudnn8パッケージを探す
+### CUDA 13世代での変更点
+
+CUDA 13系では以下の変更があります。古いGPUや古い環境を使う場合は注意してください。
+
+- **13.0**: Maxwell / Pascal / Volta 世代のGPUに対するオフラインコンパイルのサポートが終了しました。またUbuntu 20.04のサポートが終了しています。
+- **13.1以降**: LinuxパッケージへのWindowsディスプレイドライバの同梱が廃止されました。
+
+これらの世代のGPUを使う場合は、[バージョンアーカイブ](https://developer.nvidia.com/cuda-toolkit-archive)から12系を導入する選択肢もあります。
+
+---
+
+## 3. cuDNNのインストール（機械学習ライブラリを使う場合）
+
+LAMMPSのGPU計算だけであればcuDNNは不要です。PyTorchやTensorFlowなどを使う場合にインストールします。
+
+公式手順は[cuDNN Installation Guide](https://docs.nvidia.com/deeplearning/cudnn/latest/installation/linux.html)、ダウンロードは[cuDNN Downloads](https://developer.nvidia.com/cudnn-downloads)にあります。
+
+前項でCUDAのリポジトリを登録済みであれば、aptから導入できます。インストール可能なパッケージ名を確認します。
+
 ```
-apt list libcudnn8 -a
+apt list -a 'cudnn*'
 ```
 
-- たぶん以下のようになんか見つかる。
-```
-Listing... Done
-libcudnn8/unknown,now 8.9.7.29-1+cuda12.2 amd64
-```
+CUDAのバージョンに対応するものを選んでインストールします。
 
-- なので、インストールする
 ```
-sudo apt install libcudnn8=8.9.7.29-1+cuda12.2
-sudo apt install libcudnn8-dev=8.9.7.29-1+cuda12.2
-sudo apt install libcudnn8-samples=8.9.7.29-1+cuda12.2
+sudo apt install cudnn
 ```
 
+> **補足**: 現行のcuDNNは9系です。以前の手順書では8系（`libcudnn8`）をローカルインストーラで導入する方法を案内していましたが、9系ではパッケージ名と導入方法が変わっています。正確なパッケージ名は上記の `apt list` の出力、またはダウンロードページの案内に従ってください。
 
+確認します。
 
+```
+dpkg -l | grep cudnn
+```
 
+---
+
+## 関連ページ
+
+- [LAMMPS環境構築ガイド（統合版）](../../LAMMPS/LAMMPS_installation2/README.md) — GPU版・Kokkos版のビルド手順
+- [WSL2のインストール](../WSL2_installation/README.md)
