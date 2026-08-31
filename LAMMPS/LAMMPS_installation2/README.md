@@ -18,6 +18,9 @@
 `LAMMPS_MACHINE` でバイナリ名を分けているので、同一マシンに複数構成を共存できる
 （buildディレクトリも構成ごとに分ける: `build-cpu`, `build-gpu`, `build-kokkos` など）。
 
+MLIP（MACE）を含むGNUツールチェーンでのKokkos + CUDAビルドは、
+[LAMMPS + MACE実行環境の構築（ML-IAPインターフェース）](../LAMMPS_installation_MLIP/README.md)を参照。
+
 ---
 
 ## 0. 事前準備
@@ -56,6 +59,8 @@ which icx icpx ifx mpiicx   # すべてパスが返ることを確認
 > ビルドが意図しないコンパイラ・ライブラリを拾う原因になる（本ガイドの構成A〜Cを
 > 同一マシンで作り分ける場合は特に）。用途別の環境スクリプト（例: `~/env/cuda126.sh`、
 > `~/env/oneapi.sh`）を用意し、ビルド・実行の際に明示的に `source` する方式をとる。
+> 環境スクリプトは、`.bashrc` が読まれない非対話シェルからでも source ひとつで
+> 実行可能になるよう、`~/.local/bin` へのPATH追加まで含めて自己完結させる。
 
 ### NVIDIA GPU環境（B・C）
 
@@ -194,7 +199,7 @@ cmake -C ../cmake/presets/most.cmake \
 
 検証環境: w7-2495X + RTX 6000 Ada、Ubuntu 24.04、oneAPI 2025.1.0、CUDA Toolkit 13.1。
 ホスト/GPUのアーキテクチャ指定は[公式ドキュメント](https://docs.lammps.org/Build_extras.html#kokkos)で確認
-（例: Sapphire Rapids → `SPR`、Ada世代 CC8.9 → `ADA89`）。
+（例: Sapphire Rapids → `SPR`、Ice Lake → `ICX`、Ada世代 CC8.9 → `ADA89`）。
 
 ```bash
 cmake -C ../cmake/presets/most.cmake \
@@ -220,6 +225,9 @@ cmake -C ../cmake/presets/most.cmake \
 - `which mpicxx` は読み込み済みの環境に依存する。**oneAPI（setvars）環境ではIntel MPIの
   ラッパーを指し、生成物は0節の実行時依存（MKL・Intel MPI）を持つ**。GNUツールチェーンで
   組みたい場合はOpenMPIを導入し、setvarsを読んでいないシェルでcmakeを実行する。
+- GNUツールチェーン（gcc + OpenMPI + CUDA）でのKokkosビルドの実例は、ML-IAP（MACE）を
+  含む構成として[MLIPページ](../LAMMPS_installation_MLIP/README.md)にまとめた。
+  実行時依存がCUDAのみで完結するため、setvarsが不要になる利点がある。
 
 ### D. AMD APU（GPUパッケージ、HIP）
 
@@ -281,7 +289,9 @@ export PATH=$HOME/.local/bin:$PATH
 ```
 
 （`.bashrc` に足してよいのはこのPATH追加まで。setvarsやCUDAの環境変数は
-0節のとおり環境スクリプト側に置く。）
+0節のとおり環境スクリプト側に置く。なお `.bashrc` は非対話シェルでは読まれないため、
+`ssh ホスト コマンド` 形式やジョブスクリプトから実行する場合は、環境スクリプト側にも
+このPATH追加を含めておく。）
 
 ### 起動確認
 
@@ -375,19 +385,35 @@ lmp_kokkos -k on g 1 t 12 -sf kk -pk kokkos newton on neigh half -in in.melt  # 
 
 計算環境6: CPUにIntel Xeon 6952P（96コア、MRDIMM DDR5-8800 6ch実装）。
 
-- 96並列の場合: 0:00:06（並列なし基準は未測定。全環境を通じて最速）
+- 96並列の場合: 0:00:06（並列なし基準は未測定。CPU環境では最速）
   - ループ時間6.40秒、195.4 Matom-step/s、CPU使用率99.5%
   - 内訳: Pair 66.6% / Neigh 13.8% / Comm 11.3% / Output 6.8%
+
+計算環境7: CPUにIntel Xeon Gold 6312U（24コア）、GPUにNVIDIA RTX 6000 Ada
+（Kokkos + CUDA、GNUツールチェーン、`lmp_mace`、LAMMPS develop 6404ba2）。
+
+- GPU（Kokkos）の場合: 0:00:05（ループ時間4.47秒、279.4 Matom-step/s。**全環境を通じて最速**）
+  - 内訳: Comm 70.1% / Neigh 15.4% / Pair 10.3%
+  - 実行コマンド: `lmp_mace -k on g 1 -sf kk -in in.melt`（`-pk kokkos` の追加指定なし、
+    GPU 1基・1 MPIランク・1スレッド）
+  - ビルドの詳細は[MLIPページ](../LAMMPS_installation_MLIP/README.md)を参照
 
 ### 考察メモ
 
 - meltはLJポテンシャルの単純な系で、**演算律速・キャッシュに乗りやすいベンチマーク**。
   コア数とAVX-512ベクトル化が素直に効く一方、メモリ帯域やGPU転送の性格は測れない。
-- 96コアCPU単独（環境6）が、CPU＋GPUハイブリッドの従来最速（環境4の0:00:09）を上回った。
-  小〜中規模系ではGPUへの転送オーバーヘッドが相対的に重く、多コアCPUが有利になる。
-- ポテンシャル別の目安: EAM/LJ等の軽い力場は多コアCPUが強い。MEAMはGPU/OMP版が
-  存在せず純MPI一択。ReaxFFはomp版（CPU）とKokkos版（GPU）の比較が必要。
-  実運用の判断は実際の系でベンチを取ってから。
+- **同一GPU（RTX 6000 Ada）でGPUパッケージ（環境4: 0:32）とKokkos（環境7: 0:05）を
+  比較すると約7倍差**。GPUパッケージはネイバー構築や時間積分の一部をホスト側で行い
+  転送が毎ステップ発生するのに対し、Kokkosは計算のほぼ全体をGPU側に置く。
+  NVIDIA GPUでの計算はKokkos版を第一候補とする。
+- 環境7は96コアCPU（環境6）も上回った。「小〜中規模系では多コアCPUが有利」という
+  以前の結論は、**GPUパッケージ方式との比較に限った話**だったことが判明。
+  Kokkos方式であれば50万原子規模でもGPU 1基が最速。
+- 環境7はComm比率が70%と支配的で、`-pk kokkos newton on neigh half` の追加指定や
+  OpenMPスレッド数の調整でさらに縮む余地がある。
+- ポテンシャル別の目安: EAM/LJ等の軽い力場は多コアCPUとGPU（Kokkos）が拮抗し得る。
+  MEAMはGPU/OMP版が存在せず純MPI一択。ReaxFFはomp版（CPU）とKokkos版（GPU）の
+  比較が必要。実運用の判断は実際の系でベンチを取ってから。
 
 ---
 
@@ -403,12 +429,17 @@ lmp_kokkos -k on g 1 t 12 -sf kk -pk kokkos newton on neigh half -in in.melt  # 
 |---|---|---|---|---|---|
 | Xeon 6952Pワークステーション | Xeon 6952P（96C） | Ubuntu 24.04.4 / oneAPI 2025.3.2 | 22Jul2025 u5 | A（lmp_cpu） | 2026/08/29 |
 | w7-2495Xワークステーション | w7-2495X + RTX 6000 Ada | Ubuntu 24.04 / oneAPI 2025.1.0 / CUDA 13.1 | — | C（lmp_kokkos） | 2025 |
-| RTX 6000 Adaサーバー | Xeon（24C）+ RTX 6000 Ada | Ubuntu 22.04.5 / oneAPI / CUDA 12.6 | 22Jul2025 u4 | C（lmp_kokkos） | 2026/08/31 |
+| RTX 6000 Adaサーバー | Xeon Gold 6312U + RTX 6000 Ada | Ubuntu 22.04.5 / oneAPI / CUDA 12.6 | 22Jul2025 u4 | C（lmp_kokkos） | 2026/08/31 |
+| RTX 6000 Adaサーバー | Xeon Gold 6312U + RTX 6000 Ada | Ubuntu 22.04.5 / GCC 11.4 / CUDA 12.6 | develop 6404ba2 | C相当・GNU＋ML-IAP（lmp_mace、[MLIPページ](../LAMMPS_installation_MLIP/README.md)） | 2026/08/31 |
 | WSL2各機 | RTX 3060 / A4000 / 4090 | WSL2 Ubuntu / CUDA on WSL | 23Jun2022ほか | B（lmp_gpu） | 2022–2025 |
 | プラズマシミュレータ | MI300A | rocm 6.3.3 / openmpi 5.0.7 | — | D・E | 2025 |
 
 ## 変更履歴
 
+- 2026/08/31 (2): 計算環境7（Kokkos + CUDA、GNUツールチェーン、lmp_mace）のベンチマークを追加。
+  同一GPUでのGPUパッケージ／Kokkos比較（約7倍差）を受けて考察メモを更新。
+  MLIPページへのリンクをC節と冒頭に追加、検証済み環境一覧を更新、
+  環境スクリプトの自己完結（非対話シェル対応のPATH追加）を0節・3節に追記。
 - 2026/08/31: oneAPIビルドの実行時依存（setvars必須）と環境スクリプト方針の注意書きを追加、
   GPU_ARCHの参照先を公式一覧に変更、Kokkos構成にアーキテクチャ指定と`which mpicxx`の注意を追記、
   検証済み環境一覧にRTX 6000 Adaサーバー（Ubuntu 22.04.5 / CUDA 12.6 / 22Jul2025 u4）を追加。
