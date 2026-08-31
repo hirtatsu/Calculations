@@ -4,6 +4,8 @@
 
 NVIDIA GPUを計算に使うための環境を、WSL2上のUbuntuに構築します。LAMMPSのGPU版をビルドする際の前提となる環境です。
 
+> **ネイティブLinuxの場合**: 本ページはWSL2向けの手順です。ネイティブLinuxでは、ドライバをWindows側ではなく**Linux側にインストールする**点と、CUDAのaptリポジトリに `wsl-ubuntu` ではなく `ubuntu2204` / `ubuntu2404`（OSの版に対応するもの）を指定する点が異なります。それ以外（Toolkitの導入、PATHの設定）は同様に読み替えられます。
+
 構成は3段階です。
 
 1. NVIDIAドライバのインストール（**Windows側**）
@@ -83,14 +85,7 @@ sudo apt install cuda-toolkit-13-0
 
 ### PATHを通す
 
-`~/.bashrc` の末尾に追記します。
-
-```
-cd
-vim .bashrc
-```
-
-以下を追加します。`/usr/local/cuda` はインストールした版へのシンボリックリンクなので、バージョン番号を直接書くよりも版の更新に強くなります。
+CUDAを1バージョンだけ導入して使う場合は、`~/.bashrc` の末尾に以下を追記すれば十分です。
 
 ```
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
@@ -102,6 +97,26 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
 ```
 source ~/.bashrc
 ```
+
+> **注意（複数バージョンを併置する場合）**: `/usr/local/cuda` は既定で最新版を指す
+> シンボリックリンクです。一見、版の更新に強い書き方に見えますが、**リンク先が
+> 切り替わった瞬間に、旧版でビルド済みのバイナリが共有ライブラリを見失って起動
+> しなくなる**副作用があります（例: CUDA 12でビルドした実行ファイルは
+> `libcudart.so.12` を要求しますが、リンクが13系を指すと `lib64` にそれが存在
+> しません）。しかもsymlinkの張り替えは履歴に残らないため、原因の特定が困難です。
+>
+> ビルド済みの計算環境を長期に保つマシンでは、`.bashrc` に書くのをやめ、用途別の
+> 環境スクリプトで版を明示し、ビルド時・実行時に明示的に `source` してください。
+>
+> ```
+> # 例: ~/env/cuda126.sh — 使うときに source ~/env/cuda126.sh
+> export CUDA_HOME=/usr/local/cuda-12.6
+> export PATH=$CUDA_HOME/bin:$PATH
+> export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+> ```
+>
+> なお、`.bashrc` は非対話シェル（ジョブスクリプト、cron等）では読み込まれない
+> ため、バッチ実行を前提とする場合も環境スクリプト方式が確実です。
 
 ### 確認
 
