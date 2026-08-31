@@ -31,7 +31,7 @@ sudo apt install -y cmake build-essential ccache gfortran python3-dev python3-pi
 
 - GNUツールチェーンでビルドする場合はさらに
   `openmpi-bin libopenmpi-dev libfftw3-dev libblas-dev liblapack-dev` を追加する。
-- Intel oneAPI（環境A・B）を使う場合、コンパイラ・MPI・MKL（FFT/BLAS/LAPACK）は
+- Intel oneAPI（環境A・B・C）を使う場合、コンパイラ・MPI・MKL（FFT/BLAS/LAPACK）は
   oneAPI側を使うため上記GNU系ライブラリは不要。シェルで環境を読み込んでおく:
 
 ```bash
@@ -39,11 +39,38 @@ source /opt/intel/oneapi/setvars.sh
 which icx icpx ifx mpiicx   # すべてパスが返ることを確認
 ```
 
-### GPU環境（B）
+> **⚠️ oneAPIを使ったビルドの依存関係（ビルド時・実行時とも）**
+>
+> setvars済み環境でビルドしたバイナリは、MKLやIntel MPIの共有ライブラリに**実行時にも**依存する。
+> setvarsを読んでいないシェル（ジョブスクリプト、cron、非対話ssh）から起動すると
+>
+> ```
+> error while loading shared libraries: libmkl_intel_lp64.so.2:
+> cannot open shared object file
+> ```
+>
+> のようなエラーで落ちる。対話シェルでは動くのにバッチ経由では落ちる場合、まずこれを疑う。
+> ジョブスクリプトの冒頭にも `source /opt/intel/oneapi/setvars.sh > /dev/null` を書くこと。
+>
+> なお、setvarsやCUDAの環境変数を `.bashrc` に書いて常時読み込む運用は推奨しない。
+> ビルドが意図しないコンパイラ・ライブラリを拾う原因になる（本ガイドの構成A〜Cを
+> 同一マシンで作り分ける場合は特に）。用途別の環境スクリプト（例: `~/env/cuda126.sh`、
+> `~/env/oneapi.sh`）を用意し、ビルド・実行の際に明示的に `source` する方式をとる。
+
+### NVIDIA GPU環境（B・C）
 
 - WSL2の場合: CUDA on WSLのセットアップは [こちら](../../Setting_WSL/GPGPU/README.md) と
   [公式マニュアル](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)
 - ネイティブLinuxの場合: NVIDIAドライバとCUDA Toolkitを導入し `nvidia-smi` と `nvcc --version` を確認
+- 複数バージョンのCUDA Toolkitを併置している場合は、symlink（`/usr/local/cuda`）に依存せず、
+  環境スクリプトで `CUDA_HOME` とPATH/LD_LIBRARY_PATHを版込みで明示する:
+
+```bash
+# 例: ~/env/cuda126.sh
+export CUDA_HOME=/usr/local/cuda-12.6
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+```
 
 ### AMD APU環境（D・E）
 
@@ -65,7 +92,7 @@ mkdir -p ~/MD && cd ~/MD
 wget https://download.lammps.org/tars/lammps-stable.tar.gz
 tar tzf lammps-stable.tar.gz | head -1   # 展開前にバージョン（ディレクトリ名）を確認
 tar xvzf lammps-stable.tar.gz
-cd lammps-22Jul2025                       # 実際のディレクトリ名に読み替え
+cd lammps-*   # 展開されるディレクトリ名はバージョンで変わる（例: lammps-22Jul2025）
 ```
 
 - `lammps-stable.tar.gz` は常に最新安定版を指す。**2026年8月時点の安定版は 22 Jul 2025（update 5）**。
@@ -138,7 +165,7 @@ cmake \
 
 ### B. NVIDIA GPU（GPUパッケージ、CUDA）
 
-`GPU_ARCH` は[Compute Capability一覧](https://qiita.com/k_ikasumipowder/items/1142dadba01b42ac6012)で確認。
+`GPU_ARCH` は[NVIDIA公式のCompute Capability一覧](https://developer.nvidia.com/cuda-gpus)で確認。
 RTX 3060 / A4000 → `sm_86`、RTX 4090 / 6000 Ada → `sm_89`。
 
 ```bash
@@ -187,6 +214,12 @@ cmake -C ../cmake/presets/most.cmake \
  -D PKG_REAXFF=yes \
  ../cmake
 ```
+
+- `Kokkos_ARCH_*` は**ビルドするマシンの実構成に合わせて必ず変更する**
+  （上記はSapphire Rapids + Ada世代の例）。
+- `which mpicxx` は読み込み済みの環境に依存する。**oneAPI（setvars）環境ではIntel MPIの
+  ラッパーを指し、生成物は0節の実行時依存（MKL・Intel MPI）を持つ**。GNUツールチェーンで
+  組みたい場合はOpenMPIを導入し、setvarsを読んでいないシェルでcmakeを実行する。
 
 ### D. AMD APU（GPUパッケージ、HIP）
 
@@ -247,6 +280,9 @@ Ubuntuの標準 `.bashrc` は `~/.local/bin` が存在すれば自動でPATHに�
 export PATH=$HOME/.local/bin:$PATH
 ```
 
+（`.bashrc` に足してよいのはこのPATH追加まで。setvarsやCUDAの環境変数は
+0節のとおり環境スクリプト側に置く。）
+
 ### 起動確認
 
 ```bash
@@ -254,7 +290,8 @@ lmp_cpu -h | head -5                          # バージョン表示
 lmp_cpu -h | grep -A5 'Installed packages'    # パッケージ一覧
 ```
 
-（構成に応じて `lmp_gpu` / `lmp_kokkos` に読み替え）
+（構成に応じて `lmp_gpu` / `lmp_kokkos` に読み替え。oneAPIビルドの場合は
+setvarsを読んだシェルで実行すること）
 
 ---
 
@@ -263,7 +300,7 @@ lmp_cpu -h | grep -A5 'Installed packages'    # パッケージ一覧
 同梱の計算例を使う。
 
 ```bash
-cd ~/MD/lammps-22Jul2025/examples/melt
+cd ~/MD/lammps-*/examples/melt
 ```
 
 原子配置を可視化したい場合のみ、`in.melt` のdump行のコメントアウト（行頭の `#`）を外す:
@@ -366,10 +403,14 @@ lmp_kokkos -k on g 1 t 12 -sf kk -pk kokkos newton on neigh half -in in.melt  # 
 |---|---|---|---|---|---|
 | Xeon 6952Pワークステーション | Xeon 6952P（96C） | Ubuntu 24.04.4 / oneAPI 2025.3.2 | 22Jul2025 u5 | A（lmp_cpu） | 2026/08/29 |
 | w7-2495Xワークステーション | w7-2495X + RTX 6000 Ada | Ubuntu 24.04 / oneAPI 2025.1.0 / CUDA 13.1 | — | C（lmp_kokkos） | 2025 |
+| RTX 6000 Adaサーバー | Xeon（24C）+ RTX 6000 Ada | Ubuntu 22.04.5 / oneAPI / CUDA 12.6 | 22Jul2025 u4 | C（lmp_kokkos） | 2026/08/31 |
 | WSL2各機 | RTX 3060 / A4000 / 4090 | WSL2 Ubuntu / CUDA on WSL | 23Jun2022ほか | B（lmp_gpu） | 2022–2025 |
 | プラズマシミュレータ | MI300A | rocm 6.3.3 / openmpi 5.0.7 | — | D・E | 2025 |
 
 ## 変更履歴
 
+- 2026/08/31: oneAPIビルドの実行時依存（setvars必須）と環境スクリプト方針の注意書きを追加、
+  GPU_ARCHの参照先を公式一覧に変更、Kokkos構成にアーキテクチャ指定と`which mpicxx`の注意を追記、
+  検証済み環境一覧にRTX 6000 Adaサーバー（Ubuntu 22.04.5 / CUDA 12.6 / 22Jul2025 u4）を追加。
 - 2026/08/29: 全面改訂。表題を統合版に変更、CPU専用サーバー構成（A）と
   そのベンチマーク（環境6）を追加、安定版を22Jul2025系に更新、実行コマンドを環境別に整理。
