@@ -43,6 +43,7 @@
 - [Atomskのインストールと使い方](./LAMMPS/Atomsk_installation/README.md) — 計算モデルの作成
 - [OVITOの使い方メモ](./LAMMPS/OVITO_tips/README.md) — 計算結果の可視化
 - [富岳を用いたLAMMPS計算](./LAMMPS/FUGAKU/README.md)
+- [LAMMPS + MACE実行環境の構築（ML-IAPインターフェース）](https://github.com/hirtatsu/Calculations/blob/main/LAMMPS/LAMMPS_installation_MLIP/README.md) — 機械学習ポテンシャル（MLIP）の実行環境
 
 ---
 
