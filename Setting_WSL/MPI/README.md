@@ -89,6 +89,45 @@ source ~/.bashrc
 ```
 
 > **注意**: この方法はすべてのシェル起動時にoneAPIの環境変数（`PATH`、`LD_LIBRARY_PATH`、`CPATH` など）を書き換えます。システムのgccやPython環境（condaなど）と衝突して、oneAPIと無関係な作業で予期しない挙動が起きることがあります。複数の計算環境を使い分ける場合は、自動読み込みにせず、必要なときだけ手動で `source` するほうが安全です。
+>
+> また、`.bashrc` は非対話シェル（ジョブスクリプト、cron、`ssh ホスト名 コマンド` 形式の実行）では読み込まれません。自動読み込みにしていても、バッチ実行には環境が渡りません。oneAPIでビルドしたプログラムは**実行時にも**MKL等の共有ライブラリを必要とするため、環境が渡らないシェルから起動すると
+>
+> ```
+> error while loading shared libraries: libmkl_intel_lp64.so.2:
+> cannot open shared object file
+> ```
+>
+> のようなエラーで落ちます。対話シェルでは動くのにバッチ経由では落ちる場合、まずこれを疑ってください。ジョブスクリプトの冒頭で明示的に `source /opt/intel/oneapi/setvars.sh > /dev/null` を実行するのが確実です。
+
+---
+
+## 関連ページ
+
+- [LAMMPSのインストール（基本版）](../../LAMMPS/LAMMPS_installation/README.md)
+- [LAMMPS環境構築ガイド（統合版）](../../LAMMPS/LAMMPS_installation2/README.md)
+- [OpenMXのインストール](../../OpenMX/OpenMX_installation/README.md)
+### （参考）シェル起動時に自動で読み込む場合
+
+毎回コマンドを打つ手間を省きたい場合は、`~/.bashrc` の末尾に追記します。
+
+```
+cd
+vim .bashrc
+```
+
+最終行に以下を追加して保存します。
+
+```
+source /opt/intel/oneapi/setvars.sh
+```
+
+反映させます。
+
+```
+source ~/.bashrc
+```
+
+> **注意**: この方法はすべてのシェル起動時にoneAPIの環境変数（`PATH`、`LD_LIBRARY_PATH`、`CPATH` など）を書き換えます。システムのgccやPython環境（condaなど）と衝突して、oneAPIと無関係な作業で予期しない挙動が起きることがあります。複数の計算環境を使い分ける場合は、自動読み込みにせず、必要なときだけ手動で `source` するほうが安全です。
 
 ---
 
