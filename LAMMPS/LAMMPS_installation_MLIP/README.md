@@ -166,9 +166,10 @@ make install-python   # lammpsのPythonパッケージ（wheel）をvenvへイ�
 ```bash
 cat > ~/env/lammps-mace.sh << 'EOF'
 # lmp_mace (develop/6404ba2, gcc+Kokkos/CUDA12.6+ML-IAP Python, 2026-08-31)
-# MACE・古典・ACE用メインビルド。mace venvと一体
+# MACE・古典・ACE用メインビルド。mace venvと一体。非対話シェルでも自己完結
 source ~/env/cuda126.sh
 source ~/envs/mace/bin/activate
+export PATH=$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
 EOF
 ```
