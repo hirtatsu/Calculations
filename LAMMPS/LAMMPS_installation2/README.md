@@ -113,8 +113,8 @@ CMakeプリセットの一覧は[公式ドキュメント](https://docs.lammps.o
 
 ### A. CPU専用（Intel oneAPI、AVX-512）
 
-検証環境: TSVR-Juventus（Xeon 6952P 96コア / Granite Rapids、Ubuntu 24.04.4、
-oneAPI 2025.3.2、LAMMPS 22Jul2025 update 5、2026/8/29）
+検証環境: Xeon 6952P 96コア / Granite Rapids、Ubuntu 24.04.4、
+oneAPI 2025.3.2、LAMMPS 22Jul2025 update 5、2026/8/29
 
 ```bash
 cmake \
@@ -373,7 +373,7 @@ lmp_kokkos -k on g 1 t 12 -sf kk -pk kokkos newton on neigh half -in in.melt  # 
 
 - GPUの場合: 0:00:24 (-93%)
 
-計算環境6: CPUにIntel Xeon 6952P（96コア、MRDIMM DDR5-8800 6ch実装）@TSVR-Juventus。
+計算環境6: CPUにIntel Xeon 6952P（96コア、MRDIMM DDR5-8800 6ch実装）。
 
 - 96並列の場合: 0:00:06（並列なし基準は未測定。全環境を通じて最速）
   - ループ時間6.40秒、195.4 Matom-step/s、CPU使用率99.5%
